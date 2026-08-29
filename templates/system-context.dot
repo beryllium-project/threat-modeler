@@ -1,0 +1,7 @@
+digraph system_context {
+    graph [label="@@PACKAGE_ID@@ system context (draft)", labelloc=t];
+    node [shape=box];
+    system [label="System boundary: TBD"];
+    actor [label="Actor: TBD"];
+    actor -> system [label="FLOW-TBD"];
+}

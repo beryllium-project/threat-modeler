@@ -1,0 +1,5 @@
+/inbox/*
+!/inbox/.gitkeep
+/scratch/
+/sources/quarantine/
+/.test-output/

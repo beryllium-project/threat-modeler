@@ -1,0 +1,9 @@
+digraph data_flows {
+    graph [label="TM-20000101-001 data flow", labelloc=t];
+    node [shape=box];
+    actor [label="ACTOR-001"];
+    entry [label="ENTRY-001"];
+    monitor [label="Trusted monitor"];
+    actor -> entry [label="attacker-controlled identifier"];
+    entry -> monitor [label="FLOW-001"];
+}

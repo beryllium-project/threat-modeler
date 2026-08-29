@@ -1,0 +1,7 @@
+digraph trust_boundaries {
+    graph [label="@@PACKAGE_ID@@ trust boundaries (draft)", labelloc=t];
+    node [shape=box];
+    trusted [label="Trusted zone: TBD"];
+    untrusted [label="Untrusted zone: TBD"];
+    untrusted -> trusted [label="BOUNDARY-TBD"];
+}

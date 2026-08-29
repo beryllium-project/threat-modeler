@@ -1,0 +1,7 @@
+digraph data_flows {
+    graph [label="@@PACKAGE_ID@@ data and control flows (draft)", labelloc=t];
+    node [shape=box];
+    source [label="Source: TBD"];
+    destination [label="Destination: TBD"];
+    source -> destination [label="FLOW-TBD"];
+}

@@ -1,0 +1,7 @@
+digraph attack_tree {
+    graph [label="@@PACKAGE_ID@@ attack tree ATTACK-TBD (draft)", labelloc=t];
+    node [shape=box];
+    goal [label="Attacker goal: TBD"];
+    path [label="Attack path: TBD"];
+    path -> goal;
+}

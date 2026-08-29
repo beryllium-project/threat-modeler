@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: system_context Pages: 1 -->
+<svg width="218pt" height="256pt"
+ viewBox="0.00 0.00 218.00 256.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 251.5)">
+<title>system_context</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-251.5 214.12,-251.5 214.12,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="105.06" y="-230.2" font-family="Times,serif" font-size="14.00">TM&#45;20000101&#45;001 system context</text>
+<!-- actor -->
+<g id="node1" class="node">
+<title>actor</title>
+<polygon fill="none" stroke="black" points="111.25,-223 0,-223 0,-182 111.25,-182 111.25,-223"/>
+<text xml:space="preserve" text-anchor="middle" x="55.62" y="-205.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;001</text>
+<text xml:space="preserve" text-anchor="middle" x="55.62" y="-189.2" font-family="Times,serif" font-size="14.00">Untrusted subject</text>
+</g>
+<!-- monitor -->
+<g id="node2" class="node">
+<title>monitor</title>
+<polygon fill="none" stroke="black" points="107.88,-129.5 3.38,-129.5 3.38,-93.5 107.88,-93.5 107.88,-129.5"/>
+<text xml:space="preserve" text-anchor="middle" x="55.62" y="-106.45" font-family="Times,serif" font-size="14.00">Trusted monitor</text>
+</g>
+<!-- actor&#45;&gt;monitor -->
+<g id="edge1" class="edge">
+<title>actor&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M55.62,-181.75C55.62,-169.83 55.62,-154.44 55.62,-141.19"/>
+<polygon fill="black" stroke="black" points="59.13,-141.31 55.63,-131.31 52.13,-141.31 59.13,-141.31"/>
+<text xml:space="preserve" text-anchor="middle" x="132.88" y="-150.7" font-family="Times,serif" font-size="14.00">FLOW&#45;001 via ENTRY&#45;001</text>
+</g>
+<!-- secret -->
+<g id="node3" class="node">
+<title>secret</title>
+<polygon fill="none" stroke="black" points="100.75,-41 10.5,-41 10.5,0 100.75,0 100.75,-41"/>
+<text xml:space="preserve" text-anchor="middle" x="55.62" y="-23.7" font-family="Times,serif" font-size="14.00">ASSET&#45;001</text>
+<text xml:space="preserve" text-anchor="middle" x="55.62" y="-7.2" font-family="Times,serif" font-size="14.00">Fixture secret</text>
+</g>
+<!-- monitor&#45;&gt;secret -->
+<g id="edge2" class="edge">
+<title>monitor&#45;&gt;secret</title>
+<path fill="none" stroke="black" d="M55.62,-93.34C55.62,-81.85 55.62,-66.4 55.62,-52.77"/>
+<polygon fill="black" stroke="black" points="59.13,-52.92 55.63,-42.92 52.13,-52.92 59.13,-52.92"/>
+<text xml:space="preserve" text-anchor="middle" x="94.25" y="-62.2" font-family="Times,serif" font-size="14.00">mediated read</text>
+</g>
+</g>
+</svg>

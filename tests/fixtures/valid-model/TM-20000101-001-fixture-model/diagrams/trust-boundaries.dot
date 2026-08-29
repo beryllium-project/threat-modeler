@@ -1,0 +1,7 @@
+digraph trust_boundaries {
+    graph [label="TM-20000101-001 trust boundary", labelloc=t];
+    node [shape=box];
+    actor [label="ACTOR-001\nUntrusted"];
+    monitor [label="Trusted monitor"];
+    actor -> monitor [label="BOUNDARY-001"];
+}

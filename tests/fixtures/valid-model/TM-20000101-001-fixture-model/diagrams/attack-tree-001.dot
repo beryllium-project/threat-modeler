@@ -1,0 +1,9 @@
+digraph attack_tree {
+    graph [label="ATTACK-001 read fixture secret", labelloc=t];
+    node [shape=box];
+    goal [label="Read ASSET-001"];
+    alias [label="Supply alias through ENTRY-001"];
+    bypass [label="Bypass CONTROL-001"];
+    alias -> bypass;
+    bypass -> goal;
+}

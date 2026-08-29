@@ -1,0 +1,9 @@
+digraph system_context {
+    graph [label="TM-20000101-001 system context", labelloc=t];
+    node [shape=box];
+    actor [label="ACTOR-001\nUntrusted subject"];
+    monitor [label="Trusted monitor"];
+    secret [label="ASSET-001\nFixture secret"];
+    actor -> monitor [label="FLOW-001 via ENTRY-001"];
+    monitor -> secret [label="mediated read"];
+}

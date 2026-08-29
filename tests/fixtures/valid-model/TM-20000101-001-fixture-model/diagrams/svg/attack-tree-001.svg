@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: attack_tree Pages: 1 -->
+<svg width="208pt" height="213pt"
+ viewBox="0.00 0.00 208.00 213.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 208.5)">
+<title>attack_tree</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-208.5 203.75,-208.5 203.75,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="99.88" y="-187.2" font-family="Times,serif" font-size="14.00">ATTACK&#45;001 read fixture secret</text>
+<!-- goal -->
+<g id="node1" class="node">
+<title>goal</title>
+<polygon fill="none" stroke="black" points="155.88,-36 43.87,-36 43.87,0 155.88,0 155.88,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="99.88" y="-12.95" font-family="Times,serif" font-size="14.00">Read ASSET&#45;001</text>
+</g>
+<!-- alias -->
+<g id="node2" class="node">
+<title>alias</title>
+<polygon fill="none" stroke="black" points="199.75,-180 0,-180 0,-144 199.75,-144 199.75,-180"/>
+<text xml:space="preserve" text-anchor="middle" x="99.88" y="-156.95" font-family="Times,serif" font-size="14.00">Supply alias through ENTRY&#45;001</text>
+</g>
+<!-- bypass -->
+<g id="node3" class="node">
+<title>bypass</title>
+<polygon fill="none" stroke="black" points="173.5,-108 26.25,-108 26.25,-72 173.5,-72 173.5,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="99.88" y="-84.95" font-family="Times,serif" font-size="14.00">Bypass CONTROL&#45;001</text>
+</g>
+<!-- alias&#45;&gt;bypass -->
+<g id="edge1" class="edge">
+<title>alias&#45;&gt;bypass</title>
+<path fill="none" stroke="black" d="M99.88,-143.7C99.88,-136.41 99.88,-127.73 99.88,-119.54"/>
+<polygon fill="black" stroke="black" points="103.38,-119.62 99.88,-109.62 96.38,-119.62 103.38,-119.62"/>
+</g>
+<!-- bypass&#45;&gt;goal -->
+<g id="edge2" class="edge">
+<title>bypass&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M99.88,-71.7C99.88,-64.41 99.88,-55.73 99.88,-47.54"/>
+<polygon fill="black" stroke="black" points="103.38,-47.62 99.88,-37.62 96.38,-47.62 103.38,-47.62"/>
+</g>
+</g>
+</svg>
