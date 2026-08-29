@@ -4,10 +4,12 @@
 
 ## Overall position
 
-The first complete component implementation is ready for its initial commit.
-The repository is an independent Git worktree. It has no remote and nothing
-has been pushed or published. Target and sibling components were inspected
-read-only and were not modified.
+The first complete component implementation is committed and privately backed
+up. The repository is an independent Git worktree. Private `origin` is
+`https://github.com/beryllium-project/threat-modeler.git`, and `main` has been
+pushed through the authenticated `xjamesmorris` account. Nothing has been
+published publicly. Target and sibling components were inspected read-only and
+were not modified.
 
 The implementation includes:
 
@@ -52,6 +54,9 @@ components while excluding
 
 The custom agent may run the maintained component checks in its allowlist.
 `git diff --check` remains an outer maintainer check.
+
+The implementation commit is `87ca820`. The current branch adds only this
+private-remote handoff update over that validated implementation.
 
 ## Known limitations
 
