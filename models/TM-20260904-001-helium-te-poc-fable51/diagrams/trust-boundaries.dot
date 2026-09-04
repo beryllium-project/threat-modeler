@@ -1,0 +1,18 @@
+digraph trust_boundaries {
+    graph [label="TM-20260904-001 trust boundaries BOUNDARY-001..005", labelloc=t, rankdir=TB];
+    node [shape=box];
+
+    subgraph cluster_m { label="M-mode"; opensbi [label="OpenSBI\nACTOR-004 (trusted)"]; }
+    subgraph cluster_hs { label="HS-mode: monitor TCB"; monitor [label="Monitor code, stack,\nTE policy, G-stage tables, phase\nASSET-001..004, ASSET-008", style=filled, fillcolor=lightgrey]; }
+    subgraph cluster_vs_w { label="VS-mode: writer root (hgatp W, VMID 0)"; writer [label="Writer subject\nASSET-005, ASSET-007 RW"]; }
+    subgraph cluster_vs_r { label="VS-mode: reader root (hgatp R, VMID 0)"; reader [label="Reader subject\nASSET-006, ASSET-007 R"]; }
+    subgraph cluster_host { label="Host / evidence"; host [label="Build, QEMU runner, evidence bundle\nASSET-010, ASSET-011"]; }
+    subgraph cluster_pub { label="Publication"; pub [label="Gate, docs, downstream claims"]; }
+
+    opensbi -> monitor [label="BOUNDARY-001\nSBI console/shutdown only", dir=both];
+    monitor -> writer [label="BOUNDARY-002\nSPV VTVM VTSR VTW; hedeleg=0;\nstvec; sscratch swap; causes 10/21/23", dir=both];
+    monitor -> reader [label="BOUNDARY-002", dir=both];
+    writer -> reader [label="BOUNDARY-003\nseparate roots; frame clear; CSR reset;\nHFENCE.VVMA + GVMA; shared page only", style=dashed];
+    host -> monitor [label="BOUNDARY-004\nMakefile confinement; rootless evaluator;\nexact-clean-commit evidence", dir=both];
+    host -> pub [label="BOUNDARY-005\nstatus=blocked; structural checker;\nH6/H7 human checkpoints; supported wording"];
+}

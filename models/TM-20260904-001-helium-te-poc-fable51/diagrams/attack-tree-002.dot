@@ -1,0 +1,32 @@
+digraph attack_tree_002 {
+    graph [label="TM-20260904-001 ATTACK-002: a false or inflated assurance claim about this commit reaches consumers", labelloc=t, rankdir=BT];
+    node [shape=box];
+
+    goal [label="Goal: consumer treats 1ab289c as verified,\nhardware-validated or independently reviewed", style=filled, fillcolor=lightgrey];
+
+    b1 [label="1. Fabricate self-consistent\nevidence bundle\nTHREAT-013"];
+    c1 [label="Partial: CONTROL-010 detects\ninconsistency only", shape=note];
+
+    b2 [label="2. Compromise build or\nplatform inputs\nTHREAT-014"];
+    c2 [label="Partial: CONTROL-014 pinning,\ntwo toolchains", shape=note];
+
+    b3 [label="3. Structurally valid gate\napproval without the human\nTHREAT-015"];
+    c3 [label="Partial: CONTROL-012 structure;\ngate currently blocked", shape=note];
+
+    b4 [label="4. Cite historical review packages\nas review of this commit\nTHREAT-016"];
+    c4 [label="Partial: CONTROL-013 wording", shape=note];
+
+    b5 [label="5. Attribute later CBMC /\neight-image lineage\nTHREAT-016"];
+    c5 [label="Partial: CONTROL-013 wording;\nobserved hazard E0004", shape=note];
+
+    b6 [label="6. Bypass the publication gate:\ndirect distribution, preview URL\nTHREAT-018, THREAT-015"];
+    c6 [label="No target control;\ngate governs maintained path only", shape=note];
+
+    b1 -> goal; b2 -> goal; b3 -> goal; b4 -> goal; b5 -> goal; b6 -> goal;
+    c1 -> b1 [style=dashed, arrowhead=none];
+    c2 -> b2 [style=dashed, arrowhead=none];
+    c3 -> b3 [style=dashed, arrowhead=none];
+    c4 -> b4 [style=dashed, arrowhead=none];
+    c5 -> b5 [style=dashed, arrowhead=none];
+    c6 -> b6 [style=dashed, arrowhead=none];
+}

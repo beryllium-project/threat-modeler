@@ -1,0 +1,50 @@
+digraph system_context {
+    graph [label="TM-20260904-001 system context: HS-mode TE monitor, fixed single-hart QEMU profile", labelloc=t, rankdir=LR];
+    node [shape=box];
+
+    subgraph cluster_platform {
+        label="Trusted platform (ASSUMPTION-002, ASSUMPTION-003)";
+        qemu [label="ACTOR-005\nQEMU virt, rv64 h=true, smp 1"];
+        opensbi [label="ACTOR-004\nOpenSBI (M-mode)"];
+    }
+
+    subgraph cluster_image {
+        label="Target image (one ELF)";
+        monitor [label="HS-mode monitor\nentry.S trap.S main.c te.c\npolicy/te.c memory.c platform.c\nASSET-001..004", style=filled, fillcolor=lightgrey];
+        writer [label="ACTOR-001 writer VS\n(ACTOR-003 if hostile)"];
+        reader [label="ACTOR-002 reader VS\n(ACTOR-003 if hostile)"];
+        pages [label="Guest pages\nASSET-005 writer private\nASSET-006 reader private\nASSET-007 shared"];
+    }
+
+    subgraph cluster_host {
+        label="Host tooling (BOUNDARY-004)";
+        build [label="Makefile / he / toolchains\nASSET-011"];
+        runner [label="run-qemu, trace validators,\nnegative images"];
+        evidence [label="generate/verify-evidence\nASSET-010 bundle"];
+        gate [label="publication-gate.conf\nstatus=blocked"];
+    }
+
+    operator [label="ACTOR-006 build operator / evaluator"];
+    hostile_host [label="ACTOR-007 compromised host\nor supply chain", style=dashed];
+    human [label="ACTOR-008 responsible human"];
+    consumer [label="ACTOR-009 downstream claimant", style=dashed];
+
+    opensbi -> monitor [label="FLOW-001 handoff"];
+    monitor -> writer [label="FLOW-002 SRET"];
+    writer -> monitor [label="FLOW-003/004 ECALL, faults"];
+    monitor -> reader [label="FLOW-006 switch"];
+    reader -> monitor [label="FLOW-003/004"];
+    writer -> pages [label="RW own private, RW shared"];
+    reader -> pages [label="RW own private, R shared"];
+    monitor -> opensbi [label="FLOW-007 console, shutdown"];
+    qemu -> runner [label="FLOW-008 serial"];
+    runner -> evidence;
+    build -> monitor [label="FLOW-009"];
+    operator -> build;
+    operator -> runner;
+    hostile_host -> build [style=dashed];
+    hostile_host -> evidence [style=dashed];
+    human -> gate [label="FLOW-010"];
+    evidence -> consumer [style=dashed];
+    gate -> consumer [style=dashed, label="blocked"];
+}

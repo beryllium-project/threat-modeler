@@ -1,0 +1,27 @@
+digraph attack_tree {
+    graph [label="TM-20260904-001 ATTACK-001: hostile linked payload defeats the fixed experiment", labelloc=t, rankdir=BT];
+    node [shape=box];
+
+    goal [label="Goal: read/write foreign private page,\ntamper shared page as reader,\nor obtain PASS without denials", style=filled, fillcolor=lightgrey];
+
+    b1 [label="1. Direct foreign G-stage access\nTHREAT-001, THREAT-002"];
+    c1 [label="Blocked: CONTROL-001 policy,\nCONTROL-002 readback/absence,\nCONTROL-003 roots", shape=note];
+
+    b2 [label="2. Forge protocol events\nearly/mis-PC ECALL\nTHREAT-003"];
+    c2 [label="Blocked: CONTROL-005 exact PC/phase;\nCONTROL-009 negative images", shape=note];
+
+    b3 [label="3. Privileged / virtual instruction\nsatp sfence.vma sret wfi\nTHREAT-006"];
+    c3 [label="Blocked: CONTROL-006 VTVM/VTSR/VTW;\ncause 22 terminal", shape=note];
+
+    b4 [label="4. Stale translation after root switch\nTHREAT-005"];
+    c4 [label="Blocked: CONTROL-003 HFENCE.GVMA all VMIDs", shape=note];
+
+    b5 [label="5. Harvest writer residue as reader\nTHREAT-004"];
+    c5 [label="Blocked: CONTROL-004 frame clear, CSR reset", shape=note];
+
+    b6 [label="6. Trigger HS-mode C defect via trap inputs\nTHREAT-008, THREAT-010", style=dashed];
+    c6 [label="Partially mitigated: narrow inputs;\nno memory-safety proof; policy writable;\nno stack protection", shape=note, style=dashed];
+
+    b1 -> goal; b2 -> goal; b3 -> goal; b4 -> goal; b5 -> goal; b6 -> goal;
+    c1 -> b1; c2 -> b2; c3 -> b3; c4 -> b4; c5 -> b5; c6 -> b6;
+}

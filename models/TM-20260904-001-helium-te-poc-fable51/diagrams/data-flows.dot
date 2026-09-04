@@ -1,0 +1,45 @@
+digraph data_flows {
+    graph [label="TM-20260904-001 data and control flows FLOW-001..010", labelloc=t, rankdir=LR];
+    node [shape=box];
+
+    opensbi [label="OpenSBI"];
+    start [label="_start / he_main\nENTRY-001"];
+    init [label="CSR setup, TE seal,\nG-stage build, readback"];
+    trap [label="he_trap_vector\nENTRY-002"];
+    ecall [label="he_handle_ecall\nexact PC, phase"];
+    fault [label="fault handlers\nstval == htval<<2 == GPA"];
+    switch [label="he_switch_to_reader\nframe clear, CSR reset,\nVVMA, hgatp, GVMA"];
+    writer [label="Writer VS"];
+    reader [label="Reader VS"];
+    shared [label="Shared page\nENTRY-003/004"];
+    console [label="SBI console\nHE_RESULT"];
+    validator [label="validate-qemu-trace\nexact-once ordered"];
+    bundle [label="Evidence bundle\nverify-evidence"];
+    gate [label="publication gate"];
+    human [label="Responsible human"];
+    source [label="Source tree, Makefile,\ntoolchains, container\nENTRY-005"];
+    image [label="Image ELF"];
+
+    source -> image [label="FLOW-009 build"];
+    image -> start [label="loaded by QEMU"];
+    opensbi -> start [label="FLOW-001 a0=hartid"];
+    start -> init;
+    init -> writer [label="FLOW-002 SRET"];
+    writer -> trap [label="FLOW-003 ECALL 1,2"];
+    writer -> trap [label="FLOW-004 cause 21"];
+    trap -> ecall;
+    trap -> fault;
+    ecall -> switch [label="event 2"];
+    switch -> reader [label="FLOW-006"];
+    reader -> trap [label="FLOW-003 ECALL 3,4"];
+    reader -> trap [label="FLOW-004 cause 21/23"];
+    writer -> shared [label="FLOW-005 write value"];
+    shared -> reader [label="FLOW-005 read value"];
+    ecall -> console [label="FLOW-007 markers, PASS/FAIL"];
+    fault -> console [label="FLOW-007 FAIL"];
+    console -> opensbi [label="FLOW-007 SBI console,\nshutdown request"];
+    opensbi -> validator [label="FLOW-008 serial out"];
+    validator -> bundle [label="FLOW-008"];
+    bundle -> gate [label="FLOW-010 evidence"];
+    human -> gate [label="FLOW-010"];
+}

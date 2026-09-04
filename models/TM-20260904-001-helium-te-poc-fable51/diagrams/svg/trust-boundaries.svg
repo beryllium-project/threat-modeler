@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: trust_boundaries Pages: 1 -->
+<svg width="786pt" height="594pt"
+ viewBox="0.00 0.00 786.00 594.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 589.5)">
+<title>trust_boundaries</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-589.5 782.2,-589.5 782.2,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="389.1" y="-568.2" font-family="Times,serif" font-size="14.00">TM&#45;20260904&#45;001 trust boundaries BOUNDARY&#45;001..005</text>
+<g id="clust1" class="cluster">
+<title>cluster_m</title>
+<polygon fill="none" stroke="black" points="23,-471.5 23,-553 175,-553 175,-471.5 23,-471.5"/>
+<text xml:space="preserve" text-anchor="middle" x="99" y="-535.7" font-family="Times,serif" font-size="14.00">M&#45;mode</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_hs</title>
+<polygon fill="none" stroke="black" points="101,-306 101,-404 309,-404 309,-306 101,-306"/>
+<text xml:space="preserve" text-anchor="middle" x="205" y="-386.7" font-family="Times,serif" font-size="14.00">HS&#45;mode: monitor TCB</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_vs_w</title>
+<polygon fill="none" stroke="black" points="8,-157 8,-238.5 254,-238.5 254,-157 8,-157"/>
+<text xml:space="preserve" text-anchor="middle" x="131" y="-221.2" font-family="Times,serif" font-size="14.00">VS&#45;mode: writer root (hgatp W, VMID 0)</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_vs_r</title>
+<polygon fill="none" stroke="black" points="117,-8 117,-89.5 362,-89.5 362,-8 117,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="239.5" y="-72.2" font-family="Times,serif" font-size="14.00">VS&#45;mode: reader root (hgatp R, VMID 0)</text>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_host</title>
+<polygon fill="none" stroke="black" points="282,-471.5 282,-553 526,-553 526,-471.5 282,-471.5"/>
+<text xml:space="preserve" text-anchor="middle" x="404" y="-535.7" font-family="Times,serif" font-size="14.00">Host / evidence</text>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_pub</title>
+<polygon fill="none" stroke="black" points="422,-316.75 422,-393.25 626,-393.25 626,-316.75 422,-316.75"/>
+<text xml:space="preserve" text-anchor="middle" x="524" y="-375.95" font-family="Times,serif" font-size="14.00">Publication</text>
+</g>
+<!-- opensbi -->
+<g id="node1" class="node">
+<title>opensbi</title>
+<polygon fill="none" stroke="black" points="167,-520.5 31,-520.5 31,-479.5 167,-479.5 167,-520.5"/>
+<text xml:space="preserve" text-anchor="middle" x="99" y="-503.2" font-family="Times,serif" font-size="14.00">OpenSBI</text>
+<text xml:space="preserve" text-anchor="middle" x="99" y="-486.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;004 (trusted)</text>
+</g>
+<!-- monitor -->
+<g id="node2" class="node">
+<title>monitor</title>
+<polygon fill="lightgrey" stroke="black" points="301.12,-371.5 108.88,-371.5 108.88,-314 301.12,-314 301.12,-371.5"/>
+<text xml:space="preserve" text-anchor="middle" x="205" y="-354.2" font-family="Times,serif" font-size="14.00">Monitor code, stack,</text>
+<text xml:space="preserve" text-anchor="middle" x="205" y="-337.7" font-family="Times,serif" font-size="14.00">TE policy, G&#45;stage tables, phase</text>
+<text xml:space="preserve" text-anchor="middle" x="205" y="-321.2" font-family="Times,serif" font-size="14.00">ASSET&#45;001..004, ASSET&#45;008</text>
+</g>
+<!-- opensbi&#45;&gt;monitor -->
+<g id="edge1" class="edge">
+<title>opensbi&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M92.49,-468.03C90.43,-450.54 90.71,-428.88 100,-412 107.38,-398.59 118.64,-387.39 131.09,-378.2"/>
+<polygon fill="black" stroke="black" points="89.02,-468.49 93.98,-477.86 95.94,-467.44 89.02,-468.49"/>
+<polygon fill="black" stroke="black" points="132.82,-381.27 139.08,-372.72 128.86,-375.49 132.82,-381.27"/>
+<text xml:space="preserve" text-anchor="middle" x="175" y="-439.95" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;001</text>
+<text xml:space="preserve" text-anchor="middle" x="175" y="-423.45" font-family="Times,serif" font-size="14.00">SBI console/shutdown only</text>
+</g>
+<!-- writer -->
+<g id="node3" class="node">
+<title>writer</title>
+<polygon fill="none" stroke="black" points="204.38,-206 25.62,-206 25.62,-165 204.38,-165 204.38,-206"/>
+<text xml:space="preserve" text-anchor="middle" x="115" y="-188.7" font-family="Times,serif" font-size="14.00">Writer subject</text>
+<text xml:space="preserve" text-anchor="middle" x="115" y="-172.2" font-family="Times,serif" font-size="14.00">ASSET&#45;005, ASSET&#45;007 RW</text>
+</g>
+<!-- monitor&#45;&gt;writer -->
+<g id="edge2" class="edge">
+<title>monitor&#45;&gt;writer</title>
+<path fill="none" stroke="black" d="M158.58,-305.43C155.92,-302.4 153.44,-299.25 151.25,-296 135.15,-272.1 125.7,-240.46 120.5,-217.34"/>
+<polygon fill="black" stroke="black" points="155.97,-307.76 165.44,-312.52 161.01,-302.9 155.97,-307.76"/>
+<polygon fill="black" stroke="black" points="123.94,-216.68 118.47,-207.6 117.09,-218.1 123.94,-216.68"/>
+<text xml:space="preserve" text-anchor="middle" x="255.12" y="-282.7" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;002</text>
+<text xml:space="preserve" text-anchor="middle" x="255.12" y="-266.2" font-family="Times,serif" font-size="14.00">SPV VTVM VTSR VTW; hedeleg=0;</text>
+<text xml:space="preserve" text-anchor="middle" x="255.12" y="-249.7" font-family="Times,serif" font-size="14.00">stvec; sscratch swap; causes 10/21/23</text>
+</g>
+<!-- reader -->
+<g id="node4" class="node">
+<title>reader</title>
+<polygon fill="none" stroke="black" points="322,-57 156,-57 156,-16 322,-16 322,-57"/>
+<text xml:space="preserve" text-anchor="middle" x="239" y="-39.7" font-family="Times,serif" font-size="14.00">Reader subject</text>
+<text xml:space="preserve" text-anchor="middle" x="239" y="-23.2" font-family="Times,serif" font-size="14.00">ASSET&#45;006, ASSET&#45;007 R</text>
+</g>
+<!-- monitor&#45;&gt;reader -->
+<g id="edge3" class="edge">
+<title>monitor&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M312.42,-329.11C330.62,-322.1 347.36,-311.6 359,-296 411.76,-225.29 405.38,-172.55 359,-97.5 349.67,-82.4 335.27,-70.98 319.63,-62.38"/>
+<polygon fill="black" stroke="black" points="311.31,-325.79 303,-332.36 313.59,-332.41 311.31,-325.79"/>
+<polygon fill="black" stroke="black" points="321.63,-59.46 311.12,-58.06 318.46,-65.71 321.63,-59.46"/>
+<text xml:space="preserve" text-anchor="middle" x="445.71" y="-180.45" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;002</text>
+</g>
+<!-- writer&#45;&gt;reader -->
+<g id="edge4" class="edge">
+<title>writer&#45;&gt;reader</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M105.49,-164.52C98.06,-145.72 90.98,-117.54 104,-97.5 114.01,-82.09 128.99,-70.61 145.37,-62.07"/>
+<polygon fill="black" stroke="black" points="146.85,-65.24 154.36,-57.77 143.83,-58.93 146.85,-65.24"/>
+<text xml:space="preserve" text-anchor="middle" x="231.5" y="-133.7" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;003</text>
+<text xml:space="preserve" text-anchor="middle" x="231.5" y="-117.2" font-family="Times,serif" font-size="14.00">separate roots; frame clear; CSR reset;</text>
+<text xml:space="preserve" text-anchor="middle" x="231.5" y="-100.7" font-family="Times,serif" font-size="14.00">HFENCE.VVMA + GVMA; shared page only</text>
+</g>
+<!-- host -->
+<g id="node5" class="node">
+<title>host</title>
+<polygon fill="none" stroke="black" points="518.12,-520.5 289.88,-520.5 289.88,-479.5 518.12,-479.5 518.12,-520.5"/>
+<text xml:space="preserve" text-anchor="middle" x="404" y="-503.2" font-family="Times,serif" font-size="14.00">Build, QEMU runner, evidence bundle</text>
+<text xml:space="preserve" text-anchor="middle" x="404" y="-486.7" font-family="Times,serif" font-size="14.00">ASSET&#45;010, ASSET&#45;011</text>
+</g>
+<!-- host&#45;&gt;monitor -->
+<g id="edge5" class="edge">
+<title>host&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M286.07,-473.81C280.06,-470.23 274.39,-466.15 269.25,-461.5 251.75,-445.66 260.84,-432.97 250,-412 244.67,-401.69 238.16,-391.01 231.76,-381.24"/>
+<polygon fill="black" stroke="black" points="283.99,-476.66 294.45,-478.32 287.3,-470.5 283.99,-476.66"/>
+<polygon fill="black" stroke="black" points="234.77,-379.44 226.29,-373.08 228.95,-383.33 234.77,-379.44"/>
+<text xml:space="preserve" text-anchor="middle" x="383.62" y="-448.2" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="383.62" y="-431.7" font-family="Times,serif" font-size="14.00">Makefile confinement; rootless evaluator;</text>
+<text xml:space="preserve" text-anchor="middle" x="383.62" y="-415.2" font-family="Times,serif" font-size="14.00">exact&#45;clean&#45;commit evidence</text>
+</g>
+<!-- pub -->
+<g id="node6" class="node">
+<title>pub</title>
+<polygon fill="none" stroke="black" points="617.88,-360.75 430.12,-360.75 430.12,-324.75 617.88,-324.75 617.88,-360.75"/>
+<text xml:space="preserve" text-anchor="middle" x="524" y="-337.7" font-family="Times,serif" font-size="14.00">Gate, docs, downstream claims</text>
+</g>
+<!-- host&#45;&gt;pub -->
+<g id="edge6" class="edge">
+<title>host&#45;&gt;pub</title>
+<path fill="none" stroke="black" d="M480.44,-479.1C488.58,-474.42 496.05,-468.64 502,-461.5 522.7,-436.68 526.37,-398.61 526.07,-372.52"/>
+<polygon fill="black" stroke="black" points="529.57,-372.51 525.73,-362.63 522.57,-372.75 529.57,-372.51"/>
+<text xml:space="preserve" text-anchor="middle" x="650.33" y="-448.2" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;005</text>
+<text xml:space="preserve" text-anchor="middle" x="650.33" y="-431.7" font-family="Times,serif" font-size="14.00">status=blocked; structural checker;</text>
+<text xml:space="preserve" text-anchor="middle" x="650.33" y="-415.2" font-family="Times,serif" font-size="14.00">H6/H7 human checkpoints; supported wording</text>
+</g>
+</g>
+</svg>

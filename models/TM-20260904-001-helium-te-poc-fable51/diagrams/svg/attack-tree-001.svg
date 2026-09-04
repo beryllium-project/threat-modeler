@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: attack_tree Pages: 1 -->
+<svg width="1679pt" height="277pt"
+ viewBox="0.00 0.00 1679.00 277.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 273)">
+<title>attack_tree</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-273 1674.88,-273 1674.88,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="835.44" y="-251.7" font-family="Times,serif" font-size="14.00">TM&#45;20260904&#45;001 ATTACK&#45;001: hostile linked payload defeats the fixed experiment</text>
+<!-- goal -->
+<g id="node1" class="node">
+<title>goal</title>
+<polygon fill="lightgrey" stroke="black" points="898.38,-244.5 676.88,-244.5 676.88,-187 898.38,-187 898.38,-244.5"/>
+<text xml:space="preserve" text-anchor="middle" x="787.62" y="-227.2" font-family="Times,serif" font-size="14.00">Goal: read/write foreign private page,</text>
+<text xml:space="preserve" text-anchor="middle" x="787.62" y="-210.7" font-family="Times,serif" font-size="14.00">tamper shared page as reader,</text>
+<text xml:space="preserve" text-anchor="middle" x="787.62" y="-194.2" font-family="Times,serif" font-size="14.00">or obtain PASS without denials</text>
+</g>
+<!-- b1 -->
+<g id="node2" class="node">
+<title>b1</title>
+<polygon fill="none" stroke="black" points="273,-142.75 82.25,-142.75 82.25,-101.75 273,-101.75 273,-142.75"/>
+<text xml:space="preserve" text-anchor="middle" x="177.62" y="-125.45" font-family="Times,serif" font-size="14.00">1. Direct foreign G&#45;stage access</text>
+<text xml:space="preserve" text-anchor="middle" x="177.62" y="-108.95" font-family="Times,serif" font-size="14.00">THREAT&#45;001, THREAT&#45;002</text>
+</g>
+<!-- b1&#45;&gt;goal -->
+<g id="edge1" class="edge">
+<title>b1&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M269.73,-143.22C283.73,-146 298.04,-148.69 311.62,-151 431.41,-171.4 569.06,-189.23 665.43,-200.81"/>
+<polygon fill="black" stroke="black" points="664.83,-204.26 675.18,-201.97 665.66,-197.31 664.83,-204.26"/>
+</g>
+<!-- c1 -->
+<g id="node3" class="node">
+<title>c1</title>
+<polygon fill="none" stroke="black" points="201.25,-57.5 0,-57.5 0,0 207.25,0 207.25,-51.5 201.25,-57.5"/>
+<polyline fill="none" stroke="black" points="201.25,-57.5 201.25,-51.5"/>
+<polyline fill="none" stroke="black" points="207.25,-51.5 201.25,-51.5"/>
+<text xml:space="preserve" text-anchor="middle" x="103.62" y="-40.2" font-family="Times,serif" font-size="14.00">Blocked: CONTROL&#45;001 policy,</text>
+<text xml:space="preserve" text-anchor="middle" x="103.62" y="-23.7" font-family="Times,serif" font-size="14.00">CONTROL&#45;002 readback/absence,</text>
+<text xml:space="preserve" text-anchor="middle" x="103.62" y="-7.2" font-family="Times,serif" font-size="14.00">CONTROL&#45;003 roots</text>
+</g>
+<!-- c1&#45;&gt;b1 -->
+<g id="edge7" class="edge">
+<title>c1&#45;&gt;b1</title>
+<path fill="none" stroke="black" d="M126.23,-57.7C135.13,-68.7 145.34,-81.34 154.31,-92.42"/>
+<polygon fill="black" stroke="black" points="151.53,-94.55 160.54,-100.13 156.98,-90.15 151.53,-94.55"/>
+</g>
+<!-- b2 -->
+<g id="node4" class="node">
+<title>b2</title>
+<polygon fill="none" stroke="black" points="469,-151 320.25,-151 320.25,-93.5 469,-93.5 469,-151"/>
+<text xml:space="preserve" text-anchor="middle" x="394.62" y="-133.7" font-family="Times,serif" font-size="14.00">2. Forge protocol events</text>
+<text xml:space="preserve" text-anchor="middle" x="394.62" y="-117.2" font-family="Times,serif" font-size="14.00">early/mis&#45;PC ECALL</text>
+<text xml:space="preserve" text-anchor="middle" x="394.62" y="-100.7" font-family="Times,serif" font-size="14.00">THREAT&#45;003</text>
+</g>
+<!-- b2&#45;&gt;goal -->
+<g id="edge2" class="edge">
+<title>b2&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M469.47,-140.68C524.84,-153.57 601.45,-171.4 665.62,-186.35"/>
+<polygon fill="black" stroke="black" points="664.62,-189.71 675.16,-188.56 666.21,-182.89 664.62,-189.71"/>
+</g>
+<!-- c2 -->
+<g id="node5" class="node">
+<title>c2</title>
+<polygon fill="none" stroke="black" points="467.5,-49.25 225.75,-49.25 225.75,-8.25 473.5,-8.25 473.5,-43.25 467.5,-49.25"/>
+<polyline fill="none" stroke="black" points="467.5,-49.25 467.5,-43.25"/>
+<polyline fill="none" stroke="black" points="473.5,-43.25 467.5,-43.25"/>
+<text xml:space="preserve" text-anchor="middle" x="349.62" y="-31.95" font-family="Times,serif" font-size="14.00">Blocked: CONTROL&#45;005 exact PC/phase;</text>
+<text xml:space="preserve" text-anchor="middle" x="349.62" y="-15.45" font-family="Times,serif" font-size="14.00">CONTROL&#45;009 negative images</text>
+</g>
+<!-- c2&#45;&gt;b2 -->
+<g id="edge8" class="edge">
+<title>c2&#45;&gt;b2</title>
+<path fill="none" stroke="black" d="M359.39,-49.6C364.18,-59.34 370.12,-71.42 375.74,-82.86"/>
+<polygon fill="black" stroke="black" points="372.56,-84.32 380.11,-91.74 378.84,-81.23 372.56,-84.32"/>
+</g>
+<!-- b3 -->
+<g id="node6" class="node">
+<title>b3</title>
+<polygon fill="none" stroke="black" points="750.5,-151 556.75,-151 556.75,-93.5 750.5,-93.5 750.5,-151"/>
+<text xml:space="preserve" text-anchor="middle" x="653.62" y="-133.7" font-family="Times,serif" font-size="14.00">3. Privileged / virtual instruction</text>
+<text xml:space="preserve" text-anchor="middle" x="653.62" y="-117.2" font-family="Times,serif" font-size="14.00">satp sfence.vma sret wfi</text>
+<text xml:space="preserve" text-anchor="middle" x="653.62" y="-100.7" font-family="Times,serif" font-size="14.00">THREAT&#45;006</text>
+</g>
+<!-- b3&#45;&gt;goal -->
+<g id="edge3" class="edge">
+<title>b3&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M694.92,-151.45C708.29,-160.58 723.27,-170.81 737.23,-180.34"/>
+<polygon fill="black" stroke="black" points="735.21,-183.2 745.44,-185.95 739.16,-177.42 735.21,-183.2"/>
+</g>
+<!-- c3 -->
+<g id="node7" class="node">
+<title>c3</title>
+<polygon fill="none" stroke="black" points="762.12,-49.25 491.12,-49.25 491.12,-8.25 768.12,-8.25 768.12,-43.25 762.12,-49.25"/>
+<polyline fill="none" stroke="black" points="762.12,-49.25 762.12,-43.25"/>
+<polyline fill="none" stroke="black" points="768.12,-43.25 762.12,-43.25"/>
+<text xml:space="preserve" text-anchor="middle" x="629.62" y="-31.95" font-family="Times,serif" font-size="14.00">Blocked: CONTROL&#45;006 VTVM/VTSR/VTW;</text>
+<text xml:space="preserve" text-anchor="middle" x="629.62" y="-15.45" font-family="Times,serif" font-size="14.00">cause 22 terminal</text>
+</g>
+<!-- c3&#45;&gt;b3 -->
+<g id="edge9" class="edge">
+<title>c3&#45;&gt;b3</title>
+<path fill="none" stroke="black" d="M634.83,-49.6C637.33,-59.14 640.42,-70.92 643.37,-82.16"/>
+<polygon fill="black" stroke="black" points="639.94,-82.85 645.86,-91.64 646.71,-81.08 639.94,-82.85"/>
+</g>
+<!-- b4 -->
+<g id="node8" class="node">
+<title>b4</title>
+<polygon fill="none" stroke="black" points="1027.12,-142.75 816.12,-142.75 816.12,-101.75 1027.12,-101.75 1027.12,-142.75"/>
+<text xml:space="preserve" text-anchor="middle" x="921.62" y="-125.45" font-family="Times,serif" font-size="14.00">4. Stale translation after root switch</text>
+<text xml:space="preserve" text-anchor="middle" x="921.62" y="-108.95" font-family="Times,serif" font-size="14.00">THREAT&#45;005</text>
+</g>
+<!-- b4&#45;&gt;goal -->
+<g id="edge4" class="edge">
+<title>b4&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M892.55,-143.1C876.69,-153.94 856.6,-167.65 838.25,-180.18"/>
+<polygon fill="black" stroke="black" points="836.38,-177.22 830.1,-185.75 840.33,-183 836.38,-177.22"/>
+</g>
+<!-- c4 -->
+<g id="node9" class="node">
+<title>c4</title>
+<polygon fill="none" stroke="black" points="1100.88,-46.75 786.38,-46.75 786.38,-10.75 1106.88,-10.75 1106.88,-40.75 1100.88,-46.75"/>
+<polyline fill="none" stroke="black" points="1100.88,-46.75 1100.88,-40.75"/>
+<polyline fill="none" stroke="black" points="1106.88,-40.75 1100.88,-40.75"/>
+<text xml:space="preserve" text-anchor="middle" x="946.62" y="-23.7" font-family="Times,serif" font-size="14.00">Blocked: CONTROL&#45;003 HFENCE.GVMA all VMIDs</text>
+</g>
+<!-- c4&#45;&gt;b4 -->
+<g id="edge10" class="edge">
+<title>c4&#45;&gt;b4</title>
+<path fill="none" stroke="black" d="M941.92,-46.96C938.57,-59.21 933.98,-76.02 930.01,-90.54"/>
+<polygon fill="black" stroke="black" points="926.66,-89.55 927.4,-100.12 933.41,-91.39 926.66,-89.55"/>
+</g>
+<!-- b5 -->
+<g id="node10" class="node">
+<title>b5</title>
+<polygon fill="none" stroke="black" points="1320.38,-142.75 1116.88,-142.75 1116.88,-101.75 1320.38,-101.75 1320.38,-142.75"/>
+<text xml:space="preserve" text-anchor="middle" x="1218.62" y="-125.45" font-family="Times,serif" font-size="14.00">5. Harvest writer residue as reader</text>
+<text xml:space="preserve" text-anchor="middle" x="1218.62" y="-108.95" font-family="Times,serif" font-size="14.00">THREAT&#45;004</text>
+</g>
+<!-- b5&#45;&gt;goal -->
+<g id="edge5" class="edge">
+<title>b5&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M1124.57,-143.22C1061.58,-156.59 978.02,-174.33 909.87,-188.8"/>
+<polygon fill="black" stroke="black" points="909.18,-185.37 900.12,-190.87 910.63,-192.21 909.18,-185.37"/>
+</g>
+<!-- c5 -->
+<g id="node11" class="node">
+<title>c5</title>
+<polygon fill="none" stroke="black" points="1403.88,-46.75 1125.38,-46.75 1125.38,-10.75 1409.88,-10.75 1409.88,-40.75 1403.88,-46.75"/>
+<polyline fill="none" stroke="black" points="1403.88,-46.75 1403.88,-40.75"/>
+<polyline fill="none" stroke="black" points="1409.88,-40.75 1403.88,-40.75"/>
+<text xml:space="preserve" text-anchor="middle" x="1267.62" y="-23.7" font-family="Times,serif" font-size="14.00">Blocked: CONTROL&#45;004 frame clear, CSR reset</text>
+</g>
+<!-- c5&#45;&gt;b5 -->
+<g id="edge11" class="edge">
+<title>c5&#45;&gt;b5</title>
+<path fill="none" stroke="black" d="M1258.41,-46.96C1251.65,-59.58 1242.31,-77.02 1234.38,-91.83"/>
+<polygon fill="black" stroke="black" points="1231.51,-89.77 1229.88,-100.24 1237.68,-93.08 1231.51,-89.77"/>
+</g>
+<!-- b6 -->
+<g id="node12" class="node">
+<title>b6</title>
+<polygon fill="none" stroke="black" stroke-dasharray="5,2" points="1649.38,-142.75 1391.88,-142.75 1391.88,-101.75 1649.38,-101.75 1649.38,-142.75"/>
+<text xml:space="preserve" text-anchor="middle" x="1520.62" y="-125.45" font-family="Times,serif" font-size="14.00">6. Trigger HS&#45;mode C defect via trap inputs</text>
+<text xml:space="preserve" text-anchor="middle" x="1520.62" y="-108.95" font-family="Times,serif" font-size="14.00">THREAT&#45;008, THREAT&#45;010</text>
+</g>
+<!-- b6&#45;&gt;goal -->
+<g id="edge6" class="edge">
+<title>b6&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M1391.49,-142.5C1370.82,-145.44 1349.64,-148.37 1329.62,-151 1185.68,-169.92 1019.86,-189.03 909.93,-201.33"/>
+<polygon fill="black" stroke="black" points="909.86,-197.81 900.31,-202.4 910.64,-204.77 909.86,-197.81"/>
+</g>
+<!-- c6 -->
+<g id="node13" class="node">
+<title>c6</title>
+<polygon fill="none" stroke="black" stroke-dasharray="5,2" points="1664.88,-57.5 1428.38,-57.5 1428.38,0 1670.88,0 1670.88,-51.5 1664.88,-57.5"/>
+<polyline fill="none" stroke="black" stroke-dasharray="5,2" points="1664.88,-57.5 1664.88,-51.5"/>
+<polyline fill="none" stroke="black" stroke-dasharray="5,2" points="1670.88,-51.5 1664.88,-51.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1549.62" y="-40.2" font-family="Times,serif" font-size="14.00">Partially mitigated: narrow inputs;</text>
+<text xml:space="preserve" text-anchor="middle" x="1549.62" y="-23.7" font-family="Times,serif" font-size="14.00">no memory&#45;safety proof; policy writable;</text>
+<text xml:space="preserve" text-anchor="middle" x="1549.62" y="-7.2" font-family="Times,serif" font-size="14.00">no stack protection</text>
+</g>
+<!-- c6&#45;&gt;b6 -->
+<g id="edge12" class="edge">
+<title>c6&#45;&gt;b6</title>
+<path fill="none" stroke="black" d="M1540.77,-57.7C1537.49,-68.04 1533.75,-79.83 1530.4,-90.41"/>
+<polygon fill="black" stroke="black" points="1527.09,-89.27 1527.4,-99.86 1533.76,-91.39 1527.09,-89.27"/>
+</g>
+</g>
+</svg>

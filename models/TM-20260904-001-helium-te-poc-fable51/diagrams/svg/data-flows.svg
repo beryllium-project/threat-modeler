@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: data_flows Pages: 1 -->
+<svg width="2278pt" height="307pt"
+ viewBox="0.00 0.00 2278.00 307.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 302.85)">
+<title>data_flows</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-302.85 2274.25,-302.85 2274.25,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="1135.12" y="-281.55" font-family="Times,serif" font-size="14.00">TM&#45;20260904&#45;001 data and control flows FLOW&#45;001..010</text>
+<!-- opensbi -->
+<g id="node1" class="node">
+<title>opensbi</title>
+<polygon fill="none" stroke="black" points="341,-71 274.75,-71 274.75,-35 341,-35 341,-71"/>
+<text xml:space="preserve" text-anchor="middle" x="307.88" y="-47.95" font-family="Times,serif" font-size="14.00">OpenSBI</text>
+</g>
+<!-- start -->
+<g id="node2" class="node">
+<title>start</title>
+<polygon fill="none" stroke="black" points="616.88,-178.5 512.38,-178.5 512.38,-137.5 616.88,-137.5 616.88,-178.5"/>
+<text xml:space="preserve" text-anchor="middle" x="564.62" y="-161.2" font-family="Times,serif" font-size="14.00">_start / he_main</text>
+<text xml:space="preserve" text-anchor="middle" x="564.62" y="-144.7" font-family="Times,serif" font-size="14.00">ENTRY&#45;001</text>
+</g>
+<!-- opensbi&#45;&gt;start -->
+<g id="edge3" class="edge">
+<title>opensbi&#45;&gt;start</title>
+<path fill="none" stroke="black" d="M341.4,-66.4C381.85,-83.08 451.74,-111.88 502.36,-132.75"/>
+<polygon fill="black" stroke="black" points="500.87,-135.92 511.45,-136.49 503.54,-129.45 500.87,-135.92"/>
+<text xml:space="preserve" text-anchor="middle" x="424.62" y="-127.24" font-family="Times,serif" font-size="14.00">FLOW&#45;001 a0=hartid</text>
+</g>
+<!-- validator -->
+<g id="node12" class="node">
+<title>validator</title>
+<polygon fill="none" stroke="black" points="627,-73.5 502.25,-73.5 502.25,-32.5 627,-32.5 627,-73.5"/>
+<text xml:space="preserve" text-anchor="middle" x="564.62" y="-56.2" font-family="Times,serif" font-size="14.00">validate&#45;qemu&#45;trace</text>
+<text xml:space="preserve" text-anchor="middle" x="564.62" y="-39.7" font-family="Times,serif" font-size="14.00">exact&#45;once ordered</text>
+</g>
+<!-- opensbi&#45;&gt;validator -->
+<g id="edge19" class="edge">
+<title>opensbi&#45;&gt;validator</title>
+<path fill="none" stroke="black" d="M341.4,-53C378.79,-53 441.35,-53 490.58,-53"/>
+<polygon fill="black" stroke="black" points="490.31,-56.5 500.31,-53 490.31,-49.5 490.31,-56.5"/>
+<text xml:space="preserve" text-anchor="middle" x="424.62" y="-56.2" font-family="Times,serif" font-size="14.00">FLOW&#45;008 serial out</text>
+</g>
+<!-- init -->
+<g id="node3" class="node">
+<title>init</title>
+<polygon fill="none" stroke="black" points="871.75,-189.5 726,-189.5 726,-148.5 871.75,-148.5 871.75,-189.5"/>
+<text xml:space="preserve" text-anchor="middle" x="798.88" y="-172.2" font-family="Times,serif" font-size="14.00">CSR setup, TE seal,</text>
+<text xml:space="preserve" text-anchor="middle" x="798.88" y="-155.7" font-family="Times,serif" font-size="14.00">G&#45;stage build, readback</text>
+</g>
+<!-- start&#45;&gt;init -->
+<g id="edge4" class="edge">
+<title>start&#45;&gt;init</title>
+<path fill="none" stroke="black" d="M617.17,-160.44C645.74,-161.79 681.96,-163.51 714.46,-165.05"/>
+<polygon fill="black" stroke="black" points="714.11,-168.54 724.27,-165.51 714.44,-161.54 714.11,-168.54"/>
+</g>
+<!-- writer -->
+<g id="node8" class="node">
+<title>writer</title>
+<polygon fill="none" stroke="black" points="1126.5,-196 1055,-196 1055,-160 1126.5,-160 1126.5,-196"/>
+<text xml:space="preserve" text-anchor="middle" x="1090.75" y="-172.95" font-family="Times,serif" font-size="14.00">Writer VS</text>
+</g>
+<!-- init&#45;&gt;writer -->
+<g id="edge5" class="edge">
+<title>init&#45;&gt;writer</title>
+<path fill="none" stroke="black" d="M871.9,-171.24C925.43,-172.9 996.89,-175.12 1043.12,-176.55"/>
+<polygon fill="black" stroke="black" points="1042.97,-180.05 1053.07,-176.86 1043.19,-173.05 1042.97,-180.05"/>
+<text xml:space="preserve" text-anchor="middle" x="947.12" y="-178.54" font-family="Times,serif" font-size="14.00">FLOW&#45;002 SRET</text>
+</g>
+<!-- trap -->
+<g id="node4" class="node">
+<title>trap</title>
+<polygon fill="none" stroke="black" points="1423.25,-167.5 1326.25,-167.5 1326.25,-126.5 1423.25,-126.5 1423.25,-167.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1374.75" y="-150.2" font-family="Times,serif" font-size="14.00">he_trap_vector</text>
+<text xml:space="preserve" text-anchor="middle" x="1374.75" y="-133.7" font-family="Times,serif" font-size="14.00">ENTRY&#45;002</text>
+</g>
+<!-- ecall -->
+<g id="node5" class="node">
+<title>ecall</title>
+<polygon fill="none" stroke="black" points="1701.62,-128.5 1597.88,-128.5 1597.88,-87.5 1701.62,-87.5 1701.62,-128.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1649.75" y="-111.2" font-family="Times,serif" font-size="14.00">he_handle_ecall</text>
+<text xml:space="preserve" text-anchor="middle" x="1649.75" y="-94.7" font-family="Times,serif" font-size="14.00">exact PC, phase</text>
+</g>
+<!-- trap&#45;&gt;ecall -->
+<g id="edge8" class="edge">
+<title>trap&#45;&gt;ecall</title>
+<path fill="none" stroke="black" d="M1423.62,-140.16C1468.87,-133.7 1537.03,-123.96 1586.49,-116.89"/>
+<polygon fill="black" stroke="black" points="1586.79,-120.39 1596.19,-115.51 1585.8,-113.46 1586.79,-120.39"/>
+</g>
+<!-- fault -->
+<g id="node6" class="node">
+<title>fault</title>
+<polygon fill="none" stroke="black" points="1732.75,-69.5 1566.75,-69.5 1566.75,-28.5 1732.75,-28.5 1732.75,-69.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1649.75" y="-52.2" font-family="Times,serif" font-size="14.00">fault handlers</text>
+<text xml:space="preserve" text-anchor="middle" x="1649.75" y="-35.7" font-family="Times,serif" font-size="14.00">stval == htval&lt;&lt;2 == GPA</text>
+</g>
+<!-- trap&#45;&gt;fault -->
+<g id="edge9" class="edge">
+<title>trap&#45;&gt;fault</title>
+<path fill="none" stroke="black" d="M1423.51,-126.07C1429.45,-123.62 1435.47,-121.21 1441.25,-119 1483.94,-102.7 1532.29,-86.28 1571.57,-73.44"/>
+<polygon fill="black" stroke="black" points="1572.53,-76.81 1580.96,-70.38 1570.36,-70.15 1572.53,-76.81"/>
+</g>
+<!-- switch -->
+<g id="node7" class="node">
+<title>switch</title>
+<polygon fill="none" stroke="black" points="2096.75,-128.75 1951.75,-128.75 1951.75,-71.25 2096.75,-71.25 2096.75,-128.75"/>
+<text xml:space="preserve" text-anchor="middle" x="2024.25" y="-111.45" font-family="Times,serif" font-size="14.00">he_switch_to_reader</text>
+<text xml:space="preserve" text-anchor="middle" x="2024.25" y="-94.95" font-family="Times,serif" font-size="14.00">frame clear, CSR reset,</text>
+<text xml:space="preserve" text-anchor="middle" x="2024.25" y="-78.45" font-family="Times,serif" font-size="14.00">VVMA, hgatp, GVMA</text>
+</g>
+<!-- ecall&#45;&gt;switch -->
+<g id="edge10" class="edge">
+<title>ecall&#45;&gt;switch</title>
+<path fill="none" stroke="black" d="M1701.76,-106.9C1763.14,-105.59 1867.02,-103.36 1940.05,-101.79"/>
+<polygon fill="black" stroke="black" points="1940.06,-105.29 1949.98,-101.57 1939.91,-98.29 1940.06,-105.29"/>
+<text xml:space="preserve" text-anchor="middle" x="1842.25" y="-108.84" font-family="Times,serif" font-size="14.00">event 2</text>
+</g>
+<!-- console -->
+<g id="node11" class="node">
+<title>console</title>
+<polygon fill="none" stroke="black" points="2069.75,-53.5 1978.75,-53.5 1978.75,-12.5 2069.75,-12.5 2069.75,-53.5"/>
+<text xml:space="preserve" text-anchor="middle" x="2024.25" y="-36.2" font-family="Times,serif" font-size="14.00">SBI console</text>
+<text xml:space="preserve" text-anchor="middle" x="2024.25" y="-19.7" font-family="Times,serif" font-size="14.00">HE_RESULT</text>
+</g>
+<!-- ecall&#45;&gt;console -->
+<g id="edge16" class="edge">
+<title>ecall&#45;&gt;console</title>
+<path fill="none" stroke="black" d="M1701.91,-93.45C1717.52,-89.28 1734.77,-84.94 1750.75,-81.5 1831.36,-64.14 1852.65,-65.91 1933.75,-51 1944.74,-48.98 1956.46,-46.71 1967.69,-44.47"/>
+<polygon fill="black" stroke="black" points="1968.09,-47.96 1977.21,-42.56 1966.72,-41.1 1968.09,-47.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1842.25" y="-84.7" font-family="Times,serif" font-size="14.00">FLOW&#45;007 markers, PASS/FAIL</text>
+</g>
+<!-- fault&#45;&gt;console -->
+<g id="edge17" class="edge">
+<title>fault&#45;&gt;console</title>
+<path fill="none" stroke="black" d="M1733.05,-36.14C1739.03,-35.49 1744.98,-34.93 1750.75,-34.5 1825.41,-28.91 1911.89,-29.66 1967.05,-31.04"/>
+<polygon fill="black" stroke="black" points="1966.73,-34.54 1976.82,-31.31 1966.91,-27.54 1966.73,-34.54"/>
+<text xml:space="preserve" text-anchor="middle" x="1842.25" y="-37.7" font-family="Times,serif" font-size="14.00">FLOW&#45;007 FAIL</text>
+</g>
+<!-- reader -->
+<g id="node9" class="node">
+<title>reader</title>
+<polygon fill="none" stroke="black" points="2270.25,-195 2195.75,-195 2195.75,-159 2270.25,-159 2270.25,-195"/>
+<text xml:space="preserve" text-anchor="middle" x="2233" y="-171.95" font-family="Times,serif" font-size="14.00">Reader VS</text>
+</g>
+<!-- switch&#45;&gt;reader -->
+<g id="edge11" class="edge">
+<title>switch&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M2096.99,-103.89C2123.43,-107.5 2152.96,-114.19 2177.75,-126.5 2189.57,-132.37 2200.63,-141.65 2209.64,-150.66"/>
+<polygon fill="black" stroke="black" points="2206.85,-152.79 2216.26,-157.65 2211.93,-147.98 2206.85,-152.79"/>
+<text xml:space="preserve" text-anchor="middle" x="2146.25" y="-129.7" font-family="Times,serif" font-size="14.00">FLOW&#45;006</text>
+</g>
+<!-- writer&#45;&gt;trap -->
+<g id="edge6" class="edge">
+<title>writer&#45;&gt;trap</title>
+<path fill="none" stroke="black" d="M1126.66,-174.83C1169.49,-170.86 1244.29,-163.64 1308.25,-156 1310.3,-155.76 1312.38,-155.5 1314.48,-155.24"/>
+<polygon fill="black" stroke="black" points="1314.87,-158.72 1324.34,-153.97 1313.97,-151.78 1314.87,-158.72"/>
+<text xml:space="preserve" text-anchor="middle" x="1242.62" y="-172.98" font-family="Times,serif" font-size="14.00">FLOW&#45;003 ECALL 1,2</text>
+</g>
+<!-- writer&#45;&gt;trap -->
+<g id="edge7" class="edge">
+<title>writer&#45;&gt;trap</title>
+<path fill="none" stroke="black" d="M1120.45,-159.5C1136.41,-150.32 1157.04,-140.2 1177,-135.5 1222.32,-124.83 1275.05,-128.75 1314.5,-134.77"/>
+<polygon fill="black" stroke="black" points="1313.85,-138.21 1324.29,-136.36 1314.98,-131.3 1313.85,-138.21"/>
+<text xml:space="preserve" text-anchor="middle" x="1242.62" y="-138.7" font-family="Times,serif" font-size="14.00">FLOW&#45;004 cause 21</text>
+</g>
+<!-- shared -->
+<g id="node10" class="node">
+<title>shared</title>
+<polygon fill="none" stroke="black" points="1548.75,-255.5 1441.25,-255.5 1441.25,-214.5 1548.75,-214.5 1548.75,-255.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1495" y="-238.2" font-family="Times,serif" font-size="14.00">Shared page</text>
+<text xml:space="preserve" text-anchor="middle" x="1495" y="-221.7" font-family="Times,serif" font-size="14.00">ENTRY&#45;003/004</text>
+</g>
+<!-- writer&#45;&gt;shared -->
+<g id="edge14" class="edge">
+<title>writer&#45;&gt;shared</title>
+<path fill="none" stroke="black" d="M1126.74,-182.96C1194.34,-192.54 1343.75,-213.71 1429.72,-225.89"/>
+<polygon fill="black" stroke="black" points="1429.01,-229.33 1439.4,-227.26 1429.99,-222.4 1429.01,-229.33"/>
+<text xml:space="preserve" text-anchor="middle" x="1242.62" y="-210.92" font-family="Times,serif" font-size="14.00">FLOW&#45;005 write value</text>
+</g>
+<!-- reader&#45;&gt;trap -->
+<g id="edge12" class="edge">
+<title>reader&#45;&gt;trap</title>
+<path fill="none" stroke="black" d="M2195.32,-181.2C2081.93,-193.23 1727.49,-223.7 1441.25,-171 1439.06,-170.6 1436.85,-170.13 1434.63,-169.61"/>
+<polygon fill="black" stroke="black" points="1435.55,-166.23 1424.98,-166.99 1433.72,-172.98 1435.55,-166.23"/>
+<text xml:space="preserve" text-anchor="middle" x="1842.25" y="-204.13" font-family="Times,serif" font-size="14.00">FLOW&#45;003 ECALL 3,4</text>
+</g>
+<!-- reader&#45;&gt;trap -->
+<g id="edge13" class="edge">
+<title>reader&#45;&gt;trap</title>
+<path fill="none" stroke="black" d="M2195.42,-175.72C2061.91,-171.04 1600.06,-154.86 1434.98,-149.08"/>
+<polygon fill="black" stroke="black" points="1435.25,-145.58 1425.13,-148.73 1435,-152.58 1435.25,-145.58"/>
+<text xml:space="preserve" text-anchor="middle" x="1842.25" y="-169.64" font-family="Times,serif" font-size="14.00">FLOW&#45;004 cause 21/23</text>
+</g>
+<!-- shared&#45;&gt;reader -->
+<g id="edge15" class="edge">
+<title>shared&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M1548.83,-242.24C1665.45,-256.27 1952.42,-280.09 2177.75,-211 2185.1,-208.75 2192.45,-205.22 2199.25,-201.29"/>
+<polygon fill="black" stroke="black" points="2200.87,-204.4 2207.48,-196.13 2197.15,-198.47 2200.87,-204.4"/>
+<text xml:space="preserve" text-anchor="middle" x="1842.25" y="-261.05" font-family="Times,serif" font-size="14.00">FLOW&#45;005 read value</text>
+</g>
+<!-- console&#45;&gt;opensbi -->
+<g id="edge18" class="edge">
+<title>console&#45;&gt;opensbi</title>
+<path fill="none" stroke="black" d="M1978.35,-26.44C1908.48,-16.82 1769.4,0 1650.75,0 563.62,0 563.62,0 563.62,0 488.03,0 402.41,-22.65 352.17,-38.33"/>
+<polygon fill="black" stroke="black" points="351.31,-34.93 342.84,-41.3 353.43,-41.6 351.31,-34.93"/>
+<text xml:space="preserve" text-anchor="middle" x="1090.75" y="-19.7" font-family="Times,serif" font-size="14.00">FLOW&#45;007 SBI console,</text>
+<text xml:space="preserve" text-anchor="middle" x="1090.75" y="-3.2" font-family="Times,serif" font-size="14.00">shutdown request</text>
+</g>
+<!-- bundle -->
+<g id="node13" class="node">
+<title>bundle</title>
+<polygon fill="none" stroke="black" points="852.25,-73.5 745.5,-73.5 745.5,-32.5 852.25,-32.5 852.25,-73.5"/>
+<text xml:space="preserve" text-anchor="middle" x="798.88" y="-56.2" font-family="Times,serif" font-size="14.00">Evidence bundle</text>
+<text xml:space="preserve" text-anchor="middle" x="798.88" y="-39.7" font-family="Times,serif" font-size="14.00">verify&#45;evidence</text>
+</g>
+<!-- validator&#45;&gt;bundle -->
+<g id="edge20" class="edge">
+<title>validator&#45;&gt;bundle</title>
+<path fill="none" stroke="black" d="M627.25,-53C660.07,-53 700.4,-53 733.61,-53"/>
+<polygon fill="black" stroke="black" points="733.52,-56.5 743.52,-53 733.52,-49.5 733.52,-56.5"/>
+<text xml:space="preserve" text-anchor="middle" x="676.5" y="-56.2" font-family="Times,serif" font-size="14.00">FLOW&#45;008</text>
+</g>
+<!-- gate -->
+<g id="node14" class="node">
+<title>gate</title>
+<polygon fill="none" stroke="black" points="1142.25,-110 1039.25,-110 1039.25,-74 1142.25,-74 1142.25,-110"/>
+<text xml:space="preserve" text-anchor="middle" x="1090.75" y="-86.95" font-family="Times,serif" font-size="14.00">publication gate</text>
+</g>
+<!-- bundle&#45;&gt;gate -->
+<g id="edge21" class="edge">
+<title>bundle&#45;&gt;gate</title>
+<path fill="none" stroke="black" d="M852.57,-58.09C893.97,-62.33 953.03,-68.87 1004.5,-76.5 1012,-77.61 1019.85,-78.89 1027.62,-80.22"/>
+<polygon fill="black" stroke="black" points="1026.96,-83.65 1037.41,-81.93 1028.16,-76.76 1026.96,-83.65"/>
+<text xml:space="preserve" text-anchor="middle" x="947.12" y="-79.7" font-family="Times,serif" font-size="14.00">FLOW&#45;010 evidence</text>
+</g>
+<!-- human -->
+<g id="node15" class="node">
+<title>human</title>
+<polygon fill="none" stroke="black" points="860.5,-128 737.25,-128 737.25,-92 860.5,-92 860.5,-128"/>
+<text xml:space="preserve" text-anchor="middle" x="798.88" y="-104.95" font-family="Times,serif" font-size="14.00">Responsible human</text>
+</g>
+<!-- human&#45;&gt;gate -->
+<g id="edge22" class="edge">
+<title>human&#45;&gt;gate</title>
+<path fill="none" stroke="black" d="M861,-106.2C909.9,-103.17 978.19,-98.93 1027.41,-95.87"/>
+<polygon fill="black" stroke="black" points="1027.59,-99.37 1037.35,-95.25 1027.15,-92.38 1027.59,-99.37"/>
+<text xml:space="preserve" text-anchor="middle" x="947.12" y="-107.38" font-family="Times,serif" font-size="14.00">FLOW&#45;010</text>
+</g>
+<!-- source -->
+<g id="node16" class="node">
+<title>source</title>
+<polygon fill="none" stroke="black" points="138.25,-186.75 0,-186.75 0,-129.25 138.25,-129.25 138.25,-186.75"/>
+<text xml:space="preserve" text-anchor="middle" x="69.12" y="-169.45" font-family="Times,serif" font-size="14.00">Source tree, Makefile,</text>
+<text xml:space="preserve" text-anchor="middle" x="69.12" y="-152.95" font-family="Times,serif" font-size="14.00">toolchains, container</text>
+<text xml:space="preserve" text-anchor="middle" x="69.12" y="-136.45" font-family="Times,serif" font-size="14.00">ENTRY&#45;005</text>
+</g>
+<!-- image -->
+<g id="node17" class="node">
+<title>image</title>
+<polygon fill="none" stroke="black" points="347,-176 268.75,-176 268.75,-140 347,-140 347,-176"/>
+<text xml:space="preserve" text-anchor="middle" x="307.88" y="-152.95" font-family="Times,serif" font-size="14.00">Image ELF</text>
+</g>
+<!-- source&#45;&gt;image -->
+<g id="edge1" class="edge">
+<title>source&#45;&gt;image</title>
+<path fill="none" stroke="black" d="M138.6,-158C176.52,-158 222.79,-158 257.21,-158"/>
+<polygon fill="black" stroke="black" points="256.88,-161.5 266.88,-158 256.88,-154.5 256.88,-161.5"/>
+<text xml:space="preserve" text-anchor="middle" x="203.5" y="-161.2" font-family="Times,serif" font-size="14.00">FLOW&#45;009 build</text>
+</g>
+<!-- image&#45;&gt;start -->
+<g id="edge2" class="edge">
+<title>image&#45;&gt;start</title>
+<path fill="none" stroke="black" d="M347.29,-158C387.95,-158 452.78,-158 500.87,-158"/>
+<polygon fill="black" stroke="black" points="500.59,-161.5 510.59,-158 500.59,-154.5 500.59,-161.5"/>
+<text xml:space="preserve" text-anchor="middle" x="424.62" y="-161.2" font-family="Times,serif" font-size="14.00">loaded by QEMU</text>
+</g>
+</g>
+</svg>
