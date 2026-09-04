@@ -16,6 +16,19 @@ clone, recreate, repair, or retarget a component.
 Read the parent source of truth, component registry, parent instructions, and
 relevant coordination handoffs through `workspace://...`.
 
+The Project Manager function is the independent `project-manager/` component
+registered in `workspace://COMPONENTS.md`. Its operational handoff is
+`workspace://project-manager/HANDOFF.md`; its decision and assurance records
+are under `workspace://project-manager/records/`; its queue ledger and owner
+requests are `workspace://project-manager/queue/LEDGER.md` and
+`workspace://project-manager/outbox/component-requests.md`. The parent
+`workspace://HANDOFF.md` and
+`workspace://formal-verification/helium-te-fv-pathfinder.md` are redirect
+stubs kept for older citations; prefer the `project-manager/` paths.
+`project-manager` is not in this repository's registered target set: read it
+by path under `workspace://` and take its exact revision from the
+`project-manager/` row of `workspace://COMPONENTS.md`.
+
 Use this tier to establish:
 
 - canonical component identity and integration form;
