@@ -1,0 +1,47 @@
+digraph attack_tree {
+    graph [label="TM-20260901-001 ATTACK-001/002/003", labelloc=t, rankdir=TB];
+    node [shape=box];
+
+    root [label="Compromise fixed isolation,\nassurance, or bounded claims"];
+    isolation [label="ATTACK-001\nViolate subject isolation"];
+    assurance [label="ATTACK-002\nFalsify assurance/publication"];
+    excess [label="ATTACK-003\nExceed fixed claim"];
+
+    t1 [label="THREAT-001\nAlter policy/TE state"];
+    t2 [label="THREAT-002\nWrong or excessive mapping"];
+    t3 [label="THREAT-003\nStale translation"];
+    t4 [label="THREAT-004\nState residue"];
+    t5 [label="THREAT-005\nTrap/event confusion"];
+    t6 [label="THREAT-006\nNested HS trap"];
+    t13 [label="THREAT-013\nTrusted dependency subversion"];
+
+    t8 [label="THREAT-008\nBuild substitution"];
+    t9 [label="THREAT-009\nEvidence forgery"];
+    t10 [label="THREAT-010\nEvaluator compromise"];
+    t11 [label="THREAT-011\nClaim inflation"];
+    t12 [label="THREAT-012\nUnauthorized disclosure"];
+
+    t7 [label="THREAT-007\nDenial of service"];
+    t14 [label="THREAT-014\nUnmodeled channels"];
+
+    root -> isolation;
+    root -> assurance;
+    root -> excess;
+
+    isolation -> t1;
+    isolation -> t2;
+    isolation -> t3;
+    isolation -> t4;
+    isolation -> t5;
+    isolation -> t6;
+    isolation -> t13;
+
+    assurance -> t8;
+    assurance -> t9;
+    assurance -> t10;
+    assurance -> t11;
+    assurance -> t12;
+
+    excess -> t7;
+    excess -> t14;
+}

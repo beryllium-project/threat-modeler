@@ -1,0 +1,47 @@
+digraph data_flows {
+    graph [label="TM-20260901-001 data and control flows", labelloc=t, rankdir=LR];
+    node [shape=box];
+
+    config [label="Fixed config and policy"];
+    te [label="CONTROL-001/002\nSealed TE"];
+    gstage [label="CONTROL-003/004\nG-stage roots"];
+    writer [label="ACTOR-001\nWriter"];
+    writer_private [label="ASSET-003"];
+    shared [label="ASSET-005"];
+    switch [label="CONTROL-005/006\nState and root switch"];
+    reader [label="ACTOR-002\nReader"];
+    reader_private [label="ASSET-004"];
+    trap [label="CONTROL-007\nExact trap state machine"];
+    result [label="ASSET-008\nPASS / FAIL trace"];
+
+    source [label="Maintained source"];
+    build [label="CONTROL-008/011\nBuild"];
+    image [label="ASSET-009\nImage and tools"];
+    run [label="CONTROL-010\nQEMU run"];
+    bundle [label="CONTROL-012\nEvidence bundle"];
+    eval [label="CONTROL-013\nRootless evaluator"];
+    docs [label="CONTROL-014/015\nReview and docs"];
+    gate [label="CONTROL-016/017\nHuman gate"];
+
+    config -> te [label="FLOW-002"];
+    te -> gstage [label="FLOW-003"];
+    gstage -> writer [label="writer root"];
+    writer -> writer_private [label="FLOW-005 R/W"];
+    writer -> shared [label="FLOW-006 R/W"];
+    writer -> trap [label="FLOW-004"];
+    trap -> switch [label="writer complete"];
+    switch -> reader [label="FLOW-007"];
+    reader -> reader_private [label="FLOW-008 R/W"];
+    shared -> reader [label="FLOW-009 R"];
+    reader -> trap [label="FLOW-010 denied write/read"];
+    trap -> result [label="terminal result"];
+
+    source -> build [label="FLOW-011"];
+    build -> image;
+    image -> run [label="FLOW-012"];
+    run -> bundle [label="FLOW-013"];
+    source -> eval [label="FLOW-014"];
+    eval -> bundle [label="FLOW-014 export"];
+    bundle -> docs [label="FLOW-015"];
+    docs -> gate [label="FLOW-016"];
+}

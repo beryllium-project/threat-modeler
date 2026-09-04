@@ -1,0 +1,33 @@
+digraph system_context {
+    graph [label="TM-20260901-001 system context", labelloc=t, rankdir=LR];
+    node [shape=box];
+
+    firmware [label="ACTOR-004\nOpenSBI / M-mode"];
+    monitor [label="ACTOR-003\nHelium HS monitor\nASSET-001/002/006/007"];
+    writer [label="ACTOR-001\nUntrusted writer VS"];
+    reader [label="ACTOR-002\nUntrusted reader VS"];
+    writer_private [label="ASSET-003\nWriter private"];
+    reader_private [label="ASSET-004\nReader private"];
+    shared [label="ASSET-005\nShared page\nwriter R/W, reader R"];
+    build [label="ACTOR-006/007\nBuild and supply chain"];
+    platform [label="ACTOR-005\nQEMU or hardware"];
+    evidence [label="ASSET-009/010\nImages, traces, evidence"];
+    evaluator [label="ACTOR-008\nHost/container evaluator"];
+    reviewer [label="ACTOR-009\nAutomation/reviewer"];
+    human [label="ACTOR-010\nResponsible human"];
+
+    firmware -> monitor [label="FLOW-001 / BOUNDARY-001"];
+    monitor -> writer [label="ENTRY-002 / BOUNDARY-002"];
+    writer -> monitor [label="FLOW-004 / ENTRY-003"];
+    writer -> writer_private [label="FLOW-005 R/W"];
+    writer -> shared [label="FLOW-006 write"];
+    monitor -> reader [label="FLOW-007 / BOUNDARY-003/004"];
+    reader -> monitor [label="FLOW-010 / ENTRY-003"];
+    reader -> reader_private [label="FLOW-008 R/W"];
+    shared -> reader [label="FLOW-009 read"];
+    build -> evidence [label="FLOW-011"];
+    platform -> evidence [label="FLOW-012"];
+    evidence -> evaluator [label="FLOW-013/014"];
+    evaluator -> reviewer [label="FLOW-015"];
+    reviewer -> human [label="FLOW-016 / BOUNDARY-009"];
+}

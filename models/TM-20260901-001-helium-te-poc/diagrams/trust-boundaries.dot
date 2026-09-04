@@ -1,0 +1,51 @@
+digraph trust_boundaries {
+    graph [label="TM-20260901-001 trust boundaries", labelloc=t, rankdir=LR];
+    node [shape=box];
+
+    subgraph cluster_m {
+        label="External trusted M-mode";
+        firmware [label="ACTOR-004\nOpenSBI"];
+    }
+    subgraph cluster_hs {
+        label="Target TCB: HS-mode";
+        policy [label="ASSET-002\nTE policy"];
+        monitor [label="ACTOR-003\nRuntime and trap path"];
+        roots [label="ASSET-006\nG-stage roots"];
+        policy -> roots [label="BOUNDARY-005\nFLOW-002/003"];
+        roots -> monitor;
+    }
+    subgraph cluster_writer {
+        label="Untrusted writer VS";
+        writer [label="ACTOR-001\nASSET-003"];
+    }
+    subgraph cluster_reader {
+        label="Untrusted reader VS";
+        reader [label="ACTOR-002\nASSET-004"];
+    }
+    subgraph cluster_host {
+        label="Host assurance TCB";
+        build [label="ACTOR-006/007\nBuild and tools"];
+        artifacts [label="ASSET-009/010\nArtifacts and evidence"];
+        build -> artifacts [label="BOUNDARY-006"];
+    }
+    subgraph cluster_evaluator {
+        label="Rootless evaluator boundary";
+        evaluator [label="ACTOR-008\nEvaluator substrate"];
+    }
+    subgraph cluster_human {
+        label="Human authority";
+        reviewer [label="ACTOR-009\nAutomation/review"];
+        human [label="ACTOR-010\nResponsible human"];
+        reviewer -> human [label="BOUNDARY-009"];
+    }
+
+    firmware -> monitor [label="BOUNDARY-001"];
+    monitor -> writer [label="BOUNDARY-002"];
+    writer -> monitor [label="ENTRY-003"];
+    monitor -> reader [label="BOUNDARY-003"];
+    writer -> monitor [style=dashed, label="BOUNDARY-004\ncompletion/state input"];
+    monitor -> reader [style=dashed, label="BOUNDARY-004\nreset/root switch"];
+    build -> evaluator [label="BOUNDARY-007"];
+    evaluator -> artifacts [label="BOUNDARY-008"];
+    artifacts -> reviewer;
+}

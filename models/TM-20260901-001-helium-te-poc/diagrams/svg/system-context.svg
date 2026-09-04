@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: system_context Pages: 1 -->
+<svg width="1802pt" height="286pt"
+ viewBox="0.00 0.00 1802.00 286.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 281.5)">
+<title>system_context</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-281.5 1798,-281.5 1798,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="897" y="-260.2" font-family="Times,serif" font-size="14.00">TM&#45;20260901&#45;001 system context</text>
+<!-- firmware -->
+<g id="node1" class="node">
+<title>firmware</title>
+<polygon fill="none" stroke="black" points="133.75,-58 8.25,-58 8.25,-17 133.75,-17 133.75,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="71" y="-40.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="71" y="-24.2" font-family="Times,serif" font-size="14.00">OpenSBI / M&#45;mode</text>
+</g>
+<!-- monitor -->
+<g id="node2" class="node">
+<title>monitor</title>
+<polygon fill="none" stroke="black" points="504.5,-66.25 351.25,-66.25 351.25,-8.75 504.5,-8.75 504.5,-66.25"/>
+<text xml:space="preserve" text-anchor="middle" x="427.88" y="-48.95" font-family="Times,serif" font-size="14.00">ACTOR&#45;003</text>
+<text xml:space="preserve" text-anchor="middle" x="427.88" y="-32.45" font-family="Times,serif" font-size="14.00">Helium HS monitor</text>
+<text xml:space="preserve" text-anchor="middle" x="427.88" y="-15.95" font-family="Times,serif" font-size="14.00">ASSET&#45;001/002/006/007</text>
+</g>
+<!-- firmware&#45;&gt;monitor -->
+<g id="edge1" class="edge">
+<title>firmware&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M134.22,-37.5C191.13,-37.5 275.91,-37.5 339.59,-37.5"/>
+<polygon fill="black" stroke="black" points="339.31,-41 349.31,-37.5 339.31,-34 339.31,-41"/>
+<text xml:space="preserve" text-anchor="middle" x="246.62" y="-40.7" font-family="Times,serif" font-size="14.00">FLOW&#45;001 / BOUNDARY&#45;001</text>
+</g>
+<!-- writer -->
+<g id="node3" class="node">
+<title>writer</title>
+<polygon fill="none" stroke="black" points="855.75,-110 730.25,-110 730.25,-69 855.75,-69 855.75,-110"/>
+<text xml:space="preserve" text-anchor="middle" x="793" y="-92.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;001</text>
+<text xml:space="preserve" text-anchor="middle" x="793" y="-76.2" font-family="Times,serif" font-size="14.00">Untrusted writer VS</text>
+</g>
+<!-- monitor&#45;&gt;writer -->
+<g id="edge2" class="edge">
+<title>monitor&#45;&gt;writer</title>
+<path fill="none" stroke="black" d="M503.45,-66.68C509.83,-68.53 516.24,-70.18 522.5,-71.5 587.83,-85.26 663.85,-89.28 718.46,-90.14"/>
+<polygon fill="black" stroke="black" points="718.22,-93.64 728.27,-90.26 718.31,-86.64 718.22,-93.64"/>
+<text xml:space="preserve" text-anchor="middle" x="611.38" y="-92.79" font-family="Times,serif" font-size="14.00">ENTRY&#45;002 / BOUNDARY&#45;002</text>
+</g>
+<!-- reader -->
+<g id="node4" class="node">
+<title>reader</title>
+<polygon fill="none" stroke="black" points="1569.5,-41 1442.5,-41 1442.5,0 1569.5,0 1569.5,-41"/>
+<text xml:space="preserve" text-anchor="middle" x="1506" y="-23.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;002</text>
+<text xml:space="preserve" text-anchor="middle" x="1506" y="-7.2" font-family="Times,serif" font-size="14.00">Untrusted reader VS</text>
+</g>
+<!-- monitor&#45;&gt;reader -->
+<g id="edge6" class="edge">
+<title>monitor&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M504.75,-34.95C510.76,-34.79 516.73,-34.63 522.5,-34.5 861.63,-26.65 1266.72,-22.55 1430.68,-21.11"/>
+<polygon fill="black" stroke="black" points="1430.58,-24.61 1440.55,-21.02 1430.52,-17.61 1430.58,-24.61"/>
+<text xml:space="preserve" text-anchor="middle" x="984.38" y="-30.84" font-family="Times,serif" font-size="14.00">FLOW&#45;007 / BOUNDARY&#45;003/004</text>
+</g>
+<!-- writer&#45;&gt;monitor -->
+<g id="edge3" class="edge">
+<title>writer&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M750.54,-68.5C735.13,-61.68 717.26,-54.87 700.25,-51 639.81,-37.26 569.91,-34.07 516.2,-34.22"/>
+<polygon fill="black" stroke="black" points="516.48,-30.72 506.5,-34.29 516.53,-37.71 516.48,-30.72"/>
+<text xml:space="preserve" text-anchor="middle" x="611.38" y="-54.2" font-family="Times,serif" font-size="14.00">FLOW&#45;004 / ENTRY&#45;003</text>
+</g>
+<!-- writer_private -->
+<g id="node5" class="node">
+<title>writer_private</title>
+<polygon fill="none" stroke="black" points="1213.38,-165 1120.88,-165 1120.88,-124 1213.38,-124 1213.38,-165"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.12" y="-147.7" font-family="Times,serif" font-size="14.00">ASSET&#45;003</text>
+<text xml:space="preserve" text-anchor="middle" x="1167.12" y="-131.2" font-family="Times,serif" font-size="14.00">Writer private</text>
+</g>
+<!-- writer&#45;&gt;writer_private -->
+<g id="edge4" class="edge">
+<title>writer&#45;&gt;writer_private</title>
+<path fill="none" stroke="black" d="M856.12,-101.43C866.01,-103.21 876.15,-104.96 885.75,-106.5 962.89,-118.87 1052.4,-130.53 1109.13,-137.6"/>
+<polygon fill="black" stroke="black" points="1108.52,-141.05 1118.87,-138.81 1109.38,-134.1 1108.52,-141.05"/>
+<text xml:space="preserve" text-anchor="middle" x="984.38" y="-136.99" font-family="Times,serif" font-size="14.00">FLOW&#45;005 R/W</text>
+</g>
+<!-- shared -->
+<g id="node7" class="node">
+<title>shared</title>
+<polygon fill="none" stroke="black" points="1232.5,-106.25 1101.75,-106.25 1101.75,-48.75 1232.5,-48.75 1232.5,-106.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.12" y="-88.95" font-family="Times,serif" font-size="14.00">ASSET&#45;005</text>
+<text xml:space="preserve" text-anchor="middle" x="1167.12" y="-72.45" font-family="Times,serif" font-size="14.00">Shared page</text>
+<text xml:space="preserve" text-anchor="middle" x="1167.12" y="-55.95" font-family="Times,serif" font-size="14.00">writer R/W, reader R</text>
+</g>
+<!-- writer&#45;&gt;shared -->
+<g id="edge5" class="edge">
+<title>writer&#45;&gt;shared</title>
+<path fill="none" stroke="black" d="M855.87,-87.5C920.18,-85.43 1020.92,-82.18 1090.05,-79.95"/>
+<polygon fill="black" stroke="black" points="1089.9,-83.46 1099.78,-79.64 1089.67,-76.46 1089.9,-83.46"/>
+<text xml:space="preserve" text-anchor="middle" x="984.38" y="-89.48" font-family="Times,serif" font-size="14.00">FLOW&#45;006 write</text>
+</g>
+<!-- reader&#45;&gt;monitor -->
+<g id="edge7" class="edge">
+<title>reader&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M1442.11,-17.27C1359.67,-13.22 1210.55,-6.49 1083,-4 833.74,0.87 770.82,-4.24 522.5,-26.5 520.45,-26.68 518.37,-26.88 516.28,-27.08"/>
+<polygon fill="black" stroke="black" points="516.08,-23.58 506.48,-28.05 516.78,-30.54 516.08,-23.58"/>
+<text xml:space="preserve" text-anchor="middle" x="984.38" y="-7.2" font-family="Times,serif" font-size="14.00">FLOW&#45;010 / ENTRY&#45;003</text>
+</g>
+<!-- reader_private -->
+<g id="node6" class="node">
+<title>reader_private</title>
+<polygon fill="none" stroke="black" points="1794,-41 1698.5,-41 1698.5,0 1794,0 1794,-41"/>
+<text xml:space="preserve" text-anchor="middle" x="1746.25" y="-23.7" font-family="Times,serif" font-size="14.00">ASSET&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="1746.25" y="-7.2" font-family="Times,serif" font-size="14.00">Reader private</text>
+</g>
+<!-- reader&#45;&gt;reader_private -->
+<g id="edge8" class="edge">
+<title>reader&#45;&gt;reader_private</title>
+<path fill="none" stroke="black" d="M1569.91,-20.5C1606.23,-20.5 1651.61,-20.5 1687.1,-20.5"/>
+<polygon fill="black" stroke="black" points="1686.73,-24 1696.73,-20.5 1686.73,-17 1686.73,-24"/>
+<text xml:space="preserve" text-anchor="middle" x="1634" y="-23.7" font-family="Times,serif" font-size="14.00">FLOW&#45;008 R/W</text>
+</g>
+<!-- shared&#45;&gt;reader -->
+<g id="edge9" class="edge">
+<title>shared&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M1232.94,-66.74C1284.79,-58.11 1359.33,-45.63 1424.5,-34.5 1426.65,-34.13 1428.83,-33.76 1431.03,-33.38"/>
+<polygon fill="black" stroke="black" points="1431.41,-36.87 1440.67,-31.72 1430.22,-29.97 1431.41,-36.87"/>
+<text xml:space="preserve" text-anchor="middle" x="1337.88" y="-66.5" font-family="Times,serif" font-size="14.00">FLOW&#45;009 read</text>
+</g>
+<!-- build -->
+<g id="node8" class="node">
+<title>build</title>
+<polygon fill="none" stroke="black" points="142,-253 0,-253 0,-212 142,-212 142,-253"/>
+<text xml:space="preserve" text-anchor="middle" x="71" y="-235.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;006/007</text>
+<text xml:space="preserve" text-anchor="middle" x="71" y="-219.2" font-family="Times,serif" font-size="14.00">Build and supply chain</text>
+</g>
+<!-- evidence -->
+<g id="node10" class="node">
+<title>evidence</title>
+<polygon fill="none" stroke="black" points="503,-224 352.75,-224 352.75,-183 503,-183 503,-224"/>
+<text xml:space="preserve" text-anchor="middle" x="427.88" y="-206.7" font-family="Times,serif" font-size="14.00">ASSET&#45;009/010</text>
+<text xml:space="preserve" text-anchor="middle" x="427.88" y="-190.2" font-family="Times,serif" font-size="14.00">Images, traces, evidence</text>
+</g>
+<!-- build&#45;&gt;evidence -->
+<g id="edge10" class="edge">
+<title>build&#45;&gt;evidence</title>
+<path fill="none" stroke="black" d="M142.11,-226.77C199.25,-222.1 280.19,-215.49 341.17,-210.5"/>
+<polygon fill="black" stroke="black" points="341.13,-214.02 350.81,-209.72 340.56,-207.04 341.13,-214.02"/>
+<text xml:space="preserve" text-anchor="middle" x="246.62" y="-227.92" font-family="Times,serif" font-size="14.00">FLOW&#45;011</text>
+</g>
+<!-- platform -->
+<g id="node9" class="node">
+<title>platform</title>
+<polygon fill="none" stroke="black" points="133.75,-194 8.25,-194 8.25,-153 133.75,-153 133.75,-194"/>
+<text xml:space="preserve" text-anchor="middle" x="71" y="-176.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;005</text>
+<text xml:space="preserve" text-anchor="middle" x="71" y="-160.2" font-family="Times,serif" font-size="14.00">QEMU or hardware</text>
+</g>
+<!-- platform&#45;&gt;evidence -->
+<g id="edge11" class="edge">
+<title>platform&#45;&gt;evidence</title>
+<path fill="none" stroke="black" d="M134.12,-176.51C187.11,-179.35 265.29,-184.19 333.25,-191 335.77,-191.25 338.32,-191.52 340.9,-191.8"/>
+<polygon fill="black" stroke="black" points="340.48,-195.27 350.81,-192.92 341.27,-188.32 340.48,-195.27"/>
+<text xml:space="preserve" text-anchor="middle" x="246.62" y="-194.2" font-family="Times,serif" font-size="14.00">FLOW&#45;012</text>
+</g>
+<!-- evaluator -->
+<g id="node11" class="node">
+<title>evaluator</title>
+<polygon fill="none" stroke="black" points="867.75,-224 718.25,-224 718.25,-183 867.75,-183 867.75,-224"/>
+<text xml:space="preserve" text-anchor="middle" x="793" y="-206.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;008</text>
+<text xml:space="preserve" text-anchor="middle" x="793" y="-190.2" font-family="Times,serif" font-size="14.00">Host/container evaluator</text>
+</g>
+<!-- evidence&#45;&gt;evaluator -->
+<g id="edge12" class="edge">
+<title>evidence&#45;&gt;evaluator</title>
+<path fill="none" stroke="black" d="M503.24,-203.5C562.32,-203.5 645.01,-203.5 706.77,-203.5"/>
+<polygon fill="black" stroke="black" points="706.54,-207 716.54,-203.5 706.54,-200 706.54,-207"/>
+<text xml:space="preserve" text-anchor="middle" x="611.38" y="-206.7" font-family="Times,serif" font-size="14.00">FLOW&#45;013/014</text>
+</g>
+<!-- reviewer -->
+<g id="node12" class="node">
+<title>reviewer</title>
+<polygon fill="none" stroke="black" points="1233.25,-224 1101,-224 1101,-183 1233.25,-183 1233.25,-224"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.12" y="-206.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;009</text>
+<text xml:space="preserve" text-anchor="middle" x="1167.12" y="-190.2" font-family="Times,serif" font-size="14.00">Automation/reviewer</text>
+</g>
+<!-- evaluator&#45;&gt;reviewer -->
+<g id="edge13" class="edge">
+<title>evaluator&#45;&gt;reviewer</title>
+<path fill="none" stroke="black" d="M867.96,-203.5C932.05,-203.5 1024.42,-203.5 1089.32,-203.5"/>
+<polygon fill="black" stroke="black" points="1089.19,-207 1099.19,-203.5 1089.19,-200 1089.19,-207"/>
+<text xml:space="preserve" text-anchor="middle" x="984.38" y="-206.7" font-family="Times,serif" font-size="14.00">FLOW&#45;015</text>
+</g>
+<!-- human -->
+<g id="node13" class="node">
+<title>human</title>
+<polygon fill="none" stroke="black" points="1567.62,-224 1444.38,-224 1444.38,-183 1567.62,-183 1567.62,-224"/>
+<text xml:space="preserve" text-anchor="middle" x="1506" y="-206.7" font-family="Times,serif" font-size="14.00">ACTOR&#45;010</text>
+<text xml:space="preserve" text-anchor="middle" x="1506" y="-190.2" font-family="Times,serif" font-size="14.00">Responsible human</text>
+</g>
+<!-- reviewer&#45;&gt;human -->
+<g id="edge14" class="edge">
+<title>reviewer&#45;&gt;human</title>
+<path fill="none" stroke="black" d="M1233.48,-203.5C1290.61,-203.5 1373.45,-203.5 1432.59,-203.5"/>
+<polygon fill="black" stroke="black" points="1432.57,-207 1442.57,-203.5 1432.57,-200 1432.57,-207"/>
+<text xml:space="preserve" text-anchor="middle" x="1337.88" y="-206.7" font-family="Times,serif" font-size="14.00">FLOW&#45;016 / BOUNDARY&#45;009</text>
+</g>
+</g>
+</svg>

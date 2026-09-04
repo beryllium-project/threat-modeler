@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: trust_boundaries Pages: 1 -->
+<svg width="1004pt" height="501pt"
+ viewBox="0.00 0.00 1004.00 501.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 496.5)">
+<title>trust_boundaries</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-496.5 1000.12,-496.5 1000.12,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="498.06" y="-475.2" font-family="Times,serif" font-size="14.00">TM&#45;20260901&#45;001 trust boundaries</text>
+<g id="clust1" class="cluster">
+<title>cluster_m</title>
+<polygon fill="none" stroke="black" points="270.12,-198 270.12,-280 424.12,-280 424.12,-198 270.12,-198"/>
+<text xml:space="preserve" text-anchor="middle" x="347.12" y="-262.7" font-family="Times,serif" font-size="14.00">External trusted M&#45;mode</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_hs</title>
+<polygon fill="none" stroke="black" points="22.62,-98 22.62,-190 728.5,-190 728.5,-98 22.62,-98"/>
+<text xml:space="preserve" text-anchor="middle" x="375.56" y="-172.7" font-family="Times,serif" font-size="14.00">Target TCB: HS&#45;mode</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_writer</title>
+<polygon fill="none" stroke="black" points="284.38,-8 284.38,-90 409.88,-90 409.88,-8 284.38,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="347.12" y="-72.7" font-family="Times,serif" font-size="14.00">Untrusted writer VS</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_reader</title>
+<polygon fill="none" stroke="black" points="855.5,-98 855.5,-180 982.5,-180 982.5,-98 855.5,-98"/>
+<text xml:space="preserve" text-anchor="middle" x="919" y="-162.7" font-family="Times,serif" font-size="14.00">Untrusted reader VS</text>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_host</title>
+<polygon fill="none" stroke="black" points="8,-378 8,-460 423.75,-460 423.75,-378 8,-378"/>
+<text xml:space="preserve" text-anchor="middle" x="215.88" y="-442.7" font-family="Times,serif" font-size="14.00">Host assurance TCB</text>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_evaluator</title>
+<polygon fill="none" stroke="black" points="261.5,-288 261.5,-370 432.75,-370 432.75,-288 261.5,-288"/>
+<text xml:space="preserve" text-anchor="middle" x="347.12" y="-352.7" font-family="Times,serif" font-size="14.00">Rootless evaluator boundary</text>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_human</title>
+<polygon fill="none" stroke="black" points="582.5,-378 582.5,-460 988.12,-460 988.12,-378 582.5,-378"/>
+<text xml:space="preserve" text-anchor="middle" x="785.31" y="-442.7" font-family="Times,serif" font-size="14.00">Human authority</text>
+</g>
+<!-- firmware -->
+<g id="node1" class="node">
+<title>firmware</title>
+<polygon fill="none" stroke="black" points="389.88,-247.5 303.38,-247.5 303.38,-206.5 389.88,-206.5 389.88,-247.5"/>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-230.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-213.7" font-family="Times,serif" font-size="14.00">OpenSBI</text>
+</g>
+<!-- monitor -->
+<g id="node3" class="node">
+<title>monitor</title>
+<polygon fill="none" stroke="black" points="720.5,-147.5 582.25,-147.5 582.25,-106.5 720.5,-106.5 720.5,-147.5"/>
+<text xml:space="preserve" text-anchor="middle" x="651.38" y="-130.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;003</text>
+<text xml:space="preserve" text-anchor="middle" x="651.38" y="-113.7" font-family="Times,serif" font-size="14.00">Runtime and trap path</text>
+</g>
+<!-- firmware&#45;&gt;monitor -->
+<g id="edge5" class="edge">
+<title>firmware&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M390.36,-212.88C438.62,-196.94 518.01,-170.72 576.39,-151.44"/>
+<polygon fill="black" stroke="black" points="577.2,-154.86 585.6,-148.4 575.01,-148.21 577.2,-154.86"/>
+<text xml:space="preserve" text-anchor="middle" x="503.5" y="-197.85" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;001</text>
+</g>
+<!-- policy -->
+<g id="node2" class="node">
+<title>policy</title>
+<polygon fill="none" stroke="black" points="111.88,-147.5 30.62,-147.5 30.62,-106.5 111.88,-106.5 111.88,-147.5"/>
+<text xml:space="preserve" text-anchor="middle" x="71.25" y="-130.2" font-family="Times,serif" font-size="14.00">ASSET&#45;002</text>
+<text xml:space="preserve" text-anchor="middle" x="71.25" y="-113.7" font-family="Times,serif" font-size="14.00">TE policy</text>
+</g>
+<!-- roots -->
+<g id="node4" class="node">
+<title>roots</title>
+<polygon fill="none" stroke="black" points="391,-152.5 302.25,-152.5 302.25,-111.5 391,-111.5 391,-152.5"/>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-135.2" font-family="Times,serif" font-size="14.00">ASSET&#45;006</text>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-118.7" font-family="Times,serif" font-size="14.00">G&#45;stage roots</text>
+</g>
+<!-- policy&#45;&gt;roots -->
+<g id="edge1" class="edge">
+<title>policy&#45;&gt;roots</title>
+<path fill="none" stroke="black" d="M112.29,-127.73C159.41,-128.59 237.89,-130.03 290.67,-130.99"/>
+<polygon fill="black" stroke="black" points="290.28,-134.49 300.34,-131.17 290.4,-127.49 290.28,-134.49"/>
+<text xml:space="preserve" text-anchor="middle" x="194" y="-149.79" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;005</text>
+<text xml:space="preserve" text-anchor="middle" x="194" y="-133.29" font-family="Times,serif" font-size="14.00">FLOW&#45;002/003</text>
+</g>
+<!-- writer -->
+<g id="node5" class="node">
+<title>writer</title>
+<polygon fill="none" stroke="black" points="389.88,-57.5 303.38,-57.5 303.38,-16.5 389.88,-16.5 389.88,-57.5"/>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-40.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;001</text>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-23.7" font-family="Times,serif" font-size="14.00">ASSET&#45;003</text>
+</g>
+<!-- monitor&#45;&gt;writer -->
+<g id="edge6" class="edge">
+<title>monitor&#45;&gt;writer</title>
+<path fill="none" stroke="black" d="M582.02,-117.47C524.09,-109.28 449.38,-98.43 442.75,-96 421.82,-88.32 400.54,-75.67 383.43,-64.05"/>
+<polygon fill="black" stroke="black" points="385.82,-61.45 375.62,-58.6 381.82,-67.19 385.82,-61.45"/>
+<text xml:space="preserve" text-anchor="middle" x="503.5" y="-117.93" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;002</text>
+</g>
+<!-- reader -->
+<g id="node6" class="node">
+<title>reader</title>
+<polygon fill="none" stroke="black" points="961.75,-147.5 875.25,-147.5 875.25,-106.5 961.75,-106.5 961.75,-147.5"/>
+<text xml:space="preserve" text-anchor="middle" x="918.5" y="-130.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;002</text>
+<text xml:space="preserve" text-anchor="middle" x="918.5" y="-113.7" font-family="Times,serif" font-size="14.00">ASSET&#45;004</text>
+</g>
+<!-- monitor&#45;&gt;reader -->
+<g id="edge8" class="edge">
+<title>monitor&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M720.99,-132.21C726.91,-132.53 732.81,-132.8 738.5,-133 782.47,-134.53 793.53,-134.65 837.5,-133 845.92,-132.68 854.83,-132.18 863.52,-131.6"/>
+<polygon fill="black" stroke="black" points="863.53,-135.11 873.26,-130.91 863.04,-128.13 863.53,-135.11"/>
+<text xml:space="preserve" text-anchor="middle" x="788" y="-137.39" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;003</text>
+</g>
+<!-- monitor&#45;&gt;reader -->
+<g id="edge10" class="edge">
+<title>monitor&#45;&gt;reader</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M701.22,-106.13C713.2,-101.94 726.13,-98.16 738.5,-96 781.85,-88.44 794.25,-87.91 837.5,-96 846.25,-97.64 855.28,-100.2 863.97,-103.16"/>
+<polygon fill="black" stroke="black" points="862.74,-106.44 873.34,-106.58 865.14,-99.87 862.74,-106.44"/>
+<text xml:space="preserve" text-anchor="middle" x="788" y="-115.7" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="788" y="-99.2" font-family="Times,serif" font-size="14.00">reset/root switch</text>
+</g>
+<!-- roots&#45;&gt;monitor -->
+<g id="edge2" class="edge">
+<title>roots&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M391.22,-134.61C434.99,-136.8 504.34,-139.12 564.25,-136 566.3,-135.89 568.38,-135.77 570.47,-135.64"/>
+<polygon fill="black" stroke="black" points="570.56,-139.14 580.28,-134.93 570.05,-132.16 570.56,-139.14"/>
+</g>
+<!-- writer&#45;&gt;monitor -->
+<g id="edge7" class="edge">
+<title>writer&#45;&gt;monitor</title>
+<path fill="none" stroke="black" d="M390.18,-45.86C406.58,-49.18 425.51,-52.9 442.75,-56 496.58,-65.69 512.86,-56.8 564.25,-75.5 580.88,-81.55 597.87,-90.91 612.31,-99.99"/>
+<polygon fill="black" stroke="black" points="610.31,-102.86 620.6,-105.37 614.12,-96.99 610.31,-102.86"/>
+<text xml:space="preserve" text-anchor="middle" x="503.5" y="-78.7" font-family="Times,serif" font-size="14.00">ENTRY&#45;003</text>
+</g>
+<!-- writer&#45;&gt;monitor -->
+<g id="edge9" class="edge">
+<title>writer&#45;&gt;monitor</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M390.26,-21.16C435.71,-7 508.66,7.77 564.25,-19 597.29,-34.91 621.59,-70.36 635.8,-96.31"/>
+<polygon fill="black" stroke="black" points="632.66,-97.85 640.4,-105.09 638.86,-94.61 632.66,-97.85"/>
+<text xml:space="preserve" text-anchor="middle" x="503.5" y="-38.7" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="503.5" y="-22.2" font-family="Times,serif" font-size="14.00">completion/state input</text>
+</g>
+<!-- build -->
+<g id="node7" class="node">
+<title>build</title>
+<polygon fill="none" stroke="black" points="126.5,-427.5 16,-427.5 16,-386.5 126.5,-386.5 126.5,-427.5"/>
+<text xml:space="preserve" text-anchor="middle" x="71.25" y="-410.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;006/007</text>
+<text xml:space="preserve" text-anchor="middle" x="71.25" y="-393.7" font-family="Times,serif" font-size="14.00">Build and tools</text>
+</g>
+<!-- artifacts -->
+<g id="node8" class="node">
+<title>artifacts</title>
+<polygon fill="none" stroke="black" points="415.75,-427.5 277.5,-427.5 277.5,-386.5 415.75,-386.5 415.75,-427.5"/>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-410.2" font-family="Times,serif" font-size="14.00">ASSET&#45;009/010</text>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-393.7" font-family="Times,serif" font-size="14.00">Artifacts and evidence</text>
+</g>
+<!-- build&#45;&gt;artifacts -->
+<g id="edge3" class="edge">
+<title>build&#45;&gt;artifacts</title>
+<path fill="none" stroke="black" d="M126.91,-407C166.69,-407 221.17,-407 265.81,-407"/>
+<polygon fill="black" stroke="black" points="265.71,-410.5 275.71,-407 265.71,-403.5 265.71,-410.5"/>
+<text xml:space="preserve" text-anchor="middle" x="194" y="-410.2" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;006</text>
+</g>
+<!-- evaluator -->
+<g id="node9" class="node">
+<title>evaluator</title>
+<polygon fill="none" stroke="black" points="406.75,-337.5 286.5,-337.5 286.5,-296.5 406.75,-296.5 406.75,-337.5"/>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-320.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;008</text>
+<text xml:space="preserve" text-anchor="middle" x="346.62" y="-303.7" font-family="Times,serif" font-size="14.00">Evaluator substrate</text>
+</g>
+<!-- build&#45;&gt;evaluator -->
+<g id="edge11" class="edge">
+<title>build&#45;&gt;evaluator</title>
+<path fill="none" stroke="black" d="M126.91,-389C169.61,-374.95 229.26,-355.31 275.48,-340.09"/>
+<polygon fill="black" stroke="black" points="276.48,-343.45 284.88,-337 274.29,-336.8 276.48,-343.45"/>
+<text xml:space="preserve" text-anchor="middle" x="194" y="-386.06" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;007</text>
+</g>
+<!-- reviewer -->
+<g id="node10" class="node">
+<title>reviewer</title>
+<polygon fill="none" stroke="black" points="712.25,-427.5 590.5,-427.5 590.5,-386.5 712.25,-386.5 712.25,-427.5"/>
+<text xml:space="preserve" text-anchor="middle" x="651.38" y="-410.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;009</text>
+<text xml:space="preserve" text-anchor="middle" x="651.38" y="-393.7" font-family="Times,serif" font-size="14.00">Automation/review</text>
+</g>
+<!-- artifacts&#45;&gt;reviewer -->
+<g id="edge13" class="edge">
+<title>artifacts&#45;&gt;reviewer</title>
+<path fill="none" stroke="black" d="M415.95,-407C464.57,-407 529.74,-407 579.03,-407"/>
+<polygon fill="black" stroke="black" points="578.73,-410.5 588.73,-407 578.73,-403.5 578.73,-410.5"/>
+</g>
+<!-- evaluator&#45;&gt;artifacts -->
+<g id="edge12" class="edge">
+<title>evaluator&#45;&gt;artifacts</title>
+<path fill="none" stroke="black" d="M346.62,-337.87C346.62,-348.89 346.62,-362.65 346.62,-374.99"/>
+<polygon fill="black" stroke="black" points="343.13,-374.73 346.63,-384.73 350.13,-374.73 343.13,-374.73"/>
+<text xml:space="preserve" text-anchor="middle" x="335.38" y="-356.95" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;008</text>
+</g>
+<!-- human -->
+<g id="node11" class="node">
+<title>human</title>
+<polygon fill="none" stroke="black" points="980.12,-427.5 856.88,-427.5 856.88,-386.5 980.12,-386.5 980.12,-427.5"/>
+<text xml:space="preserve" text-anchor="middle" x="918.5" y="-410.2" font-family="Times,serif" font-size="14.00">ACTOR&#45;010</text>
+<text xml:space="preserve" text-anchor="middle" x="918.5" y="-393.7" font-family="Times,serif" font-size="14.00">Responsible human</text>
+</g>
+<!-- reviewer&#45;&gt;human -->
+<g id="edge4" class="edge">
+<title>reviewer&#45;&gt;human</title>
+<path fill="none" stroke="black" d="M712.54,-407C751.92,-407 803.6,-407 845.21,-407"/>
+<polygon fill="black" stroke="black" points="845.15,-410.5 855.15,-407 845.15,-403.5 845.15,-410.5"/>
+<text xml:space="preserve" text-anchor="middle" x="788" y="-410.2" font-family="Times,serif" font-size="14.00">BOUNDARY&#45;009</text>
+</g>
+</g>
+</svg>

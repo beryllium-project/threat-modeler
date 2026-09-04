@@ -2,4 +2,6 @@
 
 # Threat models
 
-No threat-model package has been created.
+| Package | Title | Created | Mode | Status | Distribution | Latest model | Latest review |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [TM-20260901-001](models/TM-20260901-001-helium-te-poc/threat-model.md) | Helium TE PoC Initial Threat Model | 2026-09-01 | `create-from-evidence` | `Complete` | `private` | `MODEL-ITERATION-001` | `REVIEW-ITERATION-001` |
