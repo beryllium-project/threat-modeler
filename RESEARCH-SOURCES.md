@@ -159,6 +159,10 @@ private implementation source into a package.
 Before allocating `DISC-NNN`, check:
 
 - `workspace://COMPONENTS.md`;
+- `workspace://project-manager/queue/LEDGER.md` (source pointers already
+  `routed` by the Project Manager to an owning component or `accepted` into
+  that component's designated index; a source found there is not queued again
+  as `new`);
 - `component://formal-verification-research/sources/bibliography.md`;
 - the maintained reference indexes under
   `component://cheri-riscv-notes-repo/`;
