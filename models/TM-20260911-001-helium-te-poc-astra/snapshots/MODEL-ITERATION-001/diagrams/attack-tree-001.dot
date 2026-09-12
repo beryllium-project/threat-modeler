@@ -1,0 +1,28 @@
+digraph attack_tree {
+    graph [label="TM-20260911-001 | ATTACK-001: Inferred isolation violation", labelloc=t, rankdir=BT];
+    node [shape=box, fontname="sans-serif", fontsize=10];
+    goal [label="Unauthorized private/HS memory or context influence"];
+    alternatives [shape=ellipse, label="OR"];
+    policy [label="THREAT-001\nPrivileged policy/storage mutation"];
+    mapping [label="THREAT-002\nWrong backing / excessive permissions"];
+    events [label="THREAT-003/004\nWrong event/transition or residual state"];
+    platform [label="THREAT-005/007\nAdditional privileged fault / dependency failure"];
+    stale [label="THREAT-017\nStale authority reused"];
+    requirements [shape=ellipse, label="AND"];
+    old [label="Previously valid tree"];
+    failure [label="Failed reinitialization"];
+    unchecked [label="Caller continues without honoring failure"];
+    fixed [shape=note, label="Established CONTROL-003:\nfixed caller terminates on zero"];
+    old -> requirements;
+    failure -> requirements;
+    unchecked -> requirements;
+    requirements -> stale;
+    fixed -> unchecked [style=dashed, arrowhead=tee, label="blocks fixed-caller branch"];
+    policy -> alternatives;
+    mapping -> alternatives;
+    events -> alternatives;
+    platform -> alternatives;
+    stale -> alternatives;
+    alternatives -> goal;
+    note [shape=note, label="All paths require the Markdown preconditions; no exploit executed.\nCONTROL-001/002/003/004/013 constrain different branches.\nEvidence: TM-20260911-001-E0013 to E0018.\nNo proof of all branches or risk acceptance."];
+}

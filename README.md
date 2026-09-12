@@ -7,6 +7,13 @@ registered Beryllium component snapshots. Invoke the user-facing agent with:
 /agent threat-modeler
 ```
 
+For repository maintenance, validation, and explicitly authorized commit and
+push operations, use:
+
+```text
+/agent threat-model-maintainer
+```
+
 The agent discovers existing threat and security material before asking the
 user to choose one of three modes:
 
@@ -26,10 +33,15 @@ snapshot composed only of registered components. Targets, sibling
 repositories, parent coordination artifacts, user-supplied files, and web
 content are read-only, untrusted evidence.
 
-The agent writes only in this repository. It never executes, builds, tests,
-imports, or installs target content. It uses only the maintained local helper
-allowlist defined in `.github/copilot-instructions.md`. Public research is
-performed through the web tool using generic public-safe terms.
+The threat-modeling agent writes only in this repository. It never executes,
+builds, tests, imports, or installs target content. It uses only the maintained
+local helper allowlist defined in `.github/copilot-instructions.md`. Public
+research is performed through the web tool using generic public-safe terms.
+
+The separate maintainer profile can edit and validate this repository and,
+when explicitly authorized, stage, commit, and push its changes. It cannot
+modify or execute registered targets, sibling repositories, or the parent
+workspace.
 
 Never access or copy
 `component://osr-claude/sources/restricted-microsoft/`.
@@ -42,7 +54,7 @@ require:
 - Bash 4 or later;
 - Git and GNU userland tools including `sed`, `awk`, `find`, `sort`, `cmp`,
   and `sha256sum`;
-- Graphviz `dot` for SVG rendering.
+- Graphviz `dot` for SVG rendering and, when requested, PNG rendering.
 
 The renderer strips Graphviz's version-only generator comment before writing
 SVG, while retaining byte comparison for material layout changes. Missing
@@ -91,32 +103,67 @@ models/TM-YYYYMMDD-NNN-short-name/
   diagrams/
     *.dot
     svg/*.svg
+    png/*.png  # optional generated derivatives
 ```
 
 Markdown is normative overall. Graphviz DOT is the normative diagram source;
-SVG is generated. Current projections identify the latest append-only model
-and review iterations. Evidence and activity corrections append superseding
-records rather than rewriting history.
+SVG and optional PNG are generated. Current projections identify the latest
+append-only model and review iterations. Evidence and activity corrections
+append superseding records rather than rewriting history.
 
 Every package starts `private`. Broader distribution requires a complete
 responsible-human `HUMAN-PROMOTION-NNN` record. The agent never grants risk
 acceptance, exception approval, review approval, acceptance, sign-off,
 licensing, publication, release, formal verification, or hardware validation.
 
+### PNG diagram derivatives
+
+Enable PNG alongside SVG for one package through the maintained renderer:
+
+```sh
+bash ./scripts/render-diagrams.sh --png models/TM-YYYYMMDD-NNN-short-name
+bash ./scripts/render-diagrams.sh --check models/TM-YYYYMMDD-NNN-short-name
+```
+
+SVG-only packages retain the default behavior. Once `diagrams/png/` exists,
+normal rendering and checking maintain both formats, including through package
+completion validation. Missing or stale enabled PNGs fail checking. Check mode
+does not create the output directory or enable PNG implicitly.
+
+PNG is an optional presentation derivative, not new model evidence or a change
+to normative DOT. Do not hand-edit either generated format. Adding derivatives
+to a paused run does not resume substantive analysis or permit modifying its
+frozen baseline.
+
 ## Maintained commands
 
 Repository checks:
 
 ```sh
+bash ./tests/validate-agent.sh --agents-only
 bash ./tests/validate-agent.sh
 bash ./scripts/update-index.sh --check
 git diff --check
 ```
 
+Use `--agents-only` for the agent-profile and specialist tool/boundary contract
+without reading model packages or checking their index, including during a
+blind engagement. Specialists use explicit read/search tool names; only
+`threat-research` also requests general web search and URL retrieval. A fresh
+runtime probe must confirm those capabilities and the absence of
+write/execute/delegation tools; the static contract check does not prove
+runtime tool exposure. See `AGENT-INTERFACE.md`.
+
+If fresh specialists still receive the old tool set after a profile edit,
+reload the CLI with `/restart` and repeat the capability probe. Until the
+required tools are actually exposed, the affected phase remains blocked; do
+not substitute wildcard permissions or a full-tool agent.
+
 Package operations are documented in
-`.github/skills/beryllium-threat-modeling/SKILL.md`. The custom agent may use
-only the maintained scripts listed in its execution allowlist; `git diff
---check` is an outer maintainer check, not an agent command.
+`.github/skills/beryllium-threat-modeling/SKILL.md`. The threat-modeler profile
+may use only the maintained scripts listed in its execution allowlist. The
+threat-model-maintainer profile may run repository checks such as `git diff
+--check` and perform explicitly authorized Git delivery.
 
 ## Current assurance wording
 

@@ -1,0 +1,22 @@
+digraph attack_tree {
+    graph [label="TM-20260911-001 | ATTACK-003: Inferred host/data effect", labelloc=t, rankdir=BT];
+    node [shape=box, fontname="sans-serif", fontsize=10];
+    goal [label="Unauthorized host/data effect through evaluation"];
+    alternatives [shape=ellipse, label="OR"];
+    preflight [label="THREAT-009\nNative repository code runs before retained isolation"];
+    conjunction [shape=ellipse, label="AND"];
+    malicious [label="Untrusted or compromised source/dependency"];
+    invokes [label="Operator invokes under incorrect sandbox expectation"];
+    dependency [label="THREAT-011\nMalicious / drifting dependency construction"];
+    container [label="THREAT-010\nRetained-container boundary failure"];
+    docs [label="THREAT-014\nInappropriate exposure/exception\nwith stated additional conditions"];
+    malicious -> conjunction;
+    invokes -> conjunction;
+    conjunction -> preflight;
+    preflight -> alternatives;
+    dependency -> alternatives;
+    container -> alternatives;
+    docs -> alternatives;
+    alternatives -> goal;
+    note [shape=note, label="Established: CONTROL-008 starts downstream of native preflight.\nNot a demonstrated container escape or browser exploit.\nEvidence: TM-20260911-001-E0021, E0022, E0023, E0027.\nScope includes host support, not an assumed production deployment."];
+}

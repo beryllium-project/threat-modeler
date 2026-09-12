@@ -1,8 +1,34 @@
 # Threat-modeler handoff
 
-**Last updated:** 2026-08-29
+**Last updated:** 2026-09-12
 
-## Overall position
+## Current TM run: paused
+
+Established: the user requested an operational pause of `TM-20260911-001`
+at 2026-09-11T23:52:08.181Z (16:52:08.181-07:00).
+The package is `models/TM-20260911-001-helium-te-poc-astra/`.
+Its completed private `MODEL-ITERATION-002`, `REVIEW-ITERATION-002`,
+post-freeze comparison and hash-bound blind baseline are preserved.
+
+Next action: await explicit user direction to resume. Do not automatically
+start research, verification planning, an owner handoff, target-side work or
+publication for this run. Its package `HANDOFF.md`, `scope.md` and
+`RUN-MANIFEST.md` record the pause separately from analytical completion.
+
+An explicitly requested format-only follow-up added seven PNG derivatives
+alongside unchanged SVGs in that package. The TM run remains paused.
+The separate request to commit all changes and push remains unperformed in the
+threat-modeler session. The user-invocable `/agent threat-model-maintainer`
+profile is now the authorized workflow for repository-local validation, commit,
+and push. It must inspect the actual outstanding diff before delivery.
+
+## Historical implementation handoff (2026-08-29)
+
+The remaining sections preserve the earlier implementation handoff, including
+its then-current empty-package and validation statements. They are historical,
+not the current TM run state or permission to resume the paused run.
+
+### Overall position
 
 The first complete component implementation is committed and privately backed
 up. The repository is an independent Git worktree. Private `origin` is

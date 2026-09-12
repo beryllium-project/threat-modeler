@@ -1,0 +1,50 @@
+digraph system_context {
+    graph [label="TM-20260911-001 | Established source context, not observed execution", labelloc=t, rankdir=LR];
+    node [shape=box, fontname="sans-serif", fontsize=10];
+    edge [fontname="sans-serif", fontsize=9];
+    producer [label="ACTOR-004\nSource / package / evidence producer"];
+    platform [label="Required firmware / emulator / tool trust\nBOUNDARY-002\nCorrectness Unknown", style=dashed];
+    subgraph cluster_host {
+        label="Host support surface";
+        color="#777777";
+        native [label="Native build and evaluation preflight\nENTRY-001 / ENTRY-007\nOutside retained container restrictions"];
+        image [label="ASSET-007\nBuilt image / recorded dependency closure"];
+        evaluator [label="Retained container work\nENTRY-007\nRequested RO inputs, restricted work/export"];
+        evidence [label="ASSET-007\nLogs / reports / manifests"];
+        checker [label="Correspondence checker\nENTRY-008 / ENTRY-009\nNot producer attestation"];
+        docs [label="ASSET-008\nGenerated documentation / retained reviews"];
+    }
+    subgraph cluster_target {
+        label="Fixed single-hart Helium image";
+        color="#336699";
+        hs [label="HS monitor, policy and roots\nASSET-001 / ASSET-005"];
+        writer [label="Untrusted writer VS\nACTOR-001\nPrivate RW + shared RW + code RX"];
+        reader [label="Untrusted reader VS\nACTOR-002\nPrivate RW + shared R + code RX"];
+        shared [label="ASSET-004\nIntentional writer-to-reader shared data"];
+        hs -> writer [label="FLOW-004 entry"];
+        writer -> hs [label="FLOW-006 exact traps"];
+        hs -> reader [label="FLOW-007 reset / root switch"];
+        reader -> hs [label="FLOW-006 exact traps"];
+        writer -> shared [label="FLOW-005 RW", dir=both];
+        shared -> reader [label="FLOW-008 read only"];
+    }
+    client [label="ACTOR-006\nDocument client / consumer"];
+    human [label="ACTOR-007\nSeparate responsible human\nNo approval inferred"];
+    retained [label="FLOW-014\nLater retention / reuse / disposal\nRequirements Unknown", style=dashed];
+    producer -> native [label="FLOW-001 / BOUNDARY-001"];
+    native -> image [label="FLOW-001"];
+    image -> hs [label="FLOW-002 loaded-image dependency"];
+    platform -> hs [label="FLOW-002"];
+    native -> evaluator [label="FLOW-010 (after native preflight)"];
+    image -> evaluator [label="FLOW-010 captured image"];
+    hs -> evidence [label="FLOW-009 via SBI / emulator"];
+    evaluator -> evidence [label="FLOW-010 checked export"];
+    evidence -> checker [label="FLOW-011"];
+    native -> docs [label="FLOW-012 generation"];
+    docs -> client [label="FLOW-012 loopback default; opt-in exposure"];
+    checker -> human [label="FLOW-013 decision support"];
+    docs -> human [label="FLOW-013 decision support"];
+    evidence -> retained [style=dashed];
+    hs -> retained [style=dashed];
+    basis [shape=note, label="Evidence: TM-20260911-001-E0012, E0015, E0016,\nE0021, E0023, E0025, E0027, E0028, E0029.\nMarkdown carries normative scope and limitations."];
+}

@@ -1,7 +1,7 @@
 ---
 name: threat-model-review
 description: Independently review a frozen threat-model projection and admitted evidence for completeness, consistency, traceability, risk rationale, and claim discipline.
-tools: ["read", "search"]
+tools: ["view", "glob", "grep", "rg"]
 model: gpt-5.6-sol
 disable-model-invocation: false
 user-invocable: false
@@ -42,6 +42,11 @@ If the model or evidence boundary is not frozen, report the missing input and
 stop.
 
 ## Review method
+
+Before review, check the actually callable file-reading, filename-search, and
+content-search tools. Report missing capabilities and stop rather than
+inferring access from the profile or model name. Never substitute execution,
+editing, delegation, or web access for a missing local tool.
 
 Check:
 
@@ -109,6 +114,7 @@ List the exact user questions required to continue, or `None`.
 ### Residual concerns
 
 State unresolved risk, evidence gaps, stale inputs, and review limitations.
+Include the callable read/search tool names and any tool-exposure mismatch.
 
 Do not allocate final IDs, modify projections, write iteration files, or state
 that the model is approved.

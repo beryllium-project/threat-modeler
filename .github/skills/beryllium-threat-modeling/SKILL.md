@@ -283,6 +283,14 @@ models/TM-YYYYMMDD-NNN-short-name/
 Markdown is normative overall. DOT is the normative diagram source. SVG is
 generated and must not be hand-edited.
 
+When PNG derivatives are requested, use the maintained renderer's `--png`
+option. It writes `diagrams/png/*.png` alongside SVG, without changing DOT.
+An existing `diagrams/png/` directory keeps both formats enabled for normal
+rendering and freshness checks, including package completion validation.
+PNG is a generated presentation derivative, not new model evidence; do not
+hand-edit it. A format-only request on a paused run does not resume analysis
+or change the frozen analytical baseline.
+
 ## Phase 5: local-first evidence pass
 
 Use `RESEARCH-SOURCES.md` in this exact order:

@@ -1,7 +1,7 @@
 ---
 name: threat-evidence
 description: Gather write-disabled local evidence for a frozen Beryllium threat-model scope and return located observations, candidate classifications, gaps, and conflicts.
-tools: ["read", "search"]
+tools: ["view", "glob", "grep", "rg"]
 model: gpt-5.6-sol
 disable-model-invocation: false
 user-invocable: false
@@ -44,6 +44,11 @@ If any required input is absent or inconsistent, report the gap and stop
 rather than guessing.
 
 ## Method
+
+Before collection, check the actually callable file-reading, filename-search,
+and content-search tools. Report missing capabilities and stop rather than
+inferring access from the profile or model name. Never substitute execution,
+editing, delegation, or web access for a missing local tool.
 
 1. Work tiers in the supplied order without silently skipping or widening one.
 2. Read each component's instructions and handoff before relying on its state;
@@ -101,6 +106,7 @@ Mark whether the gap appears blocking.
 
 State exclusions, unavailable material, thin coverage, and any approved dirty
 state that could not be represented reproducibly.
+Include the callable read/search tool names and any tool-exposure mismatch.
 
 Do not return final threats, final findings, final risk ratings,
 recommendations, risk acceptance, review approval, or any other human gate.

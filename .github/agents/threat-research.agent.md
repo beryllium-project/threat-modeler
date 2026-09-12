@@ -1,7 +1,7 @@
 ---
 name: threat-research
 description: Research public primary sources for recorded gaps in a frozen Beryllium threat model and return cited observations, negative searches, and blocked resources.
-tools: ["read", "search", "web"]
+tools: ["view", "glob", "grep", "rg", "web_fetch", "web_search"]
 model: gpt-5.6-sol
 disable-model-invocation: false
 user-invocable: false
@@ -38,6 +38,13 @@ depth, and provisional evidence-ID range. If any item is missing, report it
 and stop rather than guessing.
 
 ## Method
+
+Before research, check the actually callable local read/search tools, plus
+general web search and direct URL retrieval. These are separate capabilities;
+GitHub code search or local search is not general web search. Report a missing
+capability and stop the affected phase before claiming any query or retrieval.
+Never infer access from the profile or model name, enable wildcard tools, or
+substitute execution, editing, delegation, or a network client.
 
 1. Work gaps in the supplied order.
 2. Prefer public primary sources: standards, specifications, papers, upstream
@@ -90,6 +97,8 @@ the indexes that still need checking.
 
 State what remains unanswered, where applicability is uncertain, and which
 terms or source categories produced ambiguous or negative results.
+Include the callable tool names and distinguish unavailable tools, unissued
+queries, zero-result searches, and failed retrievals.
 
 Do not return final threat records, final risk ratings, recommendations, risk
 acceptance, review approval, or claims about formal verification, hardware

@@ -1,0 +1,32 @@
+digraph attack_tree {
+    graph [label="TM-20260911-001 | ATTACK-003: Inferred host/data effect", labelloc=t, rankdir=BT];
+    node [shape=box, fontname="sans-serif", fontsize=10];
+    goal [label="Unauthorized host/data effect through evaluation"];
+    alternatives [shape=ellipse, label="OR"];
+    preflight [label="THREAT-009\nNative repository code runs before retained isolation"];
+    conjunction [shape=ellipse, label="AND"];
+    malicious [label="Untrusted or compromised source/dependency"];
+    invokes [label="Operator invokes under incorrect sandbox expectation"];
+    dependency [label="THREAT-011\nMalicious / drifting dependency construction"];
+    container [label="THREAT-010\nOrdinary container crossing\nCorrect enforcement assumed"];
+    docs [label="THREAT-014\nInappropriate exposure/exception\nwith stated additional conditions"];
+    disclosure [label="THREAT-019\nPermitted-output disclosure"];
+    disclosure_and [shape=ellipse, label="AND"];
+    sensitive [label="Sensitive input readable"];
+    carrier [label="Information placed in output\naccepted by actual content checks"];
+    recipient [label="Output reaches recipient\nunauthorized for that input"];
+    malicious -> conjunction;
+    invokes -> conjunction;
+    conjunction -> preflight;
+    preflight -> alternatives;
+    dependency -> alternatives;
+    container -> alternatives;
+    docs -> alternatives;
+    sensitive -> disclosure_and;
+    carrier -> disclosure_and;
+    recipient -> disclosure_and;
+    disclosure_and -> disclosure;
+    disclosure -> alternatives;
+    alternatives -> goal;
+    note [shape=note, label="CONTROL-008 starts downstream of native preflight.\nIntegrity checks are not disclosure authorization.\nAll THREAT-019 conditions remain Unknown; no leak demonstrated.\nKernel/OCI failure remains THREAT-007; total budgets THREAT-018.\nEvidence: TM-20260911-001-E0021, E0022, E0023, E0025, E0027, E0045."];
+}

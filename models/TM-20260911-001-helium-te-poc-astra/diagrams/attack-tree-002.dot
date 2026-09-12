@@ -1,0 +1,22 @@
+digraph attack_tree {
+    graph [label="TM-20260911-001 | ATTACK-002: Inferred misleading evidence", labelloc=t, rankdir=BT];
+    node [shape=box, fontname="sans-serif", fontsize=10];
+    goal [label="Consumer relies on an unsupported positive result"];
+    alternatives [shape=ellipse, label="OR"];
+    substitution [label="THREAT-008\nArtifact / tool / source substitution"];
+    producer [label="THREAT-013\nSelf-consistent dishonest production"];
+    trace [label="THREAT-012\nNoncanonical trace interpreted too broadly"];
+    conjunction [shape=ellipse, label="AND"];
+    valid [label="Required marker predicates remain satisfied"];
+    ignored [label="Contradictory line outside rejection predicates"];
+    belief [label="Consumer overinterprets finite-parser acceptance"];
+    valid -> conjunction;
+    ignored -> conjunction;
+    belief -> conjunction;
+    conjunction -> trace;
+    substitution -> alternatives;
+    producer -> alternatives;
+    trace -> alternatives;
+    alternatives -> goal;
+    note [shape=note, label="CONTROL-007/009/010 check narrower correspondence.\nStricter grammar is not producer authentication.\nEvidence: TM-20260911-001-E0020, E0025, E0026.\nStatic inference only; no fabricated bundle or trace was executed."];
+}

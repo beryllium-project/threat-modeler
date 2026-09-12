@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: attack_tree Pages: 1 -->
+<svg width="993pt" height="400pt"
+ viewBox="0.00 0.00 993.00 400.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 396.25)">
+<title>attack_tree</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-396.25 988.88,-396.25 988.88,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="492.44" y="-374.95" font-family="Times,serif" font-size="14.00">TM&#45;20260911&#45;001 | ATTACK&#45;004: Inferred decision/lifecycle misuse</text>
+<!-- goal -->
+<g id="node1" class="node">
+<title>goal</title>
+<polygon fill="none" stroke="black" points="600.38,-367.75 410.38,-367.75 410.38,-331.75 600.38,-331.75 600.38,-367.75"/>
+<text xml:space="preserve" text-anchor="middle" x="505.38" y="-347.38" font-family="sans-serif" font-size="10.00">Decision or lifecycle objective violated</text>
+</g>
+<!-- alternatives -->
+<g id="node2" class="node">
+<title>alternatives</title>
+<ellipse fill="none" stroke="black" cx="505.38" cy="-277.75" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="505.38" y="-275.38" font-family="sans-serif" font-size="10.00">OR</text>
+</g>
+<!-- alternatives&#45;&gt;goal -->
+<g id="edge8" class="edge">
+<title>alternatives&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M505.38,-296.05C505.38,-303.34 505.38,-312.02 505.38,-320.21"/>
+<polygon fill="black" stroke="black" points="501.88,-320.13 505.38,-330.13 508.88,-320.13 501.88,-320.13"/>
+</g>
+<!-- approval -->
+<g id="node3" class="node">
+<title>approval</title>
+<polygon fill="none" stroke="black" points="298.38,-216.62 132.38,-216.62 132.38,-180.12 298.38,-180.12 298.38,-216.62"/>
+<text xml:space="preserve" text-anchor="middle" x="215.38" y="-203.12" font-family="sans-serif" font-size="10.00">THREAT&#45;015</text>
+<text xml:space="preserve" text-anchor="middle" x="215.38" y="-188.88" font-family="sans-serif" font-size="10.00">False human&#45;decision attribution</text>
+</g>
+<!-- approval&#45;&gt;alternatives -->
+<g id="edge4" class="edge">
+<title>approval&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M281.54,-217.03C339.8,-232.57 422.44,-254.62 469.29,-267.12"/>
+<polygon fill="black" stroke="black" points="468.36,-270.5 478.93,-269.69 470.17,-263.73 468.36,-270.5"/>
+</g>
+<!-- conjunction -->
+<g id="node4" class="node">
+<title>conjunction</title>
+<ellipse fill="none" stroke="black" cx="215.38" cy="-119" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="215.38" y="-116.62" font-family="sans-serif" font-size="10.00">AND</text>
+</g>
+<!-- conjunction&#45;&gt;approval -->
+<g id="edge3" class="edge">
+<title>conjunction&#45;&gt;approval</title>
+<path fill="none" stroke="black" d="M215.38,-137.17C215.38,-146.36 215.38,-157.92 215.38,-168.45"/>
+<polygon fill="black" stroke="black" points="211.88,-168.2 215.38,-178.2 218.88,-168.2 211.88,-168.2"/>
+</g>
+<!-- plausible -->
+<g id="node5" class="node">
+<title>plausible</title>
+<polygon fill="none" stroke="black" points="190.75,-50.5 0,-50.5 0,-14.5 190.75,-14.5 190.75,-50.5"/>
+<text xml:space="preserve" text-anchor="middle" x="95.38" y="-30.12" font-family="sans-serif" font-size="10.00">Plausible structural metadata supplied</text>
+</g>
+<!-- plausible&#45;&gt;conjunction -->
+<g id="edge1" class="edge">
+<title>plausible&#45;&gt;conjunction</title>
+<path fill="none" stroke="black" d="M119.95,-50.8C139.75,-64.75 167.57,-84.33 188.06,-98.77"/>
+<polygon fill="black" stroke="black" points="186.04,-101.62 196.23,-104.52 190.07,-95.9 186.04,-101.62"/>
+</g>
+<!-- belief -->
+<g id="node6" class="node">
+<title>belief</title>
+<polygon fill="none" stroke="black" points="464,-50.5 208.75,-50.5 208.75,-14.5 464,-14.5 464,-50.5"/>
+<text xml:space="preserve" text-anchor="middle" x="336.38" y="-30.12" font-family="sans-serif" font-size="10.00">Consumer treats unestablished identity as authentic</text>
+</g>
+<!-- belief&#45;&gt;conjunction -->
+<g id="edge2" class="edge">
+<title>belief&#45;&gt;conjunction</title>
+<path fill="none" stroke="black" d="M311.6,-50.8C291.54,-64.81 263.33,-84.51 242.64,-98.96"/>
+<polygon fill="black" stroke="black" points="240.87,-95.93 234.67,-104.52 244.88,-101.67 240.87,-95.93"/>
+</g>
+<!-- inflation -->
+<g id="node7" class="node">
+<title>inflation</title>
+<polygon fill="none" stroke="black" points="492.25,-216.62 316.5,-216.62 316.5,-180.12 492.25,-180.12 492.25,-216.62"/>
+<text xml:space="preserve" text-anchor="middle" x="404.38" y="-203.12" font-family="sans-serif" font-size="10.00">THREAT&#45;016</text>
+<text xml:space="preserve" text-anchor="middle" x="404.38" y="-188.88" font-family="sans-serif" font-size="10.00">Bounded PoC evidence overstated</text>
+</g>
+<!-- inflation&#45;&gt;alternatives -->
+<g id="edge5" class="edge">
+<title>inflation&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M427.29,-216.93C442.77,-228.79 463.22,-244.45 479.31,-256.78"/>
+<polygon fill="black" stroke="black" points="476.94,-259.38 487.01,-262.68 481.2,-253.82 476.94,-259.38"/>
+</g>
+<!-- progress -->
+<g id="node8" class="node">
+<title>progress</title>
+<polygon fill="none" stroke="black" points="702.12,-223.75 510.62,-223.75 510.62,-173 702.12,-173 702.12,-223.75"/>
+<text xml:space="preserve" text-anchor="middle" x="606.38" y="-210.25" font-family="sans-serif" font-size="10.00">THREAT&#45;006</text>
+<text xml:space="preserve" text-anchor="middle" x="606.38" y="-196" font-family="sans-serif" font-size="10.00">ACTOR&#45;001/002 or platform failure</text>
+<text xml:space="preserve" text-anchor="middle" x="606.38" y="-181.75" font-family="sans-serif" font-size="10.00">Required experiment progress denied</text>
+</g>
+<!-- progress&#45;&gt;alternatives -->
+<g id="edge6" class="edge">
+<title>progress&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M574.14,-224.07C560.39,-234.6 544.55,-246.74 531.54,-256.7"/>
+<polygon fill="black" stroke="black" points="529.65,-253.74 523.84,-262.6 533.91,-259.3 529.65,-253.74"/>
+</g>
+<!-- retention -->
+<g id="node9" class="node">
+<title>retention</title>
+<polygon fill="none" stroke="black" points="984.88,-216.62 719.88,-216.62 719.88,-180.12 984.88,-180.12 984.88,-216.62"/>
+<text xml:space="preserve" text-anchor="middle" x="852.38" y="-203.12" font-family="sans-serif" font-size="10.00">THREAT&#45;018</text>
+<text xml:space="preserve" text-anchor="middle" x="852.38" y="-188.88" font-family="sans-serif" font-size="10.00">Unintended retained&#45;state access / interruption effect</text>
+</g>
+<!-- retention&#45;&gt;alternatives -->
+<g id="edge7" class="edge">
+<title>retention&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M773.2,-217.03C700.71,-233.19 596.65,-256.4 542.04,-268.57"/>
+<polygon fill="black" stroke="black" points="541.32,-265.15 532.32,-270.74 542.85,-271.98 541.32,-265.15"/>
+</g>
+<!-- note -->
+<g id="node10" class="node">
+<title>note</title>
+<polygon fill="none" stroke="black" points="805.12,-65 481.62,-65 481.62,0 811.12,0 811.12,-59 805.12,-65"/>
+<polyline fill="none" stroke="black" points="805.12,-65 805.12,-59"/>
+<polyline fill="none" stroke="black" points="811.12,-59 805.12,-59"/>
+<text xml:space="preserve" text-anchor="middle" x="646.38" y="-51.5" font-family="sans-serif" font-size="10.00">CONTROL&#45;012/014 preserve distinctions, not human authentication.</text>
+<text xml:space="preserve" text-anchor="middle" x="646.38" y="-37.25" font-family="sans-serif" font-size="10.00">Frozen gate is blocked; no approval or disclosure assumed.</text>
+<text xml:space="preserve" text-anchor="middle" x="646.38" y="-23" font-family="sans-serif" font-size="10.00">Retention and availability requirements remain Unknown.</text>
+<text xml:space="preserve" text-anchor="middle" x="646.38" y="-8.75" font-family="sans-serif" font-size="10.00">Evidence: TM&#45;20260911&#45;001&#45;E0017, E0028, E0029.</text>
+</g>
+</g>
+</svg>

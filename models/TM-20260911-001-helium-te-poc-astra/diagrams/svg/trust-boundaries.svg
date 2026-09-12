@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: trust_boundaries Pages: 1 -->
+<svg width="2363pt" height="435pt"
+ viewBox="0.00 0.00 2363.00 435.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 430.59)">
+<title>trust_boundaries</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-430.59 2359,-430.59 2359,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="1177.5" y="-409.29" font-family="Times,serif" font-size="14.00">TM&#45;20260911&#45;001 | Trust boundaries and required trust</text>
+<!-- producer -->
+<g id="node1" class="node">
+<title>producer</title>
+<polygon fill="none" stroke="black" points="227.12,-290.34 68.62,-290.34 68.62,-254.34 227.12,-254.34 227.12,-290.34"/>
+<text xml:space="preserve" text-anchor="middle" x="147.88" y="-269.96" font-family="sans-serif" font-size="10.00">Source / dependency producer</text>
+</g>
+<!-- native -->
+<g id="node2" class="node">
+<title>native</title>
+<polygon fill="none" stroke="black" points="731.38,-290.34 540.62,-290.34 540.62,-254.34 731.38,-254.34 731.38,-290.34"/>
+<text xml:space="preserve" text-anchor="middle" x="636" y="-269.96" font-family="sans-serif" font-size="10.00">Trusted invoking host and native tools</text>
+</g>
+<!-- producer&#45;&gt;native -->
+<g id="edge1" class="edge">
+<title>producer&#45;&gt;native</title>
+<path fill="none" stroke="black" d="M227.52,-272.34C309.34,-272.34 437.95,-272.34 528.76,-272.34"/>
+<polygon fill="black" stroke="black" points="528.69,-275.84 538.69,-272.34 528.69,-268.84 528.69,-275.84"/>
+<text xml:space="preserve" text-anchor="middle" x="410.88" y="-289.29" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;001</text>
+<text xml:space="preserve" text-anchor="middle" x="410.88" y="-276.54" font-family="sans-serif" font-size="9.00">CONTROL&#45;006; not arbitrary&#45;code confinement</text>
+</g>
+<!-- container -->
+<g id="node7" class="node">
+<title>container</title>
+<polygon fill="none" stroke="black" points="1115.25,-216.34 985.25,-216.34 985.25,-180.34 1115.25,-180.34 1115.25,-216.34"/>
+<text xml:space="preserve" text-anchor="middle" x="1050.25" y="-195.96" font-family="sans-serif" font-size="10.00">Retained evaluated work</text>
+</g>
+<!-- native&#45;&gt;container -->
+<g id="edge6" class="edge">
+<title>native&#45;&gt;container</title>
+<path fill="none" stroke="black" d="M743.15,-256.41C820.96,-244.66 916.16,-230.09 935,-226.34 947.55,-223.84 960.8,-220.88 973.65,-217.85"/>
+<polygon fill="black" stroke="black" points="742.67,-252.95 733.31,-257.9 743.72,-259.87 742.67,-252.95"/>
+<polygon fill="black" stroke="black" points="974.44,-221.26 983.35,-215.52 972.81,-214.45 974.44,-221.26"/>
+<text xml:space="preserve" text-anchor="middle" x="849.5" y="-270.02" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;005</text>
+<text xml:space="preserve" text-anchor="middle" x="849.5" y="-257.27" font-family="sans-serif" font-size="9.00">CONTROL&#45;008/009; begins after preflight</text>
+</g>
+<!-- web -->
+<g id="node11" class="node">
+<title>web</title>
+<polygon fill="none" stroke="black" points="1361.5,-320.34 1165.5,-320.34 1165.5,-284.34 1361.5,-284.34 1361.5,-320.34"/>
+<text xml:space="preserve" text-anchor="middle" x="1263.5" y="-299.96" font-family="sans-serif" font-size="10.00">Generated site / browser / HTTP clients</text>
+</g>
+<!-- native&#45;&gt;web -->
+<g id="edge10" class="edge">
+<title>native&#45;&gt;web</title>
+<path fill="none" stroke="black" d="M742.9,-278.25C750.04,-278.62 757.13,-278.99 764,-279.34 898.14,-286.13 1052.62,-293.13 1153.62,-297.6"/>
+<polygon fill="black" stroke="black" points="743.34,-274.77 733.17,-277.73 742.97,-281.76 743.34,-274.77"/>
+<polygon fill="black" stroke="black" points="1153.4,-301.09 1163.54,-298.03 1153.71,-294.1 1153.4,-301.09"/>
+<text xml:space="preserve" text-anchor="middle" x="849.5" y="-304.38" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;007</text>
+<text xml:space="preserve" text-anchor="middle" x="849.5" y="-291.63" font-family="sans-serif" font-size="9.00">CONTROL&#45;011; default loopback/sandbox</text>
+</g>
+<!-- platform -->
+<g id="node3" class="node">
+<title>platform</title>
+<polygon fill="none" stroke="black" points="1147.5,-68.34 953,-68.34 953,-32.34 1147.5,-32.34 1147.5,-68.34"/>
+<text xml:space="preserve" text-anchor="middle" x="1050.25" y="-47.96" font-family="sans-serif" font-size="10.00">Firmware / emulator / ISA dependency</text>
+</g>
+<!-- hs -->
+<g id="node4" class="node">
+<title>hs</title>
+<polygon fill="none" stroke="black" points="1573.25,-68.34 1379.5,-68.34 1379.5,-32.34 1573.25,-32.34 1573.25,-68.34"/>
+<text xml:space="preserve" text-anchor="middle" x="1476.38" y="-47.96" font-family="sans-serif" font-size="10.00">HS&#45;owned code, state, policy and roots</text>
+</g>
+<!-- platform&#45;&gt;hs -->
+<g id="edge2" class="edge">
+<title>platform&#45;&gt;hs</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1147.76,-50.34C1213.4,-50.34 1300.32,-50.34 1368.13,-50.34"/>
+<polygon fill="black" stroke="black" points="1367.75,-53.84 1377.75,-50.34 1367.75,-46.84 1367.75,-53.84"/>
+<text xml:space="preserve" text-anchor="middle" x="1263.5" y="-67.29" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;002</text>
+<text xml:space="preserve" text-anchor="middle" x="1263.5" y="-54.54" font-family="sans-serif" font-size="9.00">Required correctness is Unknown</text>
+</g>
+<!-- memory -->
+<g id="node6" class="node">
+<title>memory</title>
+<polygon fill="none" stroke="black" points="1931.88,-75.59 1780.88,-75.59 1780.88,-39.09 1931.88,-39.09 1931.88,-75.59"/>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-62.09" font-family="sans-serif" font-size="10.00">Writer / reader private pages</text>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-47.84" font-family="sans-serif" font-size="10.00">Intentional shared page</text>
+</g>
+<!-- hs&#45;&gt;memory -->
+<g id="edge4" class="edge">
+<title>hs&#45;&gt;memory</title>
+<path fill="none" stroke="black" d="M1573.72,-49.95C1622.95,-49.99 1683.81,-50.4 1738.25,-51.84 1748.26,-52.1 1758.75,-52.47 1769.17,-52.89"/>
+<polygon fill="black" stroke="black" points="1768.76,-56.37 1778.9,-53.29 1769.06,-49.38 1768.76,-56.37"/>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-68.79" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-56.04" font-family="sans-serif" font-size="9.00">CONTROL&#45;001/002; fixed authority</text>
+</g>
+<!-- later -->
+<g id="node13" class="node">
+<title>later</title>
+<polygon fill="none" stroke="black" stroke-dasharray="5,2" points="1943.5,-142.34 1769.25,-142.34 1769.25,-106.34 1943.5,-106.34 1943.5,-142.34"/>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-121.96" font-family="sans-serif" font-size="10.00">Later run / retained data / disposal</text>
+</g>
+<!-- hs&#45;&gt;later -->
+<g id="edge14" class="edge">
+<title>hs&#45;&gt;later</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1552.58,-68.81C1565.45,-71.78 1578.72,-74.74 1591.25,-77.34 1646.16,-88.72 1707.84,-99.79 1757.77,-108.33"/>
+<polygon fill="black" stroke="black" points="1756.96,-111.74 1767.4,-109.97 1758.13,-104.84 1756.96,-111.74"/>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-121.29" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;009</text>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-108.54" font-family="sans-serif" font-size="9.00">Erasure / restart Unknown</text>
+</g>
+<!-- vs -->
+<g id="node5" class="node">
+<title>vs</title>
+<polygon fill="none" stroke="black" points="2355,-44.34 2141,-44.34 2141,-8.34 2355,-8.34 2355,-44.34"/>
+<text xml:space="preserve" text-anchor="middle" x="2248" y="-23.96" font-family="sans-serif" font-size="10.00">Untrusted VS events and memory accesses</text>
+</g>
+<!-- vs&#45;&gt;hs -->
+<g id="edge3" class="edge">
+<title>vs&#45;&gt;hs</title>
+<path fill="none" stroke="black" d="M2140.6,-14.05C2041.1,-4.36 1888.43,5.87 1756.25,-4.84 1696.91,-9.65 1631.15,-20.12 1578.4,-29.81"/>
+<polygon fill="black" stroke="black" points="1578.03,-26.32 1568.84,-31.59 1579.31,-33.2 1578.03,-26.32"/>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-21.79" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;003</text>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-9.04" font-family="sans-serif" font-size="9.00">CONTROL&#45;003/004; non&#45;nested trap assumption</text>
+</g>
+<!-- memory&#45;&gt;vs -->
+<g id="edge5" class="edge">
+<title>memory&#45;&gt;vs</title>
+<path fill="none" stroke="black" d="M1932.04,-51.4C1987.8,-46.96 2065.1,-40.81 2129.17,-35.71"/>
+<polygon fill="black" stroke="black" points="2129.36,-39.21 2139.05,-34.93 2128.81,-32.23 2129.36,-39.21"/>
+<text xml:space="preserve" text-anchor="middle" x="2048.75" y="-64.26" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;004</text>
+<text xml:space="preserve" text-anchor="middle" x="2048.75" y="-51.51" font-family="sans-serif" font-size="9.00">Per&#45;root access and explicit sharing</text>
+</g>
+<!-- artifacts -->
+<g id="node9" class="node">
+<title>artifacts</title>
+<polygon fill="none" stroke="black" points="1539.5,-215.34 1413.25,-215.34 1413.25,-179.34 1539.5,-179.34 1539.5,-215.34"/>
+<text xml:space="preserve" text-anchor="middle" x="1476.38" y="-194.96" font-family="sans-serif" font-size="10.00">Produced logs / bundles</text>
+</g>
+<!-- container&#45;&gt;artifacts -->
+<g id="edge8" class="edge">
+<title>container&#45;&gt;artifacts</title>
+<path fill="none" stroke="black" d="M1115.67,-198.19C1192.58,-198 1320.92,-197.7 1401.71,-197.51"/>
+<polygon fill="black" stroke="black" points="1401.27,-201.01 1411.26,-197.49 1401.26,-194.01 1401.27,-201.01"/>
+<text xml:space="preserve" text-anchor="middle" x="1263.5" y="-214.99" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;005/006</text>
+<text xml:space="preserve" text-anchor="middle" x="1263.5" y="-202.24" font-family="sans-serif" font-size="9.00">Integrity&#45;checked export</text>
+</g>
+<!-- readable -->
+<g id="node8" class="node">
+<title>readable</title>
+<polygon fill="none" stroke="black" points="746,-216.59 526,-216.59 526,-180.09 746,-180.09 746,-216.59"/>
+<text xml:space="preserve" text-anchor="middle" x="636" y="-203.09" font-family="sans-serif" font-size="10.00">Admitted readable source / Git / provenance</text>
+<text xml:space="preserve" text-anchor="middle" x="636" y="-188.84" font-family="sans-serif" font-size="10.00">Sensitive classes Unknown</text>
+</g>
+<!-- readable&#45;&gt;container -->
+<g id="edge7" class="edge">
+<title>readable&#45;&gt;container</title>
+<path fill="none" stroke="black" d="M746.39,-198.34C818.18,-198.34 910.2,-198.34 973.88,-198.34"/>
+<polygon fill="black" stroke="black" points="973.52,-201.84 983.52,-198.34 973.52,-194.84 973.52,-201.84"/>
+<text xml:space="preserve" text-anchor="middle" x="849.5" y="-215.29" font-family="sans-serif" font-size="9.00">FLOW&#45;010</text>
+<text xml:space="preserve" text-anchor="middle" x="849.5" y="-202.54" font-family="sans-serif" font-size="9.00">Read&#45;only is not unreadable</text>
+</g>
+<!-- verifier -->
+<g id="node10" class="node">
+<title>verifier</title>
+<polygon fill="none" stroke="black" points="1936.75,-202.34 1776,-202.34 1776,-166.34 1936.75,-166.34 1936.75,-202.34"/>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-181.96" font-family="sans-serif" font-size="10.00">Correspondence interpretation</text>
+</g>
+<!-- artifacts&#45;&gt;verifier -->
+<g id="edge9" class="edge">
+<title>artifacts&#45;&gt;verifier</title>
+<path fill="none" stroke="black" d="M1539.79,-195.19C1600.97,-193.09 1694.9,-189.86 1764.39,-187.47"/>
+<polygon fill="black" stroke="black" points="1764.37,-190.97 1774.25,-187.13 1764.13,-183.97 1764.37,-190.97"/>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-210.08" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;006</text>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-197.33" font-family="sans-serif" font-size="9.00">CONTROL&#45;007/010; not authenticity</text>
+</g>
+<!-- human -->
+<g id="node12" class="node">
+<title>human</title>
+<polygon fill="none" stroke="black" points="2321.25,-256.34 2174.75,-256.34 2174.75,-220.34 2321.25,-220.34 2321.25,-256.34"/>
+<text xml:space="preserve" text-anchor="middle" x="2248" y="-235.96" font-family="sans-serif" font-size="10.00">Responsible&#45;human decision</text>
+</g>
+<!-- artifacts&#45;&gt;human -->
+<g id="edge12" class="edge">
+<title>artifacts&#45;&gt;human</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1539.95,-213.33C1556.52,-216.95 1574.47,-220.31 1591.25,-222.34 1795.44,-247.01 2037.91,-244.83 2163.01,-241.41"/>
+<polygon fill="black" stroke="black" points="2162.97,-244.91 2172.87,-241.13 2162.77,-237.92 2162.97,-244.91"/>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-272.89" font-family="sans-serif" font-size="9.00">FLOW&#45;013 / THREAT&#45;019</text>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-260.14" font-family="sans-serif" font-size="9.00">Only if an accepted carrier reaches</text>
+<text xml:space="preserve" text-anchor="middle" x="1856.38" y="-247.39" font-family="sans-serif" font-size="9.00">an unauthorized recipient</text>
+</g>
+<!-- artifacts&#45;&gt;later -->
+<g id="edge15" class="edge">
+<title>artifacts&#45;&gt;later</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1524.98,-178.92C1545.16,-171.72 1569.09,-163.98 1591.25,-158.84 1645.7,-146.21 1707.6,-137.81 1757.79,-132.47"/>
+<polygon fill="black" stroke="black" points="1757.88,-135.98 1767.46,-131.47 1757.15,-129.02 1757.88,-135.98"/>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-175.79" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;009</text>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-163.04" font-family="sans-serif" font-size="9.00">Partial cleanup, not crash durability</text>
+</g>
+<!-- verifier&#45;&gt;human -->
+<g id="edge11" class="edge">
+<title>verifier&#45;&gt;human</title>
+<path fill="none" stroke="black" d="M1937.03,-183.44C1990.12,-184.12 2061.22,-187.5 2123,-198.84 2144.66,-202.81 2167.81,-209.49 2188.16,-216.23"/>
+<polygon fill="black" stroke="black" points="2186.82,-219.47 2197.41,-219.37 2189.07,-212.84 2186.82,-219.47"/>
+<text xml:space="preserve" text-anchor="middle" x="2048.75" y="-215.79" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;008</text>
+<text xml:space="preserve" text-anchor="middle" x="2048.75" y="-203.04" font-family="sans-serif" font-size="9.00">CONTROL&#45;012/014; gate blocked</text>
+</g>
+<!-- web&#45;&gt;human -->
+<g id="edge13" class="edge">
+<title>web&#45;&gt;human</title>
+<path fill="none" stroke="black" d="M1361.87,-304.1C1496.03,-305.59 1745.15,-304.94 1956.5,-285.34 2026.61,-278.84 2105.42,-265.71 2163.25,-254.98"/>
+<polygon fill="black" stroke="black" points="2163.85,-258.43 2173.04,-253.15 2162.56,-251.55 2163.85,-258.43"/>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-320.27" font-family="sans-serif" font-size="9.00">BOUNDARY&#45;008</text>
+<text xml:space="preserve" text-anchor="middle" x="1664.75" y="-307.52" font-family="sans-serif" font-size="9.00">No content/approval inference</text>
+</g>
+<!-- legend -->
+<g id="node14" class="node">
+<title>legend</title>
+<polygon fill="none" stroke="black" points="289.75,-402.09 0,-402.09 0,-308.59 295.75,-308.59 295.75,-396.09 289.75,-402.09"/>
+<polyline fill="none" stroke="black" points="289.75,-402.09 289.75,-396.09"/>
+<polyline fill="none" stroke="black" points="295.75,-396.09 289.75,-396.09"/>
+<text xml:space="preserve" text-anchor="middle" x="147.88" y="-388.59" font-family="sans-serif" font-size="10.00">Established: source&#45;described mechanisms.</text>
+<text xml:space="preserve" text-anchor="middle" x="147.88" y="-374.34" font-family="sans-serif" font-size="10.00">Inferred: grouping and conditional disclosure.</text>
+<text xml:space="preserve" text-anchor="middle" x="147.88" y="-360.09" font-family="sans-serif" font-size="10.00">Dashed: required trust or unresolved conditions.</text>
+<text xml:space="preserve" text-anchor="middle" x="147.88" y="-345.84" font-family="sans-serif" font-size="10.00">THREAT&#45;010 credit: ordinary paths with correct enforcement.</text>
+<text xml:space="preserve" text-anchor="middle" x="147.88" y="-331.59" font-family="sans-serif" font-size="10.00">Failed kernel/OCI: THREAT&#45;007; total budgets: THREAT&#45;018.</text>
+<text xml:space="preserve" text-anchor="middle" x="147.88" y="-317.34" font-family="sans-serif" font-size="10.00">Evidence: TM&#45;20260911&#45;001&#45;E0013 to E0029, E0045.</text>
+</g>
+</g>
+</svg>

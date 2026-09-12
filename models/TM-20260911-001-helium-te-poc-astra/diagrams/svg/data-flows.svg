@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: data_flows Pages: 1 -->
+<svg width="3953pt" height="406pt"
+ viewBox="0.00 0.00 3953.00 406.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 402)">
+<title>data_flows</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-402 3949,-402 3949,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="1972.5" y="-380.7" font-family="Times,serif" font-size="14.00">TM&#45;20260911&#45;001 | Source&#45;described data and control flows</text>
+<!-- source -->
+<g id="node1" class="node">
+<title>source</title>
+<polygon fill="none" stroke="black" points="255.62,-105 87.38,-105 87.38,-69 255.62,-69 255.62,-105"/>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-84.62" font-family="sans-serif" font-size="10.00">Source / configuration / packages</text>
+</g>
+<!-- build -->
+<g id="node2" class="node">
+<title>build</title>
+<polygon fill="none" stroke="black" points="637.25,-105 421.75,-105 421.75,-69 637.25,-69 637.25,-105"/>
+<text xml:space="preserve" text-anchor="middle" x="529.5" y="-84.62" font-family="sans-serif" font-size="10.00">Native build / preflight / image construction</text>
+</g>
+<!-- source&#45;&gt;build -->
+<g id="edge1" class="edge">
+<title>source&#45;&gt;build</title>
+<path fill="none" stroke="black" d="M255.97,-87C301.92,-87 359.71,-87 410.24,-87"/>
+<polygon fill="black" stroke="black" points="410.05,-90.5 420.05,-87 410.05,-83.5 410.05,-90.5"/>
+<text xml:space="preserve" text-anchor="middle" x="382.38" y="-91.2" font-family="sans-serif" font-size="9.00">FLOW&#45;001</text>
+</g>
+<!-- work -->
+<g id="node15" class="node">
+<title>work</title>
+<polygon fill="none" stroke="black" points="1026.75,-169.25 803.75,-169.25 803.75,-132.75 1026.75,-132.75 1026.75,-169.25"/>
+<text xml:space="preserve" text-anchor="middle" x="915.25" y="-155.75" font-family="sans-serif" font-size="10.00">Captured&#45;image retained work</text>
+<text xml:space="preserve" text-anchor="middle" x="915.25" y="-141.5" font-family="sans-serif" font-size="10.00">RO source/provenance; writable private copy</text>
+</g>
+<!-- source&#45;&gt;work -->
+<g id="edge19" class="edge">
+<title>source&#45;&gt;work</title>
+<path fill="none" stroke="black" d="M255.85,-96.23C304.26,-101.55 366.44,-108.28 421.75,-114 525.48,-124.73 551.27,-129.07 655.25,-137 699.76,-140.39 748.65,-143.26 791.83,-145.5"/>
+<polygon fill="black" stroke="black" points="791.59,-148.99 801.76,-146 791.95,-142 791.59,-148.99"/>
+<text xml:space="preserve" text-anchor="middle" x="529.5" y="-139.66" font-family="sans-serif" font-size="9.00">FLOW&#45;010 readable source / Git copy</text>
+</g>
+<!-- check -->
+<g id="node17" class="node">
+<title>check</title>
+<polygon fill="none" stroke="black" points="3597.5,-110 3433,-110 3433,-74 3597.5,-74 3597.5,-110"/>
+<text xml:space="preserve" text-anchor="middle" x="3515.25" y="-89.62" font-family="sans-serif" font-size="10.00">Offline correspondence checker</text>
+</g>
+<!-- source&#45;&gt;check -->
+<g id="edge23" class="edge">
+<title>source&#45;&gt;check</title>
+<path fill="none" stroke="black" d="M217.72,-68.55C284.5,-43.01 413.98,0 528.5,0 528.5,0 528.5,0 2195.75,0 2520.17,0 2601.43,-8.45 2925,-32 3100.93,-44.81 3305.66,-67.39 3421.6,-80.9"/>
+<polygon fill="black" stroke="black" points="3421.04,-84.36 3431.38,-82.04 3421.85,-77.4 3421.04,-84.36"/>
+<text xml:space="preserve" text-anchor="middle" x="1855.38" y="-4.2" font-family="sans-serif" font-size="9.00">FLOW&#45;011 exact&#45;source comparison</text>
+</g>
+<!-- boot -->
+<g id="node3" class="node">
+<title>boot</title>
+<polygon fill="none" stroke="black" points="981.38,-110 849.12,-110 849.12,-74 981.38,-74 981.38,-110"/>
+<text xml:space="preserve" text-anchor="middle" x="915.25" y="-89.62" font-family="sans-serif" font-size="10.00">Firmware + loaded image</text>
+</g>
+<!-- build&#45;&gt;boot -->
+<g id="edge2" class="edge">
+<title>build&#45;&gt;boot</title>
+<path fill="none" stroke="black" d="M637.62,-86.95C683.28,-87.07 737.12,-87.42 785.75,-88.25 802.59,-88.54 820.67,-88.98 837.79,-89.46"/>
+<polygon fill="black" stroke="black" points="837.28,-92.95 847.37,-89.74 837.48,-85.95 837.28,-92.95"/>
+<text xml:space="preserve" text-anchor="middle" x="720.5" y="-92.45" font-family="sans-serif" font-size="9.00">FLOW&#45;001 image</text>
+</g>
+<!-- build&#45;&gt;work -->
+<g id="edge18" class="edge">
+<title>build&#45;&gt;work</title>
+<path fill="none" stroke="black" d="M637.53,-101.16C683.29,-107.59 737.24,-115.67 785.75,-124.25 795.8,-126.03 806.27,-128 816.7,-130.05"/>
+<polygon fill="black" stroke="black" points="816.01,-133.48 826.5,-132 817.38,-126.62 816.01,-133.48"/>
+<text xml:space="preserve" text-anchor="middle" x="720.5" y="-128.45" font-family="sans-serif" font-size="9.00">FLOW&#45;010 after native preflight</text>
+</g>
+<!-- docs -->
+<g id="node18" class="node">
+<title>docs</title>
+<polygon fill="none" stroke="black" points="1207,-64 1044.75,-64 1044.75,-28 1207,-28 1207,-64"/>
+<text xml:space="preserve" text-anchor="middle" x="1125.88" y="-43.62" font-family="sans-serif" font-size="10.00">Generated site + client/browser</text>
+</g>
+<!-- build&#45;&gt;docs -->
+<g id="edge24" class="edge">
+<title>build&#45;&gt;docs</title>
+<path fill="none" stroke="black" d="M637.61,-72.04C643.57,-71.39 649.48,-70.79 655.25,-70.25 786.29,-58.09 938.51,-51.63 1033.28,-48.51"/>
+<polygon fill="black" stroke="black" points="1033.15,-52.02 1043.03,-48.2 1032.92,-45.02 1033.15,-52.02"/>
+<text xml:space="preserve" text-anchor="middle" x="720.5" y="-74.45" font-family="sans-serif" font-size="9.00">FLOW&#45;012 generation / serving</text>
+</g>
+<!-- policy -->
+<g id="node4" class="node">
+<title>policy</title>
+<polygon fill="none" stroke="black" points="1368.5,-110 1225,-110 1225,-74 1368.5,-74 1368.5,-110"/>
+<text xml:space="preserve" text-anchor="middle" x="1296.75" y="-89.62" font-family="sans-serif" font-size="10.00">HS fixed labels / seal / policy</text>
+</g>
+<!-- boot&#45;&gt;policy -->
+<g id="edge3" class="edge">
+<title>boot&#45;&gt;policy</title>
+<path fill="none" stroke="black" d="M981.49,-92C1045.63,-92 1143.75,-92 1213.26,-92"/>
+<polygon fill="black" stroke="black" points="1213.08,-95.5 1223.08,-92 1213.08,-88.5 1213.08,-95.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1125.88" y="-96.2" font-family="sans-serif" font-size="9.00">FLOW&#45;002</text>
+</g>
+<!-- roots -->
+<g id="node5" class="node">
+<title>roots</title>
+<polygon fill="none" stroke="black" points="1575,-110 1447.25,-110 1447.25,-74 1575,-74 1575,-110"/>
+<text xml:space="preserve" text-anchor="middle" x="1511.12" y="-89.62" font-family="sans-serif" font-size="10.00">HS&#45;owned G&#45;stage roots</text>
+</g>
+<!-- policy&#45;&gt;roots -->
+<g id="edge4" class="edge">
+<title>policy&#45;&gt;roots</title>
+<path fill="none" stroke="black" d="M1368.76,-92C1390.23,-92 1413.85,-92 1435.55,-92"/>
+<polygon fill="black" stroke="black" points="1435.52,-95.5 1445.52,-92 1435.52,-88.5 1435.52,-95.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1407.88" y="-96.2" font-family="sans-serif" font-size="9.00">FLOW&#45;003</text>
+</g>
+<!-- writer -->
+<g id="node6" class="node">
+<title>writer</title>
+<polygon fill="none" stroke="black" points="1762,-220 1702.5,-220 1702.5,-184 1762,-184 1762,-220"/>
+<text xml:space="preserve" text-anchor="middle" x="1732.25" y="-199.62" font-family="sans-serif" font-size="10.00">Writer VS</text>
+</g>
+<!-- roots&#45;&gt;writer -->
+<g id="edge5" class="edge">
+<title>roots&#45;&gt;writer</title>
+<path fill="none" stroke="black" d="M1562.25,-110.37C1597.45,-124.11 1645.09,-144.4 1684.5,-167.25 1689.51,-170.16 1694.62,-173.5 1699.53,-176.94"/>
+<polygon fill="black" stroke="black" points="1697.29,-179.64 1707.44,-182.7 1701.42,-173.98 1697.29,-179.64"/>
+<text xml:space="preserve" text-anchor="middle" x="1638.75" y="-171.45" font-family="sans-serif" font-size="9.00">FLOW&#45;004 initial entry</text>
+</g>
+<!-- switch -->
+<g id="node13" class="node">
+<title>switch</title>
+<polygon fill="none" stroke="black" points="2925,-205 2780,-205 2780,-169 2925,-169 2925,-205"/>
+<text xml:space="preserve" text-anchor="middle" x="2852.5" y="-184.62" font-family="sans-serif" font-size="10.00">HS reset / root / stack switch</text>
+</g>
+<!-- roots&#45;&gt;switch -->
+<g id="edge12" class="edge">
+<title>roots&#45;&gt;switch</title>
+<path fill="none" stroke="black" d="M1575.4,-89.79C1619.16,-88.45 1678.74,-87 1731.25,-87 1731.25,-87 1731.25,-87 2540.88,-87 2640.28,-87 2749.35,-133.98 2808.13,-163.54"/>
+<polygon fill="black" stroke="black" points="2806.32,-166.54 2816.81,-167.97 2809.5,-160.31 2806.32,-166.54"/>
+<text xml:space="preserve" text-anchor="middle" x="2194.75" y="-91.2" font-family="sans-serif" font-size="9.00">FLOW&#45;007 reader root</text>
+</g>
+<!-- wprivate -->
+<g id="node8" class="node">
+<title>wprivate</title>
+<polygon fill="none" stroke="black" points="2104.12,-312 1974.88,-312 1974.88,-276 2104.12,-276 2104.12,-312"/>
+<text xml:space="preserve" text-anchor="middle" x="2039.5" y="-291.62" font-family="sans-serif" font-size="10.00">Writer&#45;private RW pages</text>
+</g>
+<!-- writer&#45;&gt;wprivate -->
+<g id="edge6" class="edge">
+<title>writer&#45;&gt;wprivate</title>
+<path fill="none" stroke="black" d="M1748.35,-230.03C1756.19,-241.85 1766.9,-254.57 1780,-262 1835.72,-293.61 1908.94,-300.04 1963.22,-299.47"/>
+<polygon fill="black" stroke="black" points="1751.46,-228.41 1743.23,-221.73 1745.5,-232.08 1751.46,-228.41"/>
+<polygon fill="black" stroke="black" points="1963.06,-302.97 1972.99,-299.28 1962.92,-295.97 1963.06,-302.97"/>
+<text xml:space="preserve" text-anchor="middle" x="1855.38" y="-302.98" font-family="sans-serif" font-size="9.00">FLOW&#45;005 RW</text>
+</g>
+<!-- shared -->
+<g id="node10" class="node">
+<title>shared</title>
+<polygon fill="none" stroke="black" points="2093.62,-220.25 1985.38,-220.25 1985.38,-183.75 2093.62,-183.75 2093.62,-220.25"/>
+<text xml:space="preserve" text-anchor="middle" x="2039.5" y="-206.75" font-family="sans-serif" font-size="10.00">Shared data</text>
+<text xml:space="preserve" text-anchor="middle" x="2039.5" y="-192.5" font-family="sans-serif" font-size="10.00">Writer RW, reader R</text>
+</g>
+<!-- writer&#45;&gt;shared -->
+<g id="edge7" class="edge">
+<title>writer&#45;&gt;shared</title>
+<path fill="none" stroke="black" d="M1773.48,-202C1824.49,-202 1913.09,-202 1973.69,-202"/>
+<polygon fill="black" stroke="black" points="1773.76,-198.5 1763.76,-202 1773.76,-205.5 1773.76,-198.5"/>
+<polygon fill="black" stroke="black" points="1973.53,-205.5 1983.53,-202 1973.53,-198.5 1973.53,-205.5"/>
+<text xml:space="preserve" text-anchor="middle" x="1855.38" y="-206.2" font-family="sans-serif" font-size="9.00">FLOW&#45;005 shared RW</text>
+</g>
+<!-- trap -->
+<g id="node12" class="node">
+<title>trap</title>
+<polygon fill="none" stroke="black" points="2612,-266 2467.75,-266 2467.75,-230 2612,-230 2612,-266"/>
+<text xml:space="preserve" text-anchor="middle" x="2539.88" y="-245.62" font-family="sans-serif" font-size="10.00">HS exact trap/state machine</text>
+</g>
+<!-- writer&#45;&gt;trap -->
+<g id="edge9" class="edge">
+<title>writer&#45;&gt;trap</title>
+<path fill="none" stroke="black" d="M1762.3,-214.03C1768.08,-216 1774.16,-217.79 1780,-219 1853.57,-234.22 1873.7,-225.57 1948.75,-229 2129.67,-237.27 2341.95,-243.18 2456.13,-246.04"/>
+<polygon fill="black" stroke="black" points="2455.95,-249.54 2466.03,-246.29 2456.12,-242.54 2455.95,-249.54"/>
+<text xml:space="preserve" text-anchor="middle" x="2194.75" y="-244.15" font-family="sans-serif" font-size="9.00">FLOW&#45;006</text>
+</g>
+<!-- reader -->
+<g id="node7" class="node">
+<title>reader</title>
+<polygon fill="none" stroke="black" points="2347.88,-205 2284.62,-205 2284.62,-169 2347.88,-169 2347.88,-205"/>
+<text xml:space="preserve" text-anchor="middle" x="2316.25" y="-184.62" font-family="sans-serif" font-size="10.00">Reader VS</text>
+</g>
+<!-- rprivate -->
+<g id="node9" class="node">
+<title>rprivate</title>
+<polygon fill="none" stroke="black" points="2606.38,-151 2473.38,-151 2473.38,-115 2606.38,-115 2606.38,-151"/>
+<text xml:space="preserve" text-anchor="middle" x="2539.88" y="-130.62" font-family="sans-serif" font-size="10.00">Reader&#45;private RW pages</text>
+</g>
+<!-- reader&#45;&gt;rprivate -->
+<g id="edge14" class="edge">
+<title>reader&#45;&gt;rprivate</title>
+<path fill="none" stroke="black" d="M2358.78,-170.63C2369.27,-166.88 2380.58,-163.14 2391.25,-160.25 2413.95,-154.1 2438.99,-148.9 2461.89,-144.74"/>
+<polygon fill="black" stroke="black" points="2357.81,-167.26 2349.63,-174 2360.23,-173.83 2357.81,-167.26"/>
+<polygon fill="black" stroke="black" points="2462.22,-148.24 2471.46,-143.05 2461,-141.34 2462.22,-148.24"/>
+<text xml:space="preserve" text-anchor="middle" x="2420.5" y="-164.45" font-family="sans-serif" font-size="9.00">FLOW&#45;008 RW</text>
+</g>
+<!-- reader&#45;&gt;trap -->
+<g id="edge10" class="edge">
+<title>reader&#45;&gt;trap</title>
+<path fill="none" stroke="black" d="M2348.13,-194.62C2375.04,-201.35 2415.08,-211.57 2449.75,-221.25 2455.58,-222.88 2461.62,-224.6 2467.68,-226.36"/>
+<polygon fill="black" stroke="black" points="2466.53,-229.67 2477.11,-229.13 2468.5,-222.96 2466.53,-229.67"/>
+<text xml:space="preserve" text-anchor="middle" x="2420.5" y="-225.45" font-family="sans-serif" font-size="9.00">FLOW&#45;006</text>
+</g>
+<!-- shared&#45;&gt;reader -->
+<g id="edge15" class="edge">
+<title>shared&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M2093.8,-199.09C2146.13,-196.23 2224.91,-191.93 2273.05,-189.3"/>
+<polygon fill="black" stroke="black" points="2272.99,-192.81 2282.78,-188.77 2272.61,-185.82 2272.99,-192.81"/>
+<text xml:space="preserve" text-anchor="middle" x="2194.75" y="-200.04" font-family="sans-serif" font-size="9.00">FLOW&#45;008 shared R</text>
+</g>
+<!-- code -->
+<g id="node11" class="node">
+<title>code</title>
+<polygon fill="none" stroke="black" points="1557.38,-191.25 1464.88,-191.25 1464.88,-154.75 1557.38,-154.75 1557.38,-191.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1511.12" y="-177.75" font-family="sans-serif" font-size="10.00">Common code</text>
+<text xml:space="preserve" text-anchor="middle" x="1511.12" y="-163.5" font-family="sans-serif" font-size="10.00">Both subjects RX</text>
+</g>
+<!-- code&#45;&gt;writer -->
+<g id="edge8" class="edge">
+<title>code&#45;&gt;writer</title>
+<path fill="none" stroke="black" d="M1557.79,-179.04C1597.12,-184.25 1653.34,-191.69 1691,-196.67"/>
+<polygon fill="black" stroke="black" points="1690.19,-200.1 1700.56,-197.94 1691.1,-193.16 1690.19,-200.1"/>
+<text xml:space="preserve" text-anchor="middle" x="1638.75" y="-199.94" font-family="sans-serif" font-size="9.00">FLOW&#45;005 code RX</text>
+</g>
+<!-- code&#45;&gt;reader -->
+<g id="edge16" class="edge">
+<title>code&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M1557.51,-172.19C1659.77,-170.58 1916.01,-167.71 2130.25,-175 2179.37,-176.67 2235.71,-180.62 2273.19,-183.53"/>
+<polygon fill="black" stroke="black" points="2272.43,-186.98 2282.67,-184.28 2272.98,-180 2272.43,-186.98"/>
+<text xml:space="preserve" text-anchor="middle" x="1855.38" y="-175.04" font-family="sans-serif" font-size="9.00">FLOW&#45;008 code RX</text>
+</g>
+<!-- trap&#45;&gt;switch -->
+<g id="edge11" class="edge">
+<title>trap&#45;&gt;switch</title>
+<path fill="none" stroke="black" d="M2598.1,-229.56C2608.64,-226.52 2619.6,-223.6 2630,-221.25 2655.86,-215.4 2716.93,-206.08 2768.42,-198.63"/>
+<polygon fill="black" stroke="black" points="2768.68,-202.13 2778.08,-197.24 2767.68,-195.2 2768.68,-202.13"/>
+<text xml:space="preserve" text-anchor="middle" x="2696" y="-225.45" font-family="sans-serif" font-size="9.00">FLOW&#45;007 validated completion</text>
+</g>
+<!-- logs -->
+<g id="node14" class="node">
+<title>logs</title>
+<polygon fill="none" stroke="black" points="2917.88,-312 2787.12,-312 2787.12,-276 2917.88,-276 2917.88,-312"/>
+<text xml:space="preserve" text-anchor="middle" x="2852.5" y="-291.62" font-family="sans-serif" font-size="10.00">SBI / emulator serial logs</text>
+</g>
+<!-- trap&#45;&gt;logs -->
+<g id="edge17" class="edge">
+<title>trap&#45;&gt;logs</title>
+<path fill="none" stroke="black" d="M2612.37,-259.31C2618.33,-260.23 2624.27,-261.14 2630,-262 2678.49,-269.31 2733.01,-277.19 2775.83,-283.3"/>
+<polygon fill="black" stroke="black" points="2775.12,-286.74 2785.52,-284.68 2776.11,-279.81 2775.12,-286.74"/>
+<text xml:space="preserve" text-anchor="middle" x="2696" y="-285.47" font-family="sans-serif" font-size="9.00">FLOW&#45;009 guarded final result</text>
+</g>
+<!-- later -->
+<g id="node21" class="node">
+<title>later</title>
+<polygon fill="none" stroke="black" stroke-dasharray="5,2" points="3604.25,-273.25 3426.25,-273.25 3426.25,-236.75 3604.25,-236.75 3604.25,-273.25"/>
+<text xml:space="preserve" text-anchor="middle" x="3515.25" y="-259.75" font-family="sans-serif" font-size="10.00">Reuse / disposal / interrupted state</text>
+<text xml:space="preserve" text-anchor="middle" x="3515.25" y="-245.5" font-family="sans-serif" font-size="10.00">Unknown requirements</text>
+</g>
+<!-- trap&#45;&gt;later -->
+<g id="edge29" class="edge">
+<title>trap&#45;&gt;later</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2612.45,-248.51C2783.78,-249.75 3217.79,-252.87 3414.55,-254.28"/>
+<polygon fill="black" stroke="black" points="3414.49,-257.78 3424.51,-254.35 3414.54,-250.78 3414.49,-257.78"/>
+<text xml:space="preserve" text-anchor="middle" x="3003" y="-255.94" font-family="sans-serif" font-size="9.00">FLOW&#45;014 shutdown request</text>
+</g>
+<!-- switch&#45;&gt;reader -->
+<g id="edge13" class="edge">
+<title>switch&#45;&gt;reader</title>
+<path fill="none" stroke="black" d="M2779.69,-187C2666.64,-187 2450.7,-187 2359.53,-187"/>
+<polygon fill="black" stroke="black" points="2359.8,-183.5 2349.8,-187 2359.8,-190.5 2359.8,-183.5"/>
+<text xml:space="preserve" text-anchor="middle" x="2539.88" y="-191.2" font-family="sans-serif" font-size="9.00">FLOW&#45;007 cleared state / new SP</text>
+</g>
+<!-- bundle -->
+<g id="node16" class="node">
+<title>bundle</title>
+<polygon fill="none" stroke="black" points="3253.75,-312 3081,-312 3081,-276 3253.75,-276 3253.75,-312"/>
+<text xml:space="preserve" text-anchor="middle" x="3167.38" y="-291.62" font-family="sans-serif" font-size="10.00">Checked export / evidence bundle</text>
+</g>
+<!-- logs&#45;&gt;bundle -->
+<g id="edge21" class="edge">
+<title>logs&#45;&gt;bundle</title>
+<path fill="none" stroke="black" d="M2918.33,-294C2961.92,-294 3020.16,-294 3069.25,-294"/>
+<polygon fill="black" stroke="black" points="3069.03,-297.5 3079.03,-294 3069.03,-290.5 3069.03,-297.5"/>
+<text xml:space="preserve" text-anchor="middle" x="3003" y="-298.2" font-family="sans-serif" font-size="9.00">FLOW&#45;009 retained records</text>
+</g>
+<!-- work&#45;&gt;bundle -->
+<g id="edge20" class="edge">
+<title>work&#45;&gt;bundle</title>
+<path fill="none" stroke="black" d="M935.37,-169.53C988.06,-218.57 1141.72,-348 1295.75,-348 1295.75,-348 1295.75,-348 2853.5,-348 2934.36,-348 3025.28,-330.27 3088.19,-315.13"/>
+<polygon fill="black" stroke="black" points="3088.85,-318.57 3097.74,-312.79 3087.19,-311.77 3088.85,-318.57"/>
+<text xml:space="preserve" text-anchor="middle" x="2039.5" y="-364.95" font-family="sans-serif" font-size="9.00">FLOW&#45;010 namespace / provenance checks</text>
+<text xml:space="preserve" text-anchor="middle" x="2039.5" y="-352.2" font-family="sans-serif" font-size="9.00">not semantic disclosure authorization</text>
+</g>
+<!-- bundle&#45;&gt;check -->
+<g id="edge22" class="edge">
+<title>bundle&#45;&gt;check</title>
+<path fill="none" stroke="black" d="M3199.99,-275.54C3262.69,-238.92 3402.79,-157.1 3472.79,-116.22"/>
+<polygon fill="black" stroke="black" points="3474.41,-119.32 3481.28,-111.25 3470.88,-113.28 3474.41,-119.32"/>
+<text xml:space="preserve" text-anchor="middle" x="3340" y="-232.86" font-family="sans-serif" font-size="9.00">FLOW&#45;011</text>
+</g>
+<!-- recipient -->
+<g id="node20" class="node">
+<title>recipient</title>
+<polygon fill="none" stroke="black" points="3573.5,-335.25 3457,-335.25 3457,-298.75 3573.5,-298.75 3573.5,-335.25"/>
+<text xml:space="preserve" text-anchor="middle" x="3515.25" y="-321.75" font-family="sans-serif" font-size="10.00">Output recipient</text>
+<text xml:space="preserve" text-anchor="middle" x="3515.25" y="-307.5" font-family="sans-serif" font-size="10.00">Entitlement Unknown</text>
+</g>
+<!-- bundle&#45;&gt;recipient -->
+<g id="edge27" class="edge">
+<title>bundle&#45;&gt;recipient</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M3253.87,-299.69C3312.8,-303.6 3390.1,-308.74 3445.13,-312.4"/>
+<polygon fill="black" stroke="black" points="3444.8,-315.89 3455.01,-313.06 3445.27,-308.9 3444.8,-315.89"/>
+<text xml:space="preserve" text-anchor="middle" x="3340" y="-339.26" font-family="sans-serif" font-size="9.00">FLOW&#45;011/013 / THREAT&#45;019</text>
+<text xml:space="preserve" text-anchor="middle" x="3340" y="-326.51" font-family="sans-serif" font-size="9.00">Only if accepted content reaches</text>
+<text xml:space="preserve" text-anchor="middle" x="3340" y="-313.76" font-family="sans-serif" font-size="9.00">an unauthorized recipient</text>
+</g>
+<!-- bundle&#45;&gt;later -->
+<g id="edge28" class="edge">
+<title>bundle&#45;&gt;later</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M3253.87,-284.36C3302.51,-278.88 3363.66,-271.98 3414.48,-266.25"/>
+<polygon fill="black" stroke="black" points="3414.77,-269.74 3424.32,-265.14 3413.99,-262.78 3414.77,-269.74"/>
+<text xml:space="preserve" text-anchor="middle" x="3340" y="-285.59" font-family="sans-serif" font-size="9.00">FLOW&#45;014</text>
+</g>
+<!-- human -->
+<g id="node19" class="node">
+<title>human</title>
+<polygon fill="none" stroke="black" points="3945,-80 3754.25,-80 3754.25,-44 3945,-44 3945,-80"/>
+<text xml:space="preserve" text-anchor="middle" x="3849.62" y="-59.62" font-family="sans-serif" font-size="10.00">Separate human review / blocked gate</text>
+</g>
+<!-- check&#45;&gt;human -->
+<g id="edge25" class="edge">
+<title>check&#45;&gt;human</title>
+<path fill="none" stroke="black" d="M3597.98,-84.62C3641.58,-80.69 3695.73,-75.8 3742.54,-71.58"/>
+<polygon fill="black" stroke="black" points="3742.8,-75.07 3752.45,-70.68 3742.17,-68.09 3742.8,-75.07"/>
+<text xml:space="preserve" text-anchor="middle" x="3679.25" y="-86.5" font-family="sans-serif" font-size="9.00">FLOW&#45;013 decision support</text>
+</g>
+<!-- docs&#45;&gt;human -->
+<g id="edge26" class="edge">
+<title>docs&#45;&gt;human</title>
+<path fill="none" stroke="black" d="M1207.44,-46C1263.39,-46 1339.67,-46 1406.88,-46 1406.88,-46 1406.88,-46 3516.25,-46 3592.02,-46 3677.4,-50.2 3742.65,-54.3"/>
+<polygon fill="black" stroke="black" points="3742.05,-57.77 3752.26,-54.91 3742.5,-50.78 3742.05,-57.77"/>
+<text xml:space="preserve" text-anchor="middle" x="2316.25" y="-50.2" font-family="sans-serif" font-size="9.00">FLOW&#45;013 decision support</text>
+</g>
+<!-- note -->
+<g id="node22" class="node">
+<title>note</title>
+<polygon fill="none" stroke="black" points="337,-230.88 0,-230.88 0,-123.12 343,-123.12 343,-224.88 337,-230.88"/>
+<polyline fill="none" stroke="black" points="337,-230.88 337,-224.88"/>
+<polyline fill="none" stroke="black" points="343,-224.88 337,-224.88"/>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-217.38" font-family="sans-serif" font-size="10.00">No reader&#45;to&#45;shared write authority or cross&#45;private mapping is shown.</text>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-203.12" font-family="sans-serif" font-size="10.00">No guest policy parser / SBI proxy / dynamic lifecycle is invented.</text>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-188.88" font-family="sans-serif" font-size="10.00">THREAT&#45;019 also requires sensitive readable input and accepted</text>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-174.62" font-family="sans-serif" font-size="10.00">content freedom; no such carrier or recipient mismatch is proved.</text>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-160.38" font-family="sans-serif" font-size="10.00">Dashed flows are Inferred; other arrows describe source, not a run.</text>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-146.12" font-family="sans-serif" font-size="10.00">Evidence: TM&#45;20260911&#45;001&#45;E0012, E0014, E0015, E0016,</text>
+<text xml:space="preserve" text-anchor="middle" x="171.5" y="-131.88" font-family="sans-serif" font-size="10.00">E0017, E0020, E0021, E0023, E0025, E0027, E0028, E0029, E0045.</text>
+</g>
+</g>
+</svg>

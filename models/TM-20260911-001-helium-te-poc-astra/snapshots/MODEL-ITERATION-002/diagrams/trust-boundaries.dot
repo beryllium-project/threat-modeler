@@ -1,0 +1,34 @@
+digraph trust_boundaries {
+    graph [label="TM-20260911-001 | Trust boundaries and required trust", labelloc=t, rankdir=LR];
+    node [shape=box, fontname="sans-serif", fontsize=10];
+    edge [fontname="sans-serif", fontsize=9];
+    producer [label="Source / dependency producer"];
+    native [label="Trusted invoking host and native tools"];
+    platform [label="Firmware / emulator / ISA dependency"];
+    hs [label="HS-owned code, state, policy and roots"];
+    vs [label="Untrusted VS events and memory accesses"];
+    memory [label="Writer / reader private pages\nIntentional shared page"];
+    container [label="Retained evaluated work"];
+    readable [label="Admitted readable source / Git / provenance\nSensitive classes Unknown"];
+    artifacts [label="Produced logs / bundles"];
+    verifier [label="Correspondence interpretation"];
+    web [label="Generated site / browser / HTTP clients"];
+    human [label="Responsible-human decision"];
+    later [label="Later run / retained data / disposal", style=dashed];
+    producer -> native [label="BOUNDARY-001\nCONTROL-006; not arbitrary-code confinement"];
+    platform -> hs [label="BOUNDARY-002\nRequired correctness is Unknown", style=dashed];
+    vs -> hs [label="BOUNDARY-003\nCONTROL-003/004; non-nested trap assumption"];
+    hs -> memory [label="BOUNDARY-004\nCONTROL-001/002; fixed authority"];
+    memory -> vs [label="BOUNDARY-004\nPer-root access and explicit sharing"];
+    native -> container [label="BOUNDARY-005\nCONTROL-008/009; begins after preflight", dir=both];
+    readable -> container [label="FLOW-010\nRead-only is not unreadable"];
+    container -> artifacts [label="BOUNDARY-005/006\nIntegrity-checked export"];
+    artifacts -> verifier [label="BOUNDARY-006\nCONTROL-007/010; not authenticity"];
+    native -> web [label="BOUNDARY-007\nCONTROL-011; default loopback/sandbox", dir=both];
+    verifier -> human [label="BOUNDARY-008\nCONTROL-012/014; gate blocked"];
+    artifacts -> human [style=dashed, label="FLOW-013 / THREAT-019\nOnly if an accepted carrier reaches\nan unauthorized recipient"];
+    web -> human [label="BOUNDARY-008\nNo content/approval inference"];
+    hs -> later [label="BOUNDARY-009\nErasure / restart Unknown", style=dashed];
+    artifacts -> later [label="BOUNDARY-009\nPartial cleanup, not crash durability", style=dashed];
+    legend [shape=note, label="Established: source-described mechanisms.\nInferred: grouping and conditional disclosure.\nDashed: required trust or unresolved conditions.\nTHREAT-010 credit: ordinary paths with correct enforcement.\nFailed kernel/OCI: THREAT-007; total budgets: THREAT-018.\nEvidence: TM-20260911-001-E0013 to E0029, E0045."];
+}

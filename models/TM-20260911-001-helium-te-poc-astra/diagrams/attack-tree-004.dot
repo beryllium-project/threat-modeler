@@ -1,0 +1,22 @@
+digraph attack_tree {
+    graph [label="TM-20260911-001 | ATTACK-004: Inferred decision/lifecycle misuse", labelloc=t, rankdir=BT];
+    node [shape=box, fontname="sans-serif", fontsize=10];
+    goal [label="Decision or lifecycle objective violated"];
+    alternatives [shape=ellipse, label="OR"];
+    approval [label="THREAT-015\nFalse human-decision attribution"];
+    conjunction [shape=ellipse, label="AND"];
+    plausible [label="Plausible structural metadata supplied"];
+    belief [label="Consumer treats unestablished identity as authentic"];
+    inflation [label="THREAT-016\nBounded PoC evidence overstated"];
+    progress [label="THREAT-006\nACTOR-001/002 or platform failure\nRequired experiment progress denied"];
+    retention [label="THREAT-018\nUnintended retained-state access / interruption effect"];
+    plausible -> conjunction;
+    belief -> conjunction;
+    conjunction -> approval;
+    approval -> alternatives;
+    inflation -> alternatives;
+    progress -> alternatives;
+    retention -> alternatives;
+    alternatives -> goal;
+    note [shape=note, label="CONTROL-012/014 preserve distinctions, not human authentication.\nFrozen gate is blocked; no approval or disclosure assumed.\nRetention and availability requirements remain Unknown.\nEvidence: TM-20260911-001-E0017, E0028, E0029."];
+}

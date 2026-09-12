@@ -6,3 +6,4 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [TM-20260901-001](models/TM-20260901-001-helium-te-poc/threat-model.md) | Helium TE PoC Initial Threat Model | 2026-09-01 | `create-from-evidence` | `Complete` | `private` | `MODEL-ITERATION-001` | `REVIEW-ITERATION-001` |
 | [TM-20260904-001](models/TM-20260904-001-helium-te-poc-fable51/threat-model.md) | Helium TE PoC Independent Threat Model (Fable 5.1 replay) | 2026-09-04 | `create-from-evidence` | `Complete` | `private` | `MODEL-ITERATION-002` | `REVIEW-ITERATION-001` |
+| [TM-20260911-001](models/TM-20260911-001-helium-te-poc-astra/threat-model.md) | Helium TE PoC Independent Threat Model (GPT-6 Astra) | 2026-09-11 | `create-from-evidence` | `Complete` | `private` | `MODEL-ITERATION-002` | `REVIEW-ITERATION-002` |

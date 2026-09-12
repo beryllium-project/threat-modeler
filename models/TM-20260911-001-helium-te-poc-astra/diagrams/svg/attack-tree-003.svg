@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ -->
+<!-- Title: attack_tree Pages: 1 -->
+<svg width="1709pt" height="415pt"
+ viewBox="0.00 0.00 1709.00 415.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 410.5)">
+<title>attack_tree</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-410.5 1704.5,-410.5 1704.5,4 -4,4"/>
+<text xml:space="preserve" text-anchor="middle" x="850.25" y="-389.2" font-family="Times,serif" font-size="14.00">TM&#45;20260911&#45;001 | ATTACK&#45;003: Inferred host/data effect</text>
+<!-- goal -->
+<g id="node1" class="node">
+<title>goal</title>
+<polygon fill="none" stroke="black" points="840.62,-382 595.88,-382 595.88,-346 840.62,-346 840.62,-382"/>
+<text xml:space="preserve" text-anchor="middle" x="718.25" y="-361.62" font-family="sans-serif" font-size="10.00">Unauthorized host/data effect through evaluation</text>
+</g>
+<!-- alternatives -->
+<g id="node2" class="node">
+<title>alternatives</title>
+<ellipse fill="none" stroke="black" cx="718.25" cy="-292" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="718.25" y="-289.62" font-family="sans-serif" font-size="10.00">OR</text>
+</g>
+<!-- alternatives&#45;&gt;goal -->
+<g id="edge13" class="edge">
+<title>alternatives&#45;&gt;goal</title>
+<path fill="none" stroke="black" d="M718.25,-310.3C718.25,-317.59 718.25,-326.27 718.25,-334.46"/>
+<polygon fill="black" stroke="black" points="714.75,-334.38 718.25,-344.38 721.75,-334.38 714.75,-334.38"/>
+</g>
+<!-- preflight -->
+<g id="node3" class="node">
+<title>preflight</title>
+<polygon fill="none" stroke="black" points="383.12,-230.88 123.38,-230.88 123.38,-194.38 383.12,-194.38 383.12,-230.88"/>
+<text xml:space="preserve" text-anchor="middle" x="253.25" y="-217.38" font-family="sans-serif" font-size="10.00">THREAT&#45;009</text>
+<text xml:space="preserve" text-anchor="middle" x="253.25" y="-203.12" font-family="sans-serif" font-size="10.00">Native repository code runs before retained isolation</text>
+</g>
+<!-- preflight&#45;&gt;alternatives -->
+<g id="edge4" class="edge">
+<title>preflight&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M353.44,-231.35C366.49,-233.61 379.69,-235.88 392.25,-238 496.67,-255.64 620.1,-275.41 680.76,-285.06"/>
+<polygon fill="black" stroke="black" points="680.11,-288.5 690.54,-286.61 681.21,-281.59 680.11,-288.5"/>
+</g>
+<!-- conjunction -->
+<g id="node4" class="node">
+<title>conjunction</title>
+<ellipse fill="none" stroke="black" cx="253.25" cy="-133.25" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="253.25" y="-130.88" font-family="sans-serif" font-size="10.00">AND</text>
+</g>
+<!-- conjunction&#45;&gt;preflight -->
+<g id="edge3" class="edge">
+<title>conjunction&#45;&gt;preflight</title>
+<path fill="none" stroke="black" d="M253.25,-151.42C253.25,-160.61 253.25,-172.17 253.25,-182.7"/>
+<polygon fill="black" stroke="black" points="249.75,-182.45 253.25,-192.45 256.75,-182.45 249.75,-182.45"/>
+</g>
+<!-- malicious -->
+<g id="node5" class="node">
+<title>malicious</title>
+<polygon fill="none" stroke="black" points="236.5,-57.62 0,-57.62 0,-21.62 236.5,-21.62 236.5,-57.62"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-37.25" font-family="sans-serif" font-size="10.00">Untrusted or compromised source/dependency</text>
+</g>
+<!-- malicious&#45;&gt;conjunction -->
+<g id="edge1" class="edge">
+<title>malicious&#45;&gt;conjunction</title>
+<path fill="none" stroke="black" d="M143.96,-58.07C167.36,-73.96 201.8,-97.33 225.75,-113.58"/>
+<polygon fill="black" stroke="black" points="223.5,-116.29 233.74,-119.01 227.43,-110.49 223.5,-116.29"/>
+</g>
+<!-- invokes -->
+<g id="node6" class="node">
+<title>invokes</title>
+<polygon fill="none" stroke="black" points="522.25,-57.62 254.25,-57.62 254.25,-21.62 522.25,-21.62 522.25,-57.62"/>
+<text xml:space="preserve" text-anchor="middle" x="388.25" y="-37.25" font-family="sans-serif" font-size="10.00">Operator invokes under incorrect sandbox expectation</text>
+</g>
+<!-- invokes&#45;&gt;conjunction -->
+<g id="edge2" class="edge">
+<title>invokes&#45;&gt;conjunction</title>
+<path fill="none" stroke="black" d="M362.54,-58.07C339.14,-73.96 304.7,-97.33 280.75,-113.58"/>
+<polygon fill="black" stroke="black" points="279.07,-110.49 272.76,-119.01 283,-116.29 279.07,-110.49"/>
+</g>
+<!-- dependency -->
+<g id="node7" class="node">
+<title>dependency</title>
+<polygon fill="none" stroke="black" points="621.62,-230.88 400.88,-230.88 400.88,-194.38 621.62,-194.38 621.62,-230.88"/>
+<text xml:space="preserve" text-anchor="middle" x="511.25" y="-217.38" font-family="sans-serif" font-size="10.00">THREAT&#45;011</text>
+<text xml:space="preserve" text-anchor="middle" x="511.25" y="-203.12" font-family="sans-serif" font-size="10.00">Malicious / drifting dependency construction</text>
+</g>
+<!-- dependency&#45;&gt;alternatives -->
+<g id="edge5" class="edge">
+<title>dependency&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M558.48,-231.28C596.92,-245.65 650.23,-265.58 684.49,-278.38"/>
+<polygon fill="black" stroke="black" points="682.89,-281.52 693.48,-281.74 685.34,-274.96 682.89,-281.52"/>
+</g>
+<!-- container -->
+<g id="node8" class="node">
+<title>container</title>
+<polygon fill="none" stroke="black" points="796.75,-238 639.75,-238 639.75,-187.25 796.75,-187.25 796.75,-238"/>
+<text xml:space="preserve" text-anchor="middle" x="718.25" y="-224.5" font-family="sans-serif" font-size="10.00">THREAT&#45;010</text>
+<text xml:space="preserve" text-anchor="middle" x="718.25" y="-210.25" font-family="sans-serif" font-size="10.00">Ordinary container crossing</text>
+<text xml:space="preserve" text-anchor="middle" x="718.25" y="-196" font-family="sans-serif" font-size="10.00">Correct enforcement assumed</text>
+</g>
+<!-- container&#45;&gt;alternatives -->
+<g id="edge6" class="edge">
+<title>container&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M718.25,-238.11C718.25,-245.75 718.25,-254.25 718.25,-262.17"/>
+<polygon fill="black" stroke="black" points="714.75,-262.03 718.25,-272.03 721.75,-262.03 714.75,-262.03"/>
+</g>
+<!-- docs -->
+<g id="node9" class="node">
+<title>docs</title>
+<polygon fill="none" stroke="black" points="989.38,-238 815.12,-238 815.12,-187.25 989.38,-187.25 989.38,-238"/>
+<text xml:space="preserve" text-anchor="middle" x="902.25" y="-224.5" font-family="sans-serif" font-size="10.00">THREAT&#45;014</text>
+<text xml:space="preserve" text-anchor="middle" x="902.25" y="-210.25" font-family="sans-serif" font-size="10.00">Inappropriate exposure/exception</text>
+<text xml:space="preserve" text-anchor="middle" x="902.25" y="-196" font-family="sans-serif" font-size="10.00">with stated additional conditions</text>
+</g>
+<!-- docs&#45;&gt;alternatives -->
+<g id="edge7" class="edge">
+<title>docs&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M843.27,-238.43C812.87,-251.21 776.93,-266.33 751.4,-277.06"/>
+<polygon fill="black" stroke="black" points="750.06,-273.83 742.2,-280.93 752.77,-280.28 750.06,-273.83"/>
+</g>
+<!-- disclosure -->
+<g id="node10" class="node">
+<title>disclosure</title>
+<polygon fill="none" stroke="black" points="1153.12,-230.88 1007.38,-230.88 1007.38,-194.38 1153.12,-194.38 1153.12,-230.88"/>
+<text xml:space="preserve" text-anchor="middle" x="1080.25" y="-217.38" font-family="sans-serif" font-size="10.00">THREAT&#45;019</text>
+<text xml:space="preserve" text-anchor="middle" x="1080.25" y="-203.12" font-family="sans-serif" font-size="10.00">Permitted&#45;output disclosure</text>
+</g>
+<!-- disclosure&#45;&gt;alternatives -->
+<g id="edge12" class="edge">
+<title>disclosure&#45;&gt;alternatives</title>
+<path fill="none" stroke="black" d="M1023.55,-231.29C1015.11,-233.69 1006.48,-236 998.25,-238 912.25,-258.86 809.73,-276.45 755.76,-285.15"/>
+<polygon fill="black" stroke="black" points="755.51,-281.64 746.19,-286.68 756.61,-288.56 755.51,-281.64"/>
+</g>
+<!-- disclosure_and -->
+<g id="node11" class="node">
+<title>disclosure_and</title>
+<ellipse fill="none" stroke="black" cx="1080.25" cy="-133.25" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1080.25" y="-130.88" font-family="sans-serif" font-size="10.00">AND</text>
+</g>
+<!-- disclosure_and&#45;&gt;disclosure -->
+<g id="edge11" class="edge">
+<title>disclosure_and&#45;&gt;disclosure</title>
+<path fill="none" stroke="black" d="M1080.25,-151.42C1080.25,-160.61 1080.25,-172.17 1080.25,-182.7"/>
+<polygon fill="black" stroke="black" points="1076.75,-182.45 1080.25,-192.45 1083.75,-182.45 1076.75,-182.45"/>
+</g>
+<!-- sensitive -->
+<g id="node12" class="node">
+<title>sensitive</title>
+<polygon fill="none" stroke="black" points="976.38,-57.62 850.12,-57.62 850.12,-21.62 976.38,-21.62 976.38,-57.62"/>
+<text xml:space="preserve" text-anchor="middle" x="913.25" y="-37.25" font-family="sans-serif" font-size="10.00">Sensitive input readable</text>
+</g>
+<!-- sensitive&#45;&gt;disclosure_and -->
+<g id="edge8" class="edge">
+<title>sensitive&#45;&gt;disclosure_and</title>
+<path fill="none" stroke="black" d="M945.05,-58.07C975.36,-74.7 1020.65,-99.55 1050.32,-115.83"/>
+<polygon fill="black" stroke="black" points="1048.33,-118.73 1058.78,-120.47 1051.7,-112.59 1048.33,-118.73"/>
+</g>
+<!-- carrier -->
+<g id="node13" class="node">
+<title>carrier</title>
+<polygon fill="none" stroke="black" points="1166.25,-57.88 994.25,-57.88 994.25,-21.38 1166.25,-21.38 1166.25,-57.88"/>
+<text xml:space="preserve" text-anchor="middle" x="1080.25" y="-44.38" font-family="sans-serif" font-size="10.00">Information placed in output</text>
+<text xml:space="preserve" text-anchor="middle" x="1080.25" y="-30.12" font-family="sans-serif" font-size="10.00">accepted by actual content checks</text>
+</g>
+<!-- carrier&#45;&gt;disclosure_and -->
+<g id="edge9" class="edge">
+<title>carrier&#45;&gt;disclosure_and</title>
+<path fill="none" stroke="black" d="M1080.25,-58.29C1080.25,-71.18 1080.25,-88.91 1080.25,-103.78"/>
+<polygon fill="black" stroke="black" points="1076.75,-103.44 1080.25,-113.44 1083.75,-103.44 1076.75,-103.44"/>
+</g>
+<!-- recipient -->
+<g id="node14" class="node">
+<title>recipient</title>
+<polygon fill="none" stroke="black" points="1326.25,-57.88 1184.25,-57.88 1184.25,-21.38 1326.25,-21.38 1326.25,-57.88"/>
+<text xml:space="preserve" text-anchor="middle" x="1255.25" y="-44.38" font-family="sans-serif" font-size="10.00">Output reaches recipient</text>
+<text xml:space="preserve" text-anchor="middle" x="1255.25" y="-30.12" font-family="sans-serif" font-size="10.00">unauthorized for that input</text>
+</g>
+<!-- recipient&#45;&gt;disclosure_and -->
+<g id="edge10" class="edge">
+<title>recipient&#45;&gt;disclosure_and</title>
+<path fill="none" stroke="black" d="M1221.51,-58.29C1189.47,-75.06 1141.74,-100.05 1110.8,-116.25"/>
+<polygon fill="black" stroke="black" points="1109.58,-112.94 1102.34,-120.68 1112.82,-119.15 1109.58,-112.94"/>
+</g>
+<!-- note -->
+<g id="node15" class="node">
+<title>note</title>
+<polygon fill="none" stroke="black" points="1694.5,-79.25 1344,-79.25 1344,0 1700.5,0 1700.5,-73.25 1694.5,-79.25"/>
+<polyline fill="none" stroke="black" points="1694.5,-79.25 1694.5,-73.25"/>
+<polyline fill="none" stroke="black" points="1700.5,-73.25 1694.5,-73.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1522.25" y="-65.75" font-family="sans-serif" font-size="10.00">CONTROL&#45;008 starts downstream of native preflight.</text>
+<text xml:space="preserve" text-anchor="middle" x="1522.25" y="-51.5" font-family="sans-serif" font-size="10.00">Integrity checks are not disclosure authorization.</text>
+<text xml:space="preserve" text-anchor="middle" x="1522.25" y="-37.25" font-family="sans-serif" font-size="10.00">All THREAT&#45;019 conditions remain Unknown; no leak demonstrated.</text>
+<text xml:space="preserve" text-anchor="middle" x="1522.25" y="-23" font-family="sans-serif" font-size="10.00">Kernel/OCI failure remains THREAT&#45;007; total budgets THREAT&#45;018.</text>
+<text xml:space="preserve" text-anchor="middle" x="1522.25" y="-8.75" font-family="sans-serif" font-size="10.00">Evidence: TM&#45;20260911&#45;001&#45;E0021, E0022, E0023, E0025, E0027, E0045.</text>
+</g>
+</g>
+</svg>

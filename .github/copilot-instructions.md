@@ -23,8 +23,13 @@ the parent workspace.
 
 ## Agents and workflow
 
-Use `/agent threat-modeler` for user-facing work. The orchestrator must use the
-`/beryllium-threat-modeling` skill for every engagement.
+Use `/agent threat-modeler` for threat-modeling engagements. The orchestrator
+must use the `/beryllium-threat-modeling` skill for every such engagement.
+
+Use `/agent threat-model-maintainer` for repository maintenance, validation,
+and explicitly authorized Git commit or push operations. The maintainer works
+only in this repository and does not create, review, resume, or promote
+threat-model packages.
 
 The specialist agents are write-disabled:
 
@@ -41,7 +46,8 @@ artifacts, and user interaction.
 ## Execution boundary
 
 Never execute, build, test, compile, source, import, install, or otherwise run
-target or sibling content. The orchestrator may use `execute` only for:
+target or sibling content. The threat-modeler orchestrator may use `execute`
+only for:
 
 - `scripts/new-threat-model.sh`;
 - `scripts/readonly-inspect.sh`;
@@ -56,9 +62,16 @@ interpreters, or any other executable. Use the web tool only for public
 research. If a maintained helper is absent or fails, record the limitation and
 stop the affected phase rather than substituting another command.
 
-## Required engagement gates
+The separately invoked threat-model-maintainer may execute repository-local
+maintenance commands, maintained checks, and Git or GitHub operations that the
+user explicitly authorizes. Its authority does not extend to the parent
+workspace, registered targets, sibling repositories, or their Git metadata.
+It must preserve unrelated changes and must not execute target or sibling
+content.
 
-Every engagement must:
+## Required threat-modeling engagement gates
+
+Every threat-modeling engagement must:
 
 1. conduct guided intake;
 2. bind each target to an exact clean revision or an explicitly approved,
