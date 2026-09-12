@@ -22,9 +22,11 @@ registered in `workspace://COMPONENTS.md`. Its operational handoff is
 are under `workspace://project-manager/records/`; its queue ledger and owner
 requests are `workspace://project-manager/queue/LEDGER.md` and
 `workspace://project-manager/outbox/component-requests.md`. The parent
-`workspace://HANDOFF.md` and
-`workspace://formal-verification/helium-te-fv-pathfinder.md` are redirect
-stubs kept for older citations; prefer the `project-manager/` paths.
+`workspace://HANDOFF.md` remains a compatibility redirect. The former
+`workspace://formal-verification/` redirects were retired by
+`workspace://project-manager/records/decisions/PMD-20260912-001-retire-formal-verification-redirects.md`;
+current assurance lookup uses
+`workspace://project-manager/records/assurance/` directly.
 `project-manager` is not in this repository's registered target set: read it
 by path under `workspace://` and take its exact revision from the
 `project-manager/` row of `workspace://COMPONENTS.md`.
