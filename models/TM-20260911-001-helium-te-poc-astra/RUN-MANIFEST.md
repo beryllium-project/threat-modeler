@@ -77,7 +77,7 @@ and must not be confused with the excluded threat-modeler packages.
 | Comparison | Complete, post-freeze | RUN-COMPARISON.md; all fourteen baseline hashes and eleven older input hashes unchanged afterward |
 | Post-analysis follow-up | Paused by user | Await explicit resumption; no verification plan or owner request dispatched by this pause record |
 | Presentation derivatives | Complete, format-only maintenance | Seven PNGs added beside byte-identical SVGs after explicit user request; analytical run remains paused |
-| Git delivery | Requested; blocked | Commit-all/push not performed under the active helper-only execution boundary |
+| Git delivery | Complete | Separately authorized maintainer workflow reviewed the package commit and backed current `main` up to private `origin/main` under `PMR-028`; no analysis or distribution change |
 
 ## Dispatch history
 
@@ -128,6 +128,7 @@ historical Beryllium context pass while they ran.
 | ACTIVITY-025 | 2026-09-11T23:52:08.181Z | Requesting user / Threat-modeler | Paused the run and deferred substantive follow-up on explicit user request. | None | Completed analysis/review/comparison remain private; no baseline or model-setting change. Timestamp is the user request. |
 | ACTIVITY-026 | 2026-09-12T00:08:12Z | Threat-modeler | Added maintained optional PNG rendering/checking, generated all seven current Astra PNGs and verified existing SVGs and all fourteen blind-baseline files unchanged. | None | Format-only request, not analysis resumption; no new evidence/model/review ID allocated. Maintained tests: 186 passed, 0 failed; package completion passed with both formats. |
 | ACTIVITY-027 | 2026-09-12 | Threat-modeler | Recorded the user's subsequent commit-all/push request as unperformed due to the workflow's execution boundary. | None | No direct Git, alternate agent or helper side effect used to perform real-repository staging, commit or push. |
+| ACTIVITY-028 | 2026-09-15 | Threat-model-maintainer | Completed separately authorized repository validation, commit and private backup under PMR-028. | None | Supersedes only the current Git-delivery state in ACTIVITY-027; the run remains complete, private and paused with its analytical baseline unchanged. |
 
 ## PNG presentation derivatives
 

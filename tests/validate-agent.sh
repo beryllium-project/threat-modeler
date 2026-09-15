@@ -574,6 +574,16 @@ else
     pass "discovery excludes restricted-microsoft"
 fi
 
+components_output=$("$toolroot/scripts/readonly-inspect.sh" components)
+for registered in project-manager security-reviewer; do
+    if printf '%s\n' "$components_output" |
+        grep -Fq "$registered"$'\tabsent\t-\t-'; then
+        pass "readonly-inspect registers $registered"
+    else
+        fail "readonly-inspect does not register $registered"
+    fi
+done
+
 expect_fail "readonly-inspect rejects an unregistered component" \
     "$toolroot/scripts/readonly-inspect.sh" state not-registered
 expect_fail "readonly-inspect rejects a malformed revision" \

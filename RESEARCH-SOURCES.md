@@ -27,9 +27,10 @@ requests are `workspace://project-manager/queue/LEDGER.md` and
 `workspace://project-manager/records/decisions/PMD-20260912-001-retire-formal-verification-redirects.md`;
 current assurance lookup uses
 `workspace://project-manager/records/assurance/` directly.
-`project-manager` is not in this repository's registered target set: read it
-by path under `workspace://` and take its exact revision from the
-`project-manager/` row of `workspace://COMPONENTS.md`.
+`project-manager` is also a registered target for an explicitly scoped,
+revision-bound engagement. When it supplies Tier 1 coordination rather than
+the selected target, read it by path under `workspace://` and take its exact
+revision from the `project-manager/` row of `workspace://COMPONENTS.md`.
 
 Use this tier to establish:
 
@@ -128,6 +129,8 @@ The maintained helper is authoritative for current availability. The expected
 registered names are:
 
 - `workspace` for the parent coordination snapshot;
+- `project-manager`;
+- `security-reviewer`;
 - `beryllium-repo`;
 - `helium-te-poc`;
 - `formal-verification-research`;

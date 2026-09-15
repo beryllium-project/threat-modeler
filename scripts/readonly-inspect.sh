@@ -34,6 +34,8 @@ workspace_root=$(CDPATH= cd -- "$repository_root/.." && pwd -P) ||
     die "cannot resolve workspace root"
 
 registered_components=(
+    project-manager
+    security-reviewer
     beryllium-repo
     helium-te-poc
     formal-verification-research

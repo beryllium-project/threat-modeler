@@ -20,11 +20,12 @@ Generation used the maintained renderer and did not resume analysis. At
 2026-09-12T00:08:12Z, all fourteen blind-baseline hashes and all seven existing
 SVG hashes were unchanged. The package remains paused and private.
 
-Git delivery: the user requested committing all changes and pushing, but
-neither was performed. This workflow permits only its maintained execution
-helpers and has no real-repository commit/push helper. A separately authorized
-maintainer workflow must inspect the full changes and approved private
-destination before carrying out that request.
+Git delivery is complete through the separately authorized maintainer workflow
+under `PMR-028`. The package commit `5bf6a4b` and subsequent coordination
+commit `f4eb272` were reviewed, maintained validation passed, and current
+`main` was backed up to private `origin/main`. This maintenance did not resume
+the run or change its private distribution, evidence, model, review, risks or
+human gates.
 
 Established: `create-from-evidence` is confirmed for clean, detached Helium
 `1ab289c066b69acdd8b55c9f77055b0145be1316`, with clean Beryllium
@@ -109,8 +110,10 @@ final blind hashes were recorded at 22:45:58Z-22:45:59Z and all matched again
 after comparison at 23:00:18Z. The eleven compared older-source hashes and
 both exact clean target states also remained unchanged. Package completion
 validation and index checking passed with the comparison present.
-No baseline-copy validator run, commit, target execution or human approval
-is claimed.
+The analytical run claimed no baseline-copy validator run, repository commit,
+target execution or human approval at completion. Subsequent repository
+commit and private-backup maintenance is recorded below; it is not analytical
+evidence or a human approval.
 
 ## Activity
 
@@ -133,3 +136,4 @@ is claimed.
 | ACTIVITY-015 | 2026-09-11T23:52:08.181Z | Requesting user / Threat-modeler | Recorded this TM run as paused and replaced the active next action with awaiting explicit resumption. | None | Complete/private artifacts and frozen baseline unchanged; no new research, verification plan, owner-request dispatch or target work initiated. Timestamp is the user request. |
 | ACTIVITY-016 | 2026-09-12T00:08:12Z | Threat-modeler | Fulfilled the explicit format-only request with seven PNG derivatives, preserving all SVG and frozen analytical bytes. | None | Maintained renderer/completion checks passed; renderer regression suite reported 186 passed, 0 failed. Run remains paused/private. |
 | ACTIVITY-017 | 2026-09-12 | Threat-modeler | Recorded the separate commit-all/push request as blocked by the helper-only execution boundary. | None | No real-repository commit, staging or push attempted; no delegation or helper modification used to bypass the boundary. |
+| ACTIVITY-018 | 2026-09-15 | Threat-model-maintainer | Completed separately authorized repository validation, commit and private backup under PMR-028. | None | Supersedes only the current delivery status in ACTIVITY-017; the historical boundary observation remains true. No analysis resumed and no distribution or human gate changed. |

@@ -1,6 +1,6 @@
 # Threat-modeler handoff
 
-**Last updated:** 2026-09-12
+**Last updated:** 2026-09-15
 
 ## Current TM run: paused
 
@@ -17,10 +17,24 @@ publication for this run. Its package `HANDOFF.md`, `scope.md` and
 
 An explicitly requested format-only follow-up added seven PNG derivatives
 alongside unchanged SVGs in that package. The TM run remains paused.
-The separate request to commit all changes and push remains unperformed in the
-threat-modeler session. The user-invocable `/agent threat-model-maintainer`
-profile is now the authorized workflow for repository-local validation, commit,
-and push. It must inspect the actual outstanding diff before delivery.
+
+Repository delivery is complete under `PMR-028`. The owner package commit
+`5bf6a4b` and Project Manager coordination carry `f4eb272` were reviewed,
+maintained validation passed, and current `main` was backed up to its private
+`origin/main`. This is private backup, not publication, package promotion,
+model approval, risk acceptance or resumption of the paused run.
+
+## Project Manager tasking return
+
+- `PMR-028`: complete as described above.
+- `PMR-004`: adopted. `project-manager` is a registered exact-snapshot target
+  while retaining its separate Tier 1 coordination role.
+- `PMR-022`: adopted. `security-reviewer` is a registered exact-snapshot
+  target.
+
+Both registrations are enforced by `scripts/readonly-inspect.sh` and its
+maintained contract tests. This owner maintenance changes no target or sibling
+repository and grants no approval, acceptance, publication or release gate.
 
 ## Historical implementation handoff (2026-08-29)
 
