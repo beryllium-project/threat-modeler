@@ -14,6 +14,11 @@ push operations, use:
 /agent threat-model-maintainer
 ```
 
+The repository also registers a hidden `threat-modeler-owner` for exact
+single-request Project Manager dispatch. It is model-invocable but not
+user-invocable; do not use it as an interactive maintenance or
+threat-modeling entry point.
+
 The agent discovers existing threat and security material before asking the
 user to choose one of three modes:
 
@@ -42,6 +47,14 @@ The separate maintainer profile can edit and validate this repository and,
 when explicitly authorized, stage, commit, and push its changes. It cannot
 modify or execute registered targets, sibling repositories, or the parent
 workspace.
+
+The hidden owner has a narrower boundary. A dispatch binds one directly
+assigned PMR to the exact Project Manager commit, request blob, tasking SOT
+SHA-256, component, expected branch and pre-edit HEAD, selected request row,
+and authorized paths. The profile is pinned to `gpt-5.6-sol` with invocation
+defaults `max` and `long_context`, requires a clean sole-writer state, and
+fails closed on any mismatch or unresolved gate. It has no interactive,
+delegation, web, or threat-modeling capability.
 
 Never access or copy
 `component://osr-claude/sources/restricted-microsoft/`.
@@ -164,6 +177,12 @@ Package operations are documented in
 may use only the maintained scripts listed in its execution allowlist. The
 threat-model-maintainer profile may run repository checks such as `git diff
 --check` and perform explicitly authorized Git delivery.
+
+For the hidden owner, `tests/validate-agent.sh` is the only maintained
+executable. Its remaining execution authority is limited to narrow local Git
+inspection, `git diff --check`, exact-path staging, and validated local work
+and return commits. It records a structured `## Project Manager return` in
+`HANDOFF.md`, emits `OWNER_AGENT_RESPONSE_V1`, and never pushes.
 
 ## Current assurance wording
 

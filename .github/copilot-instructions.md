@@ -31,6 +31,16 @@ and explicitly authorized Git commit or push operations. The maintainer works
 only in this repository and does not create, review, resume, or promote
 threat-model packages.
 
+The hidden `threat-modeler-owner` profile is model-invocable and not
+user-invocable. It handles exactly one directly assigned Project Manager
+maintenance request per invocation. Dispatch must pin `gpt-5.6-sol` with
+reasoning effort `max` and context `long_context`, bind the exact Project
+Manager commit, request blob, tasking SOT SHA-256, component, branch, pre-edit
+HEAD, selected request row, and authorized paths, and establish a clean
+sole-writer state. The owner has no interactive, delegation, web, or
+threat-modeling capability. It fails closed rather than widening or replanning
+the request.
+
 The specialist agents are write-disabled:
 
 - `threat-evidence` gathers local evidence with read and search only.
@@ -68,6 +78,15 @@ user explicitly authorizes. Its authority does not extend to the parent
 workspace, registered targets, sibling repositories, or their Git metadata.
 It must preserve unrelated changes and must not execute target or sibling
 content.
+
+The hidden owner has a narrower execution contract.
+`tests/validate-agent.sh` is its only maintained executable. Narrow local Git
+inspection, `git diff --check`, exact-path staging, and one validated local
+work commit plus one validated local return commit are separately permitted
+for the exact dispatch. It records `OWNER_AGENT_RESPONSE_V1` and a structured
+`HANDOFF.md` return. It cannot push, fetch, mutate branches, tags or remotes,
+rewrite history, run another repository helper, or modify anything outside
+this repository.
 
 ## Required threat-modeling engagement gates
 

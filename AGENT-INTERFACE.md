@@ -1,9 +1,9 @@
 # Agent interface
 
-This file defines how the `threat-modeler` and `threat-model-maintainer`
-profiles relate to the Beryllium Project Manager, registered target
-components, sibling analysis and research components, specialist agents, and
-the responsible human.
+This file defines how the `threat-modeler`, `threat-model-maintainer`, and
+hidden `threat-modeler-owner` profiles relate to the Beryllium Project
+Manager, registered target components, sibling analysis and research
+components, specialist agents, and the responsible human.
 
 ## Workspace position
 
@@ -54,6 +54,45 @@ perform threat-model analysis, resume a paused run, change a package's
 distribution, or satisfy responsible-human gates. Its Git authority is limited
 to this repository and never extends to the parent workspace, registered
 targets, or sibling repositories.
+
+## Hidden owner profile
+
+`threat-modeler-owner` is a model-invocable, non-user-invocable maintenance
+worker for the staged Project Manager owner-worker control plane. It is pinned
+to `gpt-5.6-sol`; callers use reasoning effort `max` and context
+`long_context`. It is not a third user-facing entry point and does not change
+the responsibilities of either user-facing profile.
+
+Each invocation accepts exactly one open PMR directly assigned to
+`threat-modeler`. Before editing, it compares the immutable dispatch packet
+with the generated tasking view and verifies:
+
+| Bound field | Required check |
+| --- | --- |
+| Identity | Component and hidden profile match |
+| Coordination | Project Manager commit, request blob, and tasking SOT SHA-256 match |
+| Selection | One open request row is directly assigned; adjacent rows remain unselected |
+| Repository | Physical root, expected branch, and exact pre-edit HEAD match |
+| State | Index and worktree are clean, no Git lock exists, and sole-writer state is established |
+| Scope | Every requested and changed path is inside this repository and explicitly authorized |
+
+Any mismatch, unresolved human gate, material replan, dirty state, or competing
+writer produces a blocked return. The owner has no interactive, delegation,
+web, or skill capability and cannot silently substitute a broader agent.
+
+The only maintained executable available to this profile is
+`tests/validate-agent.sh`. It may also use narrow local Git inspection,
+`git diff --check`, exact-path staging, and validated local work and return
+commits. It cannot run package helpers, inspect or modify model packages,
+perform target or sibling work, push or fetch, alter remotes, branches or
+tags, or rewrite history.
+
+The work commit contains the authorized implementation. The return commit
+contains the structured `## Project Manager return` in `HANDOFF.md`. Within
+that return record, `SELF` identifies the immutable commit containing the
+record; the resolved full return commit ID is emitted after commit in
+`OWNER_AGENT_RESPONSE_V1`. This avoids self-referential commit hashing while
+leaving both the durable handoff and caller response unambiguous.
 
 ## Specialist boundaries
 
@@ -176,6 +215,11 @@ repository when explicitly authorized, including commit and push. It must
 inspect the complete intended diff, preserve unrelated changes, avoid secrets,
 run relevant validation, and verify the remote push. It never executes target
 or sibling content and never uses Git against their worktrees or metadata.
+
+The hidden owner is more restricted than the maintainer. It operates only on
+one exact PMR, may run only `tests/validate-agent.sh` as a maintained
+executable, and may create local validated work and return commits only. It
+always returns `OWNER_AGENT_RESPONSE_V1`; it never pushes.
 
 ## Project Manager pull protocol
 

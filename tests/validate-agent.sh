@@ -168,6 +168,7 @@ for required in \
     .github/copilot-instructions.md \
     .github/agents/threat-modeler.agent.md \
     .github/agents/threat-model-maintainer.agent.md \
+    .github/agents/threat-modeler-owner.agent.md \
     .github/agents/threat-evidence.agent.md \
     .github/agents/threat-research.agent.md \
     .github/agents/threat-model-review.agent.md \
@@ -229,6 +230,40 @@ require_text "$maintainer" 'git diff --check'
 require_text "$maintainer" 'Co-authored-by: Copilot'
 require_text "$maintainer" 'push that branch'
 require_text "$maintainer" '/agent threat-modeler'
+
+owner=$repository_root/.github/agents/threat-modeler-owner.agent.md
+owner_tools='tools: ["read", "search", "execute", "edit"]'
+require_pattern "$owner" '^name: threat-modeler-owner$'
+require_pattern "$owner" '^model: gpt-5\.6-sol$'
+require_pattern "$owner" '^user-invocable: false$'
+require_pattern "$owner" '^disable-model-invocation: false$'
+expect_pass "threat-modeler-owner has its exact maintenance tool allowlist" \
+    frontmatter_tools_equal "$owner" "$owner_tools"
+for phrase in \
+    'exactly one open request ID directly assigned to `threat-modeler`' \
+    'source Project Manager commit and request blob' \
+    'bound tasking SOT SHA-256' \
+    'expected branch and pre-edit HEAD' \
+    'sole-writer' \
+    'tests/validate-agent.sh' \
+    'exact-path staging' \
+    'local work commit' \
+    'local return commit' \
+    'OWNER_AGENT_RESPONSE_V1' \
+    'HANDOFF.md' \
+    'reasoning effort `max`' \
+    'context `long_context`'; do
+    require_text "$owner" "$phrase"
+done
+refute_pattern "$owner" 'beryllium-threat-modeling'
+refute_pattern "$owner" 'scripts/'
+for document in \
+    "$repository_root/.github/copilot-instructions.md" \
+    "$repository_root/README.md" \
+    "$repository_root/AGENT-INTERFACE.md"; do
+    require_text "$document" 'threat-modeler-owner'
+    require_text "$document" 'OWNER_AGENT_RESPONSE_V1'
+done
 
 local_tools='tools: ["view", "glob", "grep", "rg"]'
 research_tools='tools: ["view", "glob", "grep", "rg", "web_fetch", "web_search"]'
