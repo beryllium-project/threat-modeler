@@ -56,6 +56,14 @@ defaults `max` and `long_context`, requires a clean sole-writer state, and
 fails closed on any mismatch or unresolved gate. It has no interactive,
 delegation, web, or threat-modeling capability.
 
+Its live `OWNER_AGENT_RESPONSE_V1` uses the exact structured Project Manager
+schema and the states `progress`, `needs_human`, `completed`, `partial`,
+`blocked`, and `refused`; push is always null. `progress` is live-only and
+write-free, while `completed` requires exact work, a committed handoff
+checkpoint, a clean repository, and `verify_return`. Durable handoff results
+use only `completed`, `partial`, `blocked`, `needs_human`, `refused`, and
+`information`.
+
 Never access or copy
 `component://osr-claude/sources/restricted-microsoft/`.
 
@@ -182,7 +190,8 @@ For the hidden owner, `tests/validate-agent.sh` is the only maintained
 executable. Its remaining execution authority is limited to narrow local Git
 inspection, `git diff --check`, exact-path staging, and validated local work
 and return commits. It records a structured `## Project Manager return` in
-`HANDOFF.md`, emits `OWNER_AGENT_RESPONSE_V1`, and never pushes.
+`HANDOFF.md`, emits the matching structured `OWNER_AGENT_RESPONSE_V1`, and
+never pushes.
 
 ## Current assurance wording
 

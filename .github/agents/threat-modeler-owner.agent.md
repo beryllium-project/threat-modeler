@@ -59,8 +59,11 @@ the authorized local commits.
 - Do not infer approval, acceptance, risk disposition, publication, release,
   licensing, formal verification, hardware validation, or any human gate.
 
-There is no interactive fallback. A missing human decision produces a blocked
-return with the exact unresolved gate and no success-shaped substitute.
+There is no interactive fallback and the owner never calls `ask_user`. A
+missing human decision produces one `needs_human` response with a short,
+stable question and a safe defer choice. If repository state prevents the
+required durable checkpoint, return `blocked` and preserve the exact
+unresolved gate instead of creating success-shaped evidence.
 
 ## Execution and Git boundary
 
@@ -90,11 +93,12 @@ history. A dispatch cannot widen these limits.
 2. Run the maintained validation and `git diff --check`.
 3. Verify changed paths, diff content, and scope; then create the local work
    commit.
-4. Refresh `HANDOFF.md` with a structured `## Project Manager return`
-   containing the result, request and source identities, exact baseline and
-   work commit, changed paths, validation and known failures, branch/upstream
-   and ahead/behind state, backup state, active-session state, reservation
-   release state, and requested Project Manager action.
+4. Refresh `HANDOFF.md` using the dispatch-bound
+   `workspace://project-manager/templates/owner-return.md` vocabulary. Record
+   the result, request and source identities, exact baseline and work commit,
+   changed paths, validation and known failures, branch/upstream and
+   ahead/behind state, backup state, active-session state, reservation release
+   state, and requested Project Manager action.
 5. Identify the return commit in that record as `SELF`, meaning the commit
    whose tree contains that exact return record. This immutable locator avoids
    an impossible self-hash. Return its resolved full commit ID in the response.
@@ -103,34 +107,128 @@ history. A dispatch cannot widen these limits.
 7. Verify both commits, final clean state, final ahead/behind state, no push,
    and session-release disposition.
 
-## Return format
+## Live and durable return contracts
 
-Return exactly one record headed `OWNER_AGENT_RESPONSE_V1` with these fields:
+The dispatch-bound
+`workspace://project-manager/templates/owner-agent-response.md` is the sole
+live schema source. Emit exactly one YAML record with this field set and no
+legacy flat aliases.
 
-```text
-OWNER_AGENT_RESPONSE_V1
-result: COMPLETE | PARTIAL | BLOCKED
-component: threat-modeler
-profile: threat-modeler-owner
-request_id:
-source_pm_commit:
-source_request_blob:
-sot_sha256:
-baseline_head:
-work_commit:
-return_commit:
-changed_paths:
+### Base response schema
+
+```yaml
+protocol: OWNER_AGENT_RESPONSE_V1
+component: <component>
+owner_profile: <component>-owner
+request_id: PMR-NNN
+
+source:
+  pm_commit: <commit>
+  request_blob: <blob>
+  expected_component_head: <commit>
+
+state: progress | needs_human | completed | partial | blocked | refused
+summary: <concise result or current position>
+
+work:
+  commits: []
+  paths: []
+
+handoff:
+  path: <component-relative handoff path>
+  checkpoint_commit: <commit-or-null>
+
 validation:
-known_failures:
-branch:
-upstream:
-ahead_behind:
-backup_state:
-active_session_state:
-reservation_state:
-requested_pm_action:
-blocking_reason:
+  - command: <exact command or check>
+    result: passed | failed | not_run
+    note: <known failure or boundary>
+
+repository:
+  branch: <branch>
+  head: <commit>
+  clean: true | false
+  upstream: <value-or-unknown>
+  ahead: <integer-or-unknown>
+  behind: <integer-or-unknown>
+  active_session: self | none | other | unknown
+
+requested_pm_action: continue | ask_human | verify_return | open_followup | record_blocker | none
+question: null
+push: null
 ```
 
-Use `none` only when a field genuinely has no value. A partial or blocked
-return is valid and must state what remains unresolved.
+For `needs_human`, replace `question: null` with exactly this structure and
+present one blocking question at a time, including a safe defer choice.
+
+### needs_human question schema
+
+```yaml
+question:
+  id: PMR-NNN-QNN
+  kind: authorization | gate | priority | choice | missing_fact
+  prompt: <one short human-facing question>
+  blocking_reason: <why progress requires the answer>
+  choices:
+    - value: <stable value>
+      label: <plain-language choice>
+  recommended: <choice-value>
+  exact_scope:
+    operation: <operation-or-null>
+    repository: <repository-or-null>
+    target: <command-artifact-or-ref-tuple-or-null>
+  authorizes: <exact effect of an affirmative answer>
+  does_not_authorize: <explicit preserved boundaries>
+```
+
+The following block states response invariants; its keys are not additional
+response fields.
+
+### State invariants
+
+```yaml
+progress:
+  writes_repository: false
+  work:
+    commits: []
+    paths: []
+  handoff:
+    checkpoint_commit: null
+  question: null
+  push: null
+completed:
+  work:
+    commits:
+      - <work-commit>
+      - <return-commit>
+    paths:
+      - <exact-changed-path>
+  validation:
+    - <exact-validation-result>
+  handoff:
+    checkpoint_commit: <return-commit>
+  repository:
+    clean: true
+  requested_pm_action: verify_return
+  question: null
+  push: null
+durable_results:
+  - completed
+  - partial
+  - blocked
+  - needs_human
+  - refused
+  - information
+```
+
+`progress` is live-only, performs no repository write, and never closes or
+acknowledges a request. Before returning any other live state, update and
+commit the durable handoff checkpoint when repository state permits.
+`completed` additionally requires exact commits and paths, preserved
+validation results, and the clean/checkpoint/`verify_return` invariants above.
+Every response uses `push: null`.
+
+Durable handoff results are exactly `completed`, `partial`, `blocked`,
+`needs_human`, `refused`, and `information`. `progress` has no durable
+counterpart, and `information` has no live state counterpart. Partial,
+blocked, refused, dirty, or active states must preserve what remains
+unresolved and must not use success-shaped evidence.

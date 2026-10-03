@@ -109,6 +109,26 @@ frontmatter_tools_equal() {
     ' "$1"
 }
 
+extract_fenced_block_after() {
+    local file=$1 heading=$2
+    awk -v heading="$heading" '
+        $0 == heading {
+            found = 1
+            next
+        }
+        found && !opened && $0 == "```yaml" {
+            opened = 1
+            next
+        }
+        opened && $0 == "```" {
+            closed = 1
+            exit
+        }
+        opened { print }
+        END { exit !(found && opened && closed) }
+    ' "$file"
+}
+
 expect_pass() {
     local description=$1
     shift
@@ -257,6 +277,139 @@ for phrase in \
 done
 refute_pattern "$owner" 'beryllium-threat-modeling'
 refute_pattern "$owner" 'scripts/'
+
+owner_response_expected=$sandbox/owner-response-expected.yml
+cat >"$owner_response_expected" <<'EOF'
+protocol: OWNER_AGENT_RESPONSE_V1
+component: <component>
+owner_profile: <component>-owner
+request_id: PMR-NNN
+
+source:
+  pm_commit: <commit>
+  request_blob: <blob>
+  expected_component_head: <commit>
+
+state: progress | needs_human | completed | partial | blocked | refused
+summary: <concise result or current position>
+
+work:
+  commits: []
+  paths: []
+
+handoff:
+  path: <component-relative handoff path>
+  checkpoint_commit: <commit-or-null>
+
+validation:
+  - command: <exact command or check>
+    result: passed | failed | not_run
+    note: <known failure or boundary>
+
+repository:
+  branch: <branch>
+  head: <commit>
+  clean: true | false
+  upstream: <value-or-unknown>
+  ahead: <integer-or-unknown>
+  behind: <integer-or-unknown>
+  active_session: self | none | other | unknown
+
+requested_pm_action: continue | ask_human | verify_return | open_followup | record_blocker | none
+question: null
+push: null
+EOF
+owner_response_actual=$sandbox/owner-response-actual.yml
+if extract_fenced_block_after "$owner" '### Base response schema' \
+    >"$owner_response_actual"; then
+    pass "extracts the owner live-response schema"
+else
+    fail "cannot extract the owner live-response schema"
+fi
+expect_pass \
+    "owner live-response schema has every exact required field and no aliases" \
+    cmp -s "$owner_response_expected" "$owner_response_actual"
+expect_pass "owner live-response schema defines all six exact live states" \
+    grep -Fxq \
+    'state: progress | needs_human | completed | partial | blocked | refused' \
+    "$owner_response_actual"
+expect_pass "owner live-response schema fixes push to null" \
+    grep -Fxq 'push: null' "$owner_response_actual"
+
+owner_question_expected=$sandbox/owner-question-expected.yml
+cat >"$owner_question_expected" <<'EOF'
+question:
+  id: PMR-NNN-QNN
+  kind: authorization | gate | priority | choice | missing_fact
+  prompt: <one short human-facing question>
+  blocking_reason: <why progress requires the answer>
+  choices:
+    - value: <stable value>
+      label: <plain-language choice>
+  recommended: <choice-value>
+  exact_scope:
+    operation: <operation-or-null>
+    repository: <repository-or-null>
+    target: <command-artifact-or-ref-tuple-or-null>
+  authorizes: <exact effect of an affirmative answer>
+  does_not_authorize: <explicit preserved boundaries>
+EOF
+owner_question_actual=$sandbox/owner-question-actual.yml
+if extract_fenced_block_after "$owner" '### needs_human question schema' \
+    >"$owner_question_actual"; then
+    pass "extracts the owner needs-human question schema"
+else
+    fail "cannot extract the owner needs-human question schema"
+fi
+expect_pass "owner needs-human question has the exact structured fields" \
+    cmp -s "$owner_question_expected" "$owner_question_actual"
+
+owner_invariants_expected=$sandbox/owner-invariants-expected.yml
+cat >"$owner_invariants_expected" <<'EOF'
+progress:
+  writes_repository: false
+  work:
+    commits: []
+    paths: []
+  handoff:
+    checkpoint_commit: null
+  question: null
+  push: null
+completed:
+  work:
+    commits:
+      - <work-commit>
+      - <return-commit>
+    paths:
+      - <exact-changed-path>
+  validation:
+    - <exact-validation-result>
+  handoff:
+    checkpoint_commit: <return-commit>
+  repository:
+    clean: true
+  requested_pm_action: verify_return
+  question: null
+  push: null
+durable_results:
+  - completed
+  - partial
+  - blocked
+  - needs_human
+  - refused
+  - information
+EOF
+owner_invariants_actual=$sandbox/owner-invariants-actual.yml
+if extract_fenced_block_after "$owner" '### State invariants' \
+    >"$owner_invariants_actual"; then
+    pass "extracts the owner state-invariant schema"
+else
+    fail "cannot extract the owner state-invariant schema"
+fi
+expect_pass \
+    "owner invariants enforce progress, completed, and durable-result contracts" \
+    cmp -s "$owner_invariants_expected" "$owner_invariants_actual"
+
 for document in \
     "$repository_root/.github/copilot-instructions.md" \
     "$repository_root/README.md" \

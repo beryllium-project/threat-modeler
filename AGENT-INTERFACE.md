@@ -94,6 +94,17 @@ record; the resolved full return commit ID is emitted after commit in
 `OWNER_AGENT_RESPONSE_V1`. This avoids self-referential commit hashing while
 leaving both the durable handoff and caller response unambiguous.
 
+The live response uses the exact structured fields from the dispatch-bound
+Project Manager schema: source, work, handoff, validation, repository,
+requested action, question, and a null push. Its states are exactly
+`progress`, `needs_human`, `completed`, `partial`, `blocked`, and `refused`.
+`progress` is live-only and has empty work plus a null checkpoint, question,
+and push. A `completed` response names exact commits and paths, has a committed
+handoff checkpoint, reports a clean repository, and requests
+`verify_return`. The durable handoff vocabulary is exactly `completed`,
+`partial`, `blocked`, `needs_human`, `refused`, and `information`; it never
+records `progress`.
+
 ## Specialist boundaries
 
 | Agent | Capabilities | Responsibility | Prohibited |
@@ -219,7 +230,8 @@ or sibling content and never uses Git against their worktrees or metadata.
 The hidden owner is more restricted than the maintainer. It operates only on
 one exact PMR, may run only `tests/validate-agent.sh` as a maintained
 executable, and may create local validated work and return commits only. It
-always returns `OWNER_AGENT_RESPONSE_V1`; it never pushes.
+always returns the structured `OWNER_AGENT_RESPONSE_V1`, records the matching
+durable result in `HANDOFF.md`, and never pushes.
 
 ## Project Manager pull protocol
 

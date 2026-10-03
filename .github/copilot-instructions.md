@@ -41,6 +41,15 @@ sole-writer state. The owner has no interactive, delegation, web, or
 threat-modeling capability. It fails closed rather than widening or replanning
 the request.
 
+Its live return mirrors the dispatch-bound `OWNER_AGENT_RESPONSE_V1` schema:
+the exact structured source, work, handoff, validation, repository, question,
+and null-push fields, with states `progress`, `needs_human`, `completed`,
+`partial`, `blocked`, and `refused`. `progress` is a live-only no-write result
+with empty work and a null checkpoint, question, and push. `completed`
+requires exact work, a committed handoff checkpoint, a clean repository, and
+`verify_return`. Durable handoff results use only `completed`, `partial`,
+`blocked`, `needs_human`, `refused`, and `information`.
+
 The specialist agents are write-disabled:
 
 - `threat-evidence` gathers local evidence with read and search only.
@@ -84,9 +93,10 @@ The hidden owner has a narrower execution contract.
 inspection, `git diff --check`, exact-path staging, and one validated local
 work commit plus one validated local return commit are separately permitted
 for the exact dispatch. It records `OWNER_AGENT_RESPONSE_V1` and a structured
-`HANDOFF.md` return. It cannot push, fetch, mutate branches, tags or remotes,
-rewrite history, run another repository helper, or modify anything outside
-this repository.
+`HANDOFF.md` return using the Project Manager's exact live and durable
+vocabularies. It cannot push, fetch, mutate branches, tags or remotes, rewrite
+history, run another repository helper, or modify anything outside this
+repository.
 
 ## Required threat-modeling engagement gates
 
