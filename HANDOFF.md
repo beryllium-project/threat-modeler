@@ -1,6 +1,59 @@
 # Threat-modeler handoff
 
-**Last updated:** 2026-09-15
+**Last updated:** 2026-10-03
+
+## Project Manager return
+
+### PMR-120
+
+- **Result:** Complete.
+- **Component/profile:** `threat-modeler` / hidden
+  `threat-modeler-owner`.
+- **Source Project Manager commit:**
+  `8e6610fc18d03eb8d07e70cc57174edc3456e668`.
+- **Source request blob:**
+  `7508420cd5a91239eb77bdc2198d15c133dbf91f`.
+- **Bound SOT SHA-256:**
+  `5ccaf1d8a7f4a11a5169595a7744d36b99d6641c6d99cc24f1215aeefe4c1a68`.
+- **Baseline HEAD:** `c4126b6d77f7cd14f7477795e3b8b971b6b58b37`.
+- **Work commit:** `ca8fa3cf9a043cffbb083f5c0bc5f5eb8b61cba7`.
+- **Return commit:** `SELF`, the immutable commit whose tree contains this
+  return record. Its resolved full ID is provided in
+  `OWNER_AGENT_RESPONSE_V1`.
+- **Changed paths:** `.github/agents/threat-modeler-owner.agent.md`,
+  `.github/copilot-instructions.md`, `AGENT-INTERFACE.md`, `README.md`,
+  `tests/validate-agent.sh`, and `HANDOFF.md`.
+- **Result detail:** Registered a model-invocable, non-user-invocable owner
+  pinned to `gpt-5.6-sol` with `max` / `long_context` invocation defaults,
+  exact single-PMR fail-closed checks, repository-only writes, one maintained
+  executable, bounded local Git authority, durable return semantics, and
+  static contract coverage. The existing `threat-modeler` and
+  `threat-model-maintainer` profile files are unchanged.
+- **Validation:** `bash ./tests/validate-agent.sh --agents-only` passed with
+  140 tests and zero failures; `git diff --check` passed. Packet and generated
+  tasking identities matched. In accordance with the launcher contract, no
+  parent or sibling command was run to rehash or resolve tasking.
+- **Known failures:** None.
+- **Branch/upstream:** `main` / `origin/main`; at the return commit the branch
+  is two commits ahead and zero behind.
+- **Backup state:** Both PMR-120 commits are local only. No push was performed;
+  `origin/main` remains
+  `c4126b6d77f7cd14f7477795e3b8b971b6b58b37`.
+- **Active-session state:** This human-started PMR-120 bootstrap was the sole
+  observed component writer. It has no child or background process and is
+  released when the verified `OWNER_AGENT_RESPONSE_V1` is emitted.
+- **Reservation state:** Released/not held. The launcher-established
+  sole-writer state used no durable component reservation, and no reservation
+  remains.
+- **Requested Project Manager action:** After the responsible human confirms
+  this session release, verify the work and return commits and reconcile
+  PMR-120. Any owner discovery/isolation handshake remains a distinct,
+  separately allocated read-only request; this return does not authorize
+  write-enabled dispatch.
+- **Explicit exclusions preserved:** PMR-064 and PMR-117 remain separate and
+  unselected. No threat package, paused model, target, sibling, queue, outbox,
+  remote, branch, tag, risk disposition, acceptance, publication, release, or
+  other human gate changed.
 
 ## Current TM run: paused
 
