@@ -55,6 +55,40 @@
   remote, branch, tag, risk disposition, acceptance, publication, release, or
   other human gate changed.
 
+### PMR-120 correction
+
+| Related IDs | Result | Evidence | Validation | Repository state | Requested Project Manager action |
+| --- | --- | --- | --- | --- | --- |
+| `PMR-120` | `completed` | Work commit `71bca3fe100737ab60e367b22d997d874f938b3d`; return commit `SELF`; paths `.github/agents/threat-modeler-owner.agent.md`, `.github/copilot-instructions.md`, `AGENT-INTERFACE.md`, `README.md`, `tests/validate-agent.sh`, and `HANDOFF.md` | `bash ./tests/validate-agent.sh --agents-only`: 148 passed, 0 failed; `git diff --check`: passed; known failures: none | `main` / `origin/main`; at `SELF`, 4 ahead and 0 behind, clean; both correction commits local only, no push; active session is `self` until the live response releases it; reservation released/not held | Verify the work and return commits, then reconcile and close `PMR-120`; do not infer a push, adoption handshake, or any human gate |
+
+- **Source Project Manager commit:**
+  `8fb5d524e9217abb364cd627edcf6bfa72a36658`.
+- **Source request blob:**
+  `b6160d3130163ede106141c8cb9494222e16186d`.
+- **Bound SOT SHA-256:**
+  `5ccaf1d8a7f4a11a5169595a7744d36b99d6641c6d99cc24f1215aeefe4c1a68`.
+- **Baseline HEAD:** `bbbc5349943c3a7d64ced24f19f90d6e0c50ea06`.
+- **Result detail:** Replaced the legacy flat owner response with the exact
+  structured `OWNER_AGENT_RESPONSE_V1` field set and all six live states;
+  preserved the progress, needs-human, completed, and null-push invariants;
+  aligned durable results to all six standard values; and added schema-level
+  contract tests. The existing user-facing profiles remain unchanged.
+- **Validation boundary:** The focused agent-profile suite and diff checks
+  cover this correction. The package-reading full suite and generated-index
+  check were not run because they are outside this maintenance-only owner's
+  package-inspection boundary.
+- **Backup state:** `origin/main` remains
+  `c4126b6d77f7cd14f7477795e3b8b971b6b58b37`; no fetch, push, remote, branch,
+  or tag change was performed.
+- **Active-session state:** This session is the sole observed writer and is
+  released when its verified live response is emitted. It has no child or
+  background process.
+- **Reservation state:** Released/not held; no durable component reservation
+  was created.
+- **Explicit exclusions preserved:** PMR-064 and PMR-117 remain separate and
+  unselected. No model, package, target, sibling, queue, outbox, remote, risk
+  disposition, acceptance, publication, release, or other human gate changed.
+
 ## Current TM run: paused
 
 Established: the user requested an operational pause of `TM-20260911-001`
