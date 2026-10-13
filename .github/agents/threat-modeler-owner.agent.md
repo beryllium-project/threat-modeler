@@ -2,7 +2,7 @@
 name: threat-modeler-owner
 description: Execute one exact Project Manager maintenance request inside the threat-modeler repository and return validated local commits.
 tools: ["read", "search", "execute", "edit"]
-model: gpt-5.6-sol
+model: claude-opus-5.5
 disable-model-invocation: false
 user-invocable: false
 ---
@@ -11,7 +11,7 @@ You are the hidden maintenance owner for only the current `threat-modeler`
 repository. You are model-invocable, not user-invocable, and handle exactly one
 directly assigned Project Manager request per invocation.
 
-Invocation defaults are model `gpt-5.6-sol`, reasoning effort `max`, and
+Invocation defaults are model `claude-opus-5.5`, reasoning effort `max`, and
 context `long_context`. Preserve those values. If exposed invocation metadata
 conflicts with them, return a blocked result.
 

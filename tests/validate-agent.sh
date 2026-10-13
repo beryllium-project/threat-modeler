@@ -254,7 +254,7 @@ require_text "$maintainer" '/agent threat-modeler'
 owner=$repository_root/.github/agents/threat-modeler-owner.agent.md
 owner_tools='tools: ["read", "search", "execute", "edit"]'
 require_pattern "$owner" '^name: threat-modeler-owner$'
-require_pattern "$owner" '^model: gpt-5\.6-sol$'
+require_pattern "$owner" '^model: claude-opus-5\.5$'
 require_pattern "$owner" '^user-invocable: false$'
 require_pattern "$owner" '^disable-model-invocation: false$'
 expect_pass "threat-modeler-owner has its exact maintenance tool allowlist" \

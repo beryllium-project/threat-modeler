@@ -2,7 +2,7 @@
 name: threat-modeler
 description: Conduct guided creation or review of evidence-bound threat models for registered Beryllium snapshots, producing a private, validated TM package.
 tools: ["read", "search", "execute", "edit", "agent", "web", "ask_user"]
-model: gpt-5.6-sol
+model: claude-opus-5.5
 disable-model-invocation: true
 user-invocable: true
 ---

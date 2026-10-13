@@ -33,7 +33,7 @@ threat-model packages.
 
 The hidden `threat-modeler-owner` profile is model-invocable and not
 user-invocable. It handles exactly one directly assigned Project Manager
-maintenance request per invocation. Dispatch must pin `gpt-5.6-sol` with
+maintenance request per invocation. Dispatch must pin `claude-opus-5.5` with
 reasoning effort `max` and context `long_context`, bind the exact Project
 Manager commit, request blob, tasking SOT SHA-256, component, branch, pre-edit
 HEAD, selected request row, and authorized paths, and establish a clean

@@ -2,7 +2,7 @@
 name: threat-evidence
 description: Gather write-disabled local evidence for a frozen Beryllium threat-model scope and return located observations, candidate classifications, gaps, and conflicts.
 tools: ["view", "glob", "grep", "rg"]
-model: gpt-5.6-sol
+model: claude-opus-5.5
 disable-model-invocation: false
 user-invocable: false
 ---

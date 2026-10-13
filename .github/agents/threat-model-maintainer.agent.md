@@ -2,7 +2,7 @@
 name: threat-model-maintainer
 description: Maintain the threat-modeler repository, run repository checks, and perform explicitly authorized Git commit and push operations.
 tools: ["read", "search", "execute", "edit", "ask_user"]
-model: gpt-5.6-sol
+model: claude-opus-5.5
 disable-model-invocation: true
 user-invocable: true
 ---

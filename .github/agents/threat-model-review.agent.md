@@ -2,7 +2,7 @@
 name: threat-model-review
 description: Independently review a frozen threat-model projection and admitted evidence for completeness, consistency, traceability, risk rationale, and claim discipline.
 tools: ["view", "glob", "grep", "rg"]
-model: gpt-5.6-sol
+model: claude-opus-5.5
 disable-model-invocation: false
 user-invocable: false
 ---

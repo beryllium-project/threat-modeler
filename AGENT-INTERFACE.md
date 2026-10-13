@@ -59,7 +59,7 @@ targets, or sibling repositories.
 
 `threat-modeler-owner` is a model-invocable, non-user-invocable maintenance
 worker for the staged Project Manager owner-worker control plane. It is pinned
-to `gpt-5.6-sol`; callers use reasoning effort `max` and context
+to `claude-opus-5.5`; callers use reasoning effort `max` and context
 `long_context`. It is not a third user-facing entry point and does not change
 the responsibilities of either user-facing profile.
 

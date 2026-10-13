@@ -2,7 +2,7 @@
 name: threat-research
 description: Research public primary sources for recorded gaps in a frozen Beryllium threat model and return cited observations, negative searches, and blocked resources.
 tools: ["view", "glob", "grep", "rg", "web_fetch", "web_search"]
-model: gpt-5.6-sol
+model: claude-opus-5.5
 disable-model-invocation: false
 user-invocable: false
 ---

@@ -51,10 +51,10 @@ workspace.
 The hidden owner has a narrower boundary. A dispatch binds one directly
 assigned PMR to the exact Project Manager commit, request blob, tasking SOT
 SHA-256, component, expected branch and pre-edit HEAD, selected request row,
-and authorized paths. The profile is pinned to `gpt-5.6-sol` with invocation
-defaults `max` and `long_context`, requires a clean sole-writer state, and
-fails closed on any mismatch or unresolved gate. It has no interactive,
-delegation, web, or threat-modeling capability.
+and authorized paths. The profile is pinned to `claude-opus-5.5` with
+invocation defaults `max` and `long_context`, requires a clean sole-writer
+state, and fails closed on any mismatch or unresolved gate. It has no
+interactive, delegation, web, or threat-modeling capability.
 
 Its live `OWNER_AGENT_RESPONSE_V1` uses the exact structured Project Manager
 schema and the states `progress`, `needs_human`, `completed`, `partial`,
