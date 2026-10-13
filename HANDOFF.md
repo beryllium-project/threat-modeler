@@ -1,6 +1,6 @@
 # Threat-modeler handoff
 
-**Last updated:** 2026-10-03
+**Last updated:** 2026-10-13
 
 ## Project Manager return
 
@@ -88,6 +88,65 @@
 - **Explicit exclusions preserved:** PMR-064 and PMR-117 remain separate and
   unselected. No model, package, target, sibling, queue, outbox, remote, risk
   disposition, acceptance, publication, release, or other human gate changed.
+
+### PMR-121
+
+| Related IDs | Result | Evidence | Validation | Repository state | Requested Project Manager action |
+| --- | --- | --- | --- | --- | --- |
+| `PMR-121` | `completed` | Work commit `c156c0a0bf195f3179d8afb52ff0d1bb33d2fc88`; return commit `SELF`; work paths `.github/agents/threat-evidence.agent.md`, `.github/agents/threat-model-maintainer.agent.md`, `.github/agents/threat-model-review.agent.md`, `.github/agents/threat-modeler-owner.agent.md`, `.github/agents/threat-modeler.agent.md`, `.github/agents/threat-research.agent.md`, `.github/copilot-instructions.md`, `AGENT-INTERFACE.md`, `README.md`, and `tests/validate-agent.sh`; return path `HANDOFF.md` | `bash ./tests/validate-agent.sh --agents-only`: 148 passed, 0 failed; `git diff --check`: passed; known failures: none | `main` / `origin/main`; at `SELF`, 6 ahead and 0 behind, clean; both PMR-121 commits local only, no push; active session is `self` (this human-started direct session) until it ends; no writer lock, reservation, or preflight log was taken | Verify the work and return commits, then reconcile and close `PMR-121`; do not infer a push or any human gate |
+
+- **Carry path:** Direct ordinary component session under the
+  `PMD-20261006-001` recorded exception in
+  `workspace://project-manager/outbox/OWNER-RUNBOOK.md` ("Direct carry for
+  PMR-121 and PMR-122"). No hidden owner was dispatched. The session ran on
+  `claude-opus-5.5` at reasoning effort `max` with a runtime-reported
+  1,000,000-token context limit, consistent with `long_context`.
+- **Source:** The `open` / `P3` `PMR-121` row in
+  `workspace://project-manager/outbox/component-requests.md` was read on
+  2026-10-13 (UTC) with read-only file tools. No dispatch packet, Project
+  Manager commit, request blob, or tasking SOT SHA-256 was bound, and no
+  parent or sibling command was run. Read-only file tools also consulted the
+  runbook, `workspace://project-manager/templates/owner-return.md`, and the
+  aligned `component://analysis-workbook/.github/agents/` pins as precedent.
+- **Baseline HEAD:** `e6aed9fa9ec08ce2455c578b1dc219266ee44cb8` on clean
+  `main`, 4 ahead and 0 behind `origin/main`, with no Git lock, stash, or
+  additional worktree, matching the row's survey.
+- **Return commit:** `SELF`, the commit that adds this record. Its resolved
+  full ID is reported in the session's final response.
+- **Result detail:** Line 5 of all six `.github/agents/*.agent.md` profiles,
+  the complete set present, now reads `model: claude-opus-5.5`. The hidden
+  owner's invocation defaults are `claude-opus-5.5` / `max` /
+  `long_context`. The owner dispatch pin in `.github/copilot-instructions.md`,
+  `AGENT-INTERFACE.md`, and `README.md`, and the owner model assertion in
+  `tests/validate-agent.sh`, now match. As in the analysis-workbook
+  precedent, only the owner profile states effort and context defaults; the
+  other profiles carry the model pin.
+- **Review requirements:** No standing different-model iterative evaluation,
+  separate scope review, or deep security review requirement exists in this
+  repository, so none was removed. The in-engagement `threat-model-review`
+  step (skill Phase 8) is unchanged and now uses the same model.
+- **Validation boundary:** `--agents-only` is the narrowest mode covering the
+  changed profiles and owner contract. Documentation edits were checked by
+  diff review; a repository search outside `models/` finds the superseded
+  pin only in the preserved historical records named below. The
+  package-reading full suite and generated-index check were not run because
+  they read model packages, outside this owner maintenance boundary.
+- **Backup state:** `origin/main` remains
+  `c4126b6d77f7cd14f7477795e3b8b971b6b58b37`. The four PMR-120 commits and
+  both PMR-121 commits are local only; no fetch, push, remote, branch, or tag
+  change was performed.
+- **Active-session state:** This human-started session is the sole observed
+  component writer and has no child or background process; it is released
+  when the session ends. Process-level absence of other sessions was not
+  checked by command; the runbook assigns that pre-launch confirmation to the
+  responsible human.
+- **Explicit exclusions preserved:** No `models/TM-*` package (including
+  paused `TM-20260911-001`), `THREAT-MODEL-RUN-COMPARISON-20260906.md`, skill,
+  template, script, index, queue, outbox, target, sibling, or parent file
+  changed. Historical model names in the `AGENT-INTERFACE.md` probe note and
+  earlier returns are unchanged. Parked `PMR-064` and `PMR-117` are neither
+  performed nor un-parked. No risk disposition, acceptance, publication,
+  release, or other human gate changed.
 
 ## Current TM run: paused
 
