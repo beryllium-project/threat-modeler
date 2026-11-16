@@ -1,6 +1,6 @@
 # Threat-modeler handoff
 
-**Last updated:** 2026-10-13
+**Last updated:** 2026-11-16
 
 ## Project Manager return
 
@@ -147,6 +147,100 @@
   earlier returns are unchanged. Parked `PMR-064` and `PMR-117` are neither
   performed nor un-parked. No risk disposition, acceptance, publication,
   release, or other human gate changed.
+
+### PMR-142
+
+| Related IDs | Result | Evidence | Validation | Repository state | Requested Project Manager action |
+| --- | --- | --- | --- | --- | --- |
+| `PMR-142` | `completed` | Work commit `e59051fe58895302b641dacd82817fa34f6d5a1b`; return commit `SELF`; work paths `.github/agents/threat-model-maintainer.agent.md`, `.github/agents/threat-modeler.agent.md`, `.github/copilot-instructions.md`, `AGENT-INTERFACE.md`, `HANDOFF.md`, `README.md`, and `tests/validate-agent.sh`; return path `HANDOFF.md` | `bash ./tests/validate-agent.sh --agents-only`: 207 passed, 0 failed; `bash ./tests/validate-agent.sh`: 293 passed, 0 failed; `bash ./scripts/update-index.sh --check`: exit 0; `git diff --check`: passed; the new checks fail against the unchanged `aba3350` tree (54 failed); known failures: none | `main` / `origin/main`; at `SELF`, 2 ahead and 0 behind last-fetched `origin/main` `aba3350`, clean; both PMR-142 commits local only, no fetch or push; active session is `self` (this human-started direct session) until it ends; no writer lock, reservation, or preflight log was taken | Verify the work and return commits, then reconcile and close `PMR-142`; decide whether the paused package's own private-`origin` records need a separate request; do not infer a push or any human gate |
+
+- **Carry path:** Direct ordinary component session, as the row's note
+  directs, started with the pinned `PMR-142` command in
+  `workspace://project-manager/outbox/OWNER-RUNBOOK.md` ("P1-P4
+  publication-gate adoption"). No hidden owner was dispatched. The session
+  reports model `claude-opus-5.5`; the launch command's reasoning effort
+  `max` and context `long_context` were not independently observed.
+- **Source:** The `open` / `P1` `PMR-142` row in
+  `workspace://project-manager/outbox/component-requests.md` was read on
+  2026-11-16 (UTC) with read-only file tools. No dispatch packet, Project
+  Manager commit, request blob, or tasking SOT SHA-256 was bound, and no
+  parent or sibling command was run. Read-only file tools also consulted
+  `PMD-20261108-001`, `PMD-20261012-002`, the vendored skill
+  `workspace://project-manager/user-assets/skills/beryllium-publication-gate/SKILL.md`,
+  the runbook, `workspace://project-manager/templates/owner-return.md`, and,
+  as wording precedent, the closed `PMR-141` sections in
+  `component://security-reviewer/`.
+- **Baseline HEAD:** `aba335079e437a9a9b1643a0d9d5d8e20fce59f5` on clean
+  `main`, 0 ahead and 0 behind last-fetched `origin/main`, with no Git lock,
+  stash, or additional worktree, matching the row's 2026-11-15 note that the
+  responsible human's 2026-11-10 backup run pushed the six PMR-120 and
+  PMR-121 commits.
+- **Return commit:** `SELF`, the commit that adds this record. Its resolved
+  full ID is reported in the session's final response.
+- **Result detail:** One `## Publication gate` section, identical in
+  `.github/copilot-instructions.md`, `AGENT-INTERFACE.md`, and the
+  maintainer profile, states that `origin` is public. Before any push to a
+  public remote, public repository creation, visibility change, or public
+  release, pull-request, issue, or wiki text, and on `check publication gate`
+  or an obvious variant, the agent loads the user-level
+  `beryllium-publication-gate` skill and applies the gate's
+  `check --repo . --remote <remote>` command (and, after fetching every ref
+  including tags, `audit --repo . --all-refs` before public repository
+  creation or a visibility change), each in the exact `python3 -I -B` form
+  the row gives.
+  It continues only on exit 0, stops on exit 1 or 2, never bypasses hooks,
+  and calls a non-public model `unlisted` with nothing else said about it.
+- **Command admission:** The maintainer, the only profile with Git delivery
+  authority, runs both commands; they are admitted in its execution rule and
+  in the execution boundaries of the instructions and interface. Its push
+  contract now runs `check` for the upstream remote before every push, and
+  its former allowance to bypass hooks when explicitly named is removed. The
+  orchestrator and hidden-owner execute allowlists are unchanged and exclude
+  the commands. A short orchestrator section maps the trigger phrase to
+  giving the human the exact command or directing the request to
+  `/agent threat-model-maintainer`. `README.md` points to the sections.
+- **Contract test:** `tests/validate-agent.sh` gains line-wrap-tolerant text
+  helpers and 59 `--agents-only` checks covering the section, the admission,
+  the maintainer's pre-push gate and hook rule, the orchestrator mapping, and
+  the unchanged allowlists.
+- **Handoff correction:** The "Current TM run: paused" delivery paragraph and
+  the historical 2026-08-29 section no longer call `origin` private or a
+  private backup. They state that `origin` is public (`PMD-20261012-002`),
+  that its pushed history, including the paused package, is publicly
+  readable, and that a push is not package promotion, publication approval,
+  model approval, risk acceptance, or resumption. The historical section
+  records the correction and drops its "Nothing has been published publicly"
+  sentence.
+- **Validation boundary:** The full suite and index check read only the
+  synthetic fixtures and the generated index; no package changed. Outside the
+  component suite, the installed gate's read-only
+  `check --repo . --remote origin` over the work commit classified `origin`
+  public and passed (13 items, exit 0). Passing the gate is not publication
+  approval. Any re-check after this return commit is reported only in the
+  session's final response.
+- **Left unchanged for a decision:** The paused package's own records still
+  describe a private `origin`: line 26 of
+  `models/TM-20260911-001-helium-te-poc-astra/HANDOFF.md`, line 80 of its
+  `RUN-MANIFEST.md`, and the append-only activity rows `ACTIVITY-018` and
+  `ACTIVITY-028`. `PMR-142` names only the component handoff and excludes
+  model work, so correcting them would need superseding records in that
+  package under a separate request.
+- **Backup state:** `origin/main` remains
+  `aba335079e437a9a9b1643a0d9d5d8e20fce59f5` as last fetched. Both PMR-142
+  commits are local only; no fetch, push, remote, branch, or tag change was
+  performed. Pushing them publishes them and remains the responsible
+  human's action through the gate.
+- **Active-session state:** This human-started session is the sole observed
+  component writer and has no child or background process; it is released
+  when the session ends. Process-level absence of other sessions was not
+  checked by command; the runbook assigns that pre-launch confirmation to the
+  responsible human.
+- **Explicit exclusions preserved:** No `models/TM-*` package (including
+  paused `TM-20260911-001`), skill, template, script, index, queue, outbox,
+  target, sibling, or parent file changed, and the specialist and hidden-owner
+  profiles are unchanged. Parked `PMR-064` and `PMR-117` are neither
+  performed nor un-parked. No push, visibility change, risk disposition,
+  acceptance, publication, release, or other human gate changed.
 
 ## Current TM run: paused
 
