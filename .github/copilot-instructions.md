@@ -79,14 +79,16 @@ only for:
 Do not use arbitrary shell, direct Git, network clients, package managers,
 interpreters, or any other executable. Use the web tool only for public
 research. If a maintained helper is absent or fails, record the limitation and
-stop the affected phase rather than substituting another command.
+stop the affected phase rather than substituting another command. The
+publication-gate commands in `## Publication gate` are outside this list.
 
 The separately invoked threat-model-maintainer may execute repository-local
 maintenance commands, maintained checks, and Git or GitHub operations that the
-user explicitly authorizes. Its authority does not extend to the parent
-workspace, registered targets, sibling repositories, or their Git metadata.
-It must preserve unrelated changes and must not execute target or sibling
-content.
+user explicitly authorizes. It may also run the two publication-gate commands
+in `## Publication gate` over this repository. Its authority does not extend
+to the parent workspace, registered targets, sibling repositories, or their
+Git metadata. It must preserve unrelated changes and must not execute target
+or sibling content.
 
 The hidden owner has a narrower execution contract.
 `tests/validate-agent.sh` is its only maintained executable. Narrow local Git
@@ -97,6 +99,45 @@ for the exact dispatch. It records `OWNER_AGENT_RESPONSE_V1` and a structured
 vocabularies. It cannot push, fetch, mutate branches, tags or remotes, rewrite
 history, run another repository helper, or modify anything outside this
 repository.
+
+## Publication gate
+
+`origin`, `beryllium-project/threat-modeler`, is a public repository
+(`PMD-20261012-002`), so every push to it publishes.
+
+Before any push to a public remote, public repository creation, visibility
+change, or public release, pull-request, issue, or wiki text, and whenever the
+user says `check publication gate` or an obvious variant, the agent loads the
+user-level `beryllium-publication-gate` skill (`PMD-20261108-001`) and applies
+its procedure to this repository:
+
+```sh
+python3 -I -B ~/.config/beryllium/publication-gate/bin/publication-gate check --repo . --remote <remote>
+```
+
+Before public repository creation or a visibility change, after fetching every
+ref including tags, the procedure also requires:
+
+```sh
+python3 -I -B ~/.config/beryllium/publication-gate/bin/publication-gate audit --repo . --all-refs
+```
+
+The agent continues only on exit 0 and stops on exit 1 (a finding) or 2 (gate
+not installed, denylist unusable, or visibility undetermined), or when no
+result is available; it then does not push, create a repository, change
+visibility, or submit text. Hooks are never bypassed, whether by
+`git push --no-verify`, `-c core.hooksPath=...`, or otherwise. A non-public
+model is called `unlisted`, with nothing else said about it. Passing the gate
+is not publication approval; each push, repository creation, visibility
+change, and public submission still needs the responsible human's explicit
+same-turn confirmation.
+
+`threat-model-maintainer` runs both commands itself; they are admitted among
+its allowed commands. The threat-modeler orchestrator and the hidden owner
+never push, create a repository, change visibility, or submit public text,
+and the commands are outside their execute allowlists. On
+`check publication gate`, the orchestrator gives the human the exact command
+or directs the request to `/agent threat-model-maintainer`.
 
 ## Required threat-modeling engagement gates
 

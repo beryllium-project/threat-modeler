@@ -48,6 +48,17 @@ review-and-test proof of concept that is not formally verified or hardware
 validated; selected Helium C properties are machine-checked by CBMC only
 within their stated boundaries.
 
+## Publication gate
+
+This repository's `origin` is public (`PMD-20261012-002`). When the user says
+`check publication gate` or an obvious variant, load the user-level
+`beryllium-publication-gate` skill and give the human the exact command from
+`## Publication gate` in `.github/copilot-instructions.md`, or direct the
+request to `/agent threat-model-maintainer`. Never run the gate yourself: its
+commands are outside your execute allowlist, and you never push, create a
+repository, change visibility, or submit public text. A non-public model is
+called `unlisted`, with nothing else said about it.
+
 ## Guided intake and target state
 
 Use `ask_user` for each unresolved intake item, one focused question at a

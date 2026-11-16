@@ -166,9 +166,14 @@ alongside unchanged SVGs in that package. The TM run remains paused.
 
 Repository delivery is complete under `PMR-028`. The owner package commit
 `5bf6a4b` and Project Manager coordination carry `f4eb272` were reviewed,
-maintained validation passed, and current `main` was backed up to its private
-`origin/main`. This is private backup, not publication, package promotion,
-model approval, risk acceptance or resumption of the paused run.
+maintained validation passed, and `main` was then pushed to `origin/main`.
+`origin` is the public repository `beryllium-project/threat-modeler`, which
+the responsible human chose to keep public on 2026-10-12
+(`PMD-20261012-002`), so its pushed history, including this package, is
+publicly readable, and every later push publishes. A push is not package
+promotion, publication approval, model approval, risk acceptance or
+resumption of the paused run; the package's `private` distribution field is
+unchanged.
 
 ## Project Manager tasking return
 
@@ -186,16 +191,17 @@ repository and grants no approval, acceptance, publication or release gate.
 
 The remaining sections preserve the earlier implementation handoff, including
 its then-current empty-package and validation statements. They are historical,
-not the current TM run state or permission to resume the paused run.
+not the current TM run state or permission to resume the paused run. Their
+description of `origin` as a private remote was corrected on 2026-11-16 under
+`PMR-142`: `origin` is public (`PMD-20261012-002`), and pushes to it publish.
 
 ### Overall position
 
-The first complete component implementation is committed and privately backed
-up. The repository is an independent Git worktree. Private `origin` is
+The first complete component implementation is committed and backed up to
+`origin`. The repository is an independent Git worktree. `origin` is
 `https://github.com/beryllium-project/threat-modeler.git`, and `main` has been
-pushed through the authenticated `xjamesmorris` account. Nothing has been
-published publicly. Target and sibling components were inspected read-only and
-were not modified.
+pushed through the authenticated `xjamesmorris` account. Target and sibling
+components were inspected read-only and were not modified.
 
 The implementation includes:
 
@@ -242,7 +248,7 @@ The custom agent may run the maintained component checks in its allowlist.
 `git diff --check` remains an outer maintainer check.
 
 The implementation commit is `87ca820`. The current branch adds only this
-private-remote handoff update over that validated implementation.
+`origin` backup handoff update over that validated implementation.
 
 ## Known limitations
 

@@ -94,6 +94,26 @@ refute_pattern() {
     fi
 }
 
+flatten_text() {
+    tr -s '[:space:]' ' ' <"$1"
+}
+
+require_flat_text() {
+    if flatten_text "$1" | grep -Fq -- "$2"; then
+        pass "${1#"$repository_root/"} states across line wraps: $2"
+    else
+        fail "${1#"$repository_root/"} does not state across line wraps: $2"
+    fi
+}
+
+refute_flat_text() {
+    if flatten_text "$1" | grep -Fq -- "$2"; then
+        fail "${1#"$repository_root/"} must not state across line wraps: $2"
+    else
+        pass "${1#"$repository_root/"} does not state across line wraps: $2"
+    fi
+}
+
 frontmatter_tools_equal() {
     awk -v expected="$2" '
         NR == 1 {
@@ -477,6 +497,67 @@ expect_fail "local specialists cannot acquire the research web tools" \
 expect_fail "research cannot silently lose its web tools" \
     frontmatter_tools_equal \
     "$repository_root/.github/agents/threat-evidence.agent.md" "$research_tools"
+
+# PMR-142 (PMD-20261108-001): the shared publication gate is mapped to its
+# trigger phrase, only the maintainer runs it, and hooks are never bypassed.
+publication_gate_check='python3 -I -B ~/.config/beryllium/publication-gate/bin/publication-gate check --repo . --remote <remote>'
+publication_gate_audit='python3 -I -B ~/.config/beryllium/publication-gate/bin/publication-gate audit --repo . --all-refs'
+for document in \
+    "$repository_root/.github/copilot-instructions.md" \
+    "$repository_root/AGENT-INTERFACE.md" \
+    "$maintainer"; do
+    require_pattern "$document" '^## Publication gate$'
+    require_text "$document" "$publication_gate_check"
+    require_text "$document" "$publication_gate_audit"
+    for phrase in \
+        '`origin`, `beryllium-project/threat-modeler`, is a public repository' \
+        'Before any push to a public remote, public repository creation, visibility change, or public release, pull-request, issue, or wiki text' \
+        'whenever the user says `check publication gate` or an obvious variant, the agent loads the user-level `beryllium-publication-gate` skill' \
+        'Before public repository creation or a visibility change, after fetching every ref including tags' \
+        'continues only on exit 0 and stops on exit 1 (a finding) or 2' \
+        'Hooks are never bypassed' \
+        'A non-public model is called `unlisted`, with nothing else said about it.' \
+        'Passing the gate is not publication approval'; do
+        require_flat_text "$document" "$phrase"
+    done
+done
+for document in \
+    "$repository_root/.github/copilot-instructions.md" \
+    "$repository_root/AGENT-INTERFACE.md"; do
+    for phrase in \
+        'The publication-gate commands in `## Publication gate` are outside this' \
+        'may also run the two publication-gate commands in `## Publication gate`' \
+        '`threat-model-maintainer` runs both commands itself; they are admitted among its allowed commands.' \
+        'the commands are outside their execute allowlists' \
+        'the orchestrator gives the human the exact command or directs the request to `/agent threat-model-maintainer`'; do
+        require_flat_text "$document" "$phrase"
+    done
+done
+for phrase in \
+    'they are admitted among your allowed commands' \
+    'Run the publication-gate `check` command for that upstream remote' \
+    'stop unless it exits 0' \
+    'Never bypass hooks.'; do
+    require_flat_text "$maintainer" "$phrase"
+done
+refute_flat_text "$maintainer" 'bypass hooks, or force-push'
+require_pattern "$orchestrator" '^## Publication gate$'
+for phrase in \
+    '`check publication gate` or an obvious variant, load the user-level `beryllium-publication-gate` skill' \
+    'or direct the request to `/agent threat-model-maintainer`' \
+    'Never run the gate yourself' \
+    'A non-public model is called `unlisted`, with nothing else said about it.'; do
+    require_flat_text "$orchestrator" "$phrase"
+done
+for document in "$orchestrator" \
+    "$repository_root/.github/copilot-instructions.md" \
+    "$repository_root/AGENT-INTERFACE.md" \
+    "$repository_root/.github/skills/beryllium-threat-modeling/SKILL.md"; do
+    refute_pattern "$document" '^ *- `?(python3|~/\.config/beryllium/publication-gate)'
+done
+refute_pattern "$owner" 'publication-gate'
+require_flat_text "$repository_root/README.md" \
+    '`check publication gate` loads the user-level `beryllium-publication-gate` skill'
 
 if $agents_only; then
     finish

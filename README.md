@@ -48,6 +48,16 @@ when explicitly authorized, stage, commit, and push its changes. It cannot
 modify or execute registered targets, sibling repositories, or the parent
 workspace.
 
+`origin` is the public `beryllium-project/threat-modeler` repository
+(`PMD-20261012-002`), so every push publishes. Before any push to a public
+remote, public repository creation, visibility change, or public release,
+pull-request, issue, or wiki text, the shared Beryllium publication gate runs
+first (`PMD-20261108-001`). `check publication gate` loads the user-level
+`beryllium-publication-gate` skill; the maintainer runs the gate commands,
+and the orchestrator and hidden owner never do. The `## Publication gate`
+sections of `.github/copilot-instructions.md` and `AGENT-INTERFACE.md` state
+the procedure.
+
 The hidden owner has a narrower boundary. A dispatch binds one directly
 assigned PMR to the exact Project Manager commit, request blob, tasking SOT
 SHA-256, component, expected branch and pre-edit HEAD, selected request row,
@@ -184,7 +194,8 @@ Package operations are documented in
 `.github/skills/beryllium-threat-modeling/SKILL.md`. The threat-modeler profile
 may use only the maintained scripts listed in its execution allowlist. The
 threat-model-maintainer profile may run repository checks such as `git diff
---check` and perform explicitly authorized Git delivery.
+--check`, run the publication-gate commands, and perform explicitly authorized
+Git delivery.
 
 For the hidden owner, `tests/validate-agent.sh` is the only maintained
 executable. Its remaining execution authority is limited to narrow local Git
